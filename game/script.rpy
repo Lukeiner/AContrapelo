@@ -9,18 +9,20 @@
 
         scene hab_int with dissolve
 
+        "Francisco se despierta y agarra el celular."
+
         "Francisco, pagame el alquiler antes del viernes."
-        "No quiero que pase como el mes pasado"
+        "No quiero que pase como el mes pasado."
 
         show fran_normal
 
-        fran "¿Antes del viernes? Si apenas llego a mañana..."
+        fran "¿Antes del viernes? Si apenas llego a mañana."
 
         hide fran_normal
 
         show fran_triste
 
-        fran "¿Hasta cuando voy a estar así?"
+        fran "¿Hasta cuándo voy a estar así?"
         fran "Necesito un laburo fijo, algo en serio."
 
     #Acto 1 - Escena 2
@@ -31,7 +33,7 @@
 
         show fran_normal at center
 
-        "Elegí un objeto para interactuar"
+        "Elegí un objeto para interactuar."
 
     label menu_habitacion:
         menu:
@@ -42,7 +44,7 @@
                 fran "Qué manera de ser molesto. ¿No me puede dejar un día tranquilo?"
                 jump menu_habitacion
             
-            "Examinar el boceto ":
+            "Examinar el boceto":
                 $ boceto_visto = True
                 "Examinás el boceto a mano del local de comida."
                 fran "Ojalá algún día se haga realidad. Solo necesito juntar para arrancar; lo demás viene solo."
@@ -52,7 +54,7 @@
                 jump submenu_computadora
     
     label submenu_computadora:
-    fran "(A ver qué hay por acá...)"
+    fran "(Tengo que ponerme a buscar laburo.)"
     
     menu:
         "¿Qué querés hacer frente a la computadora?"
@@ -82,8 +84,8 @@
 
                 $ mozo_visto = True
 
-                "Requisito: Dos años de experiencia."
-                "RECHAZADO"
+                "Requisito: dos años de experiencia."
+                "Rechazado."
 
                 show fran_normal
 
@@ -97,8 +99,8 @@
 
                 $ repartidor_visto = True
 
-                "Requisito: Moto propia."
-                "RECHAZADO"
+                "Requisito: moto propia."
+                "Rechazado."
 
                 show fran_normal
 
@@ -112,12 +114,12 @@
 
                 $ ayudante_visto = True
 
-                "Página saturada. Todas la postulaciones fueron rechazadas."
+                "Página saturada. Todas las postulaciones fueron rechazadas."
                 
                 show fran_normal
 
                 fran "Y eso que algo me había enseñado Hana."
-                fran "Se que que todos buscan laburo."
+                fran "Se ve que todos buscan laburo."
 
                 hide fran_normal
 
@@ -144,10 +146,10 @@
 
                     jump menu_cocina
                 
-                "Tupper de Maria":
+                "Táper de María":
                     show fran_normal
-                    fran "Si anoche comí, fue gracias a Maria."
-                    fran "Tengo que devolverle el tupper."
+                    fran "Si anoche comí, fue gracias a María."
+                    fran "Tengo que devolverle el táper."
                     hide fran_normal
                     jump menu_cocina
                 
@@ -159,11 +161,11 @@
                 "Preparar mate":
                     "Francisco se termina la poca yerba que le quedaba."
                     show fran_normal
-                    "Ya ni para la yerba me alcanza."
-                    "Si no fuera por María, me moría de hambre."
+                    fran "Ya ni para la yerba me alcanza."
+                    fran "Si no fuera por María, me moría de hambre."
                     
                     #Golpes
-                    fran "¿Quien golpea?"
+                    fran "¿Quién golpea?"
 
                     hide fran_normal
                     
@@ -182,7 +184,7 @@
             menu:
                 "Facturas":
                     show fran_normal
-                    "Luz, gas, internet... se me juntan todas."
+                    fran "Luz, gas, internet... se me juntan todas."
                     hide fran_normal
                     jump menu_conocer
                 
@@ -194,16 +196,16 @@
             menu:
                 "Atender la puerta":
                     show mar_normal
-                    ma "¡Hola Fran! Vengo a buscar el tupper."
+                    ma "¡Hola, Fran! Vengo a buscar el táper."
                     hide mar_normal
 
                     show fran_normal
-                    fran "Hola Mari. Gracias por la cena, de verdad. ¿Pasas?"
+                    fran "Hola Mari. Gracias por la cena, de verdad. ¿Pasás?"
                     fran "Hice unos mates."
                     hide fran_normal
 
                     show mar_normal
-                    "Dale. ¿Cómo andás con la búsqueda?"
+                    ma "Dale. ¿Cómo andás con la búsqueda?"
                     hide mar_normal
 
                     show fran_normal
@@ -215,14 +217,14 @@
                     ma "No es lo que más me gusta, pero me alcanza para el tratamiento de mi papá."
                     hide mar_normal
                     show mar_normal
-                    ma "No te castigues tanto. Salí a dar una vuelta, despejate"
+                    ma "No te castigues tanto. Salí a dar una vuelta, despejate."
                     ma "Y te dejo torta para después."
                     hide mar_normal
 
                 "Todavía no":
                     jump acto1_escena5
 
-        "María agarra su tupper, deja otro con torta sobre la mesa y se va."
+        "María agarra su táper, deja otro con torta sobre la mesa y se va."
 
         show fran_normal
 
@@ -239,10 +241,10 @@
 
         hide fran_normal
 
-        "Francisco ve gente amontonada frenta a un poste."
+        "Francisco ve gente amontonada frente a un poste."
         "Cuando se acerca, se dispersan y queda a la vista un cartel."
 
-        "¿Necesitás plata? Clínica busca voluntaris para tratamiento experimental. Excelente paga."
+        "¿Necesitás plata? Clínica busca voluntarios para tratamiento experimental. Excelente paga."
         show fran_normal
         fran "Justo cuando necesito plata..."
         fran "Queda a unas cuadras."
@@ -252,7 +254,9 @@
 
         scene centro with hpunch
 
-        "¡Está loco ese tipo! Nadie va a aceptar hacerse eso."
+        "Un candidato sale apurado, casi lo choca."
+
+        cand "¡Está loco ese tipo! Nadie va a aceptar hacerse eso."
 
         show fran_normal
 
@@ -268,7 +272,7 @@
 
         hide fran_normal
 
-        "Aparece el Dr Malandra y le pone un cuestionario en las manos."
+        "Aparece el Dr. Malandra y le pone un cuestionario en las manos."
 
         show doc_normal
 
@@ -295,21 +299,21 @@
         show doc_normal
 
         doc "Son tres aplicaciones y cobrás en cada una."
-        doc "Por la primera, 6000 dólares..."
-        doc "Condiciones: No lavarte ni cortarte el pelo mientras dure el tratamiento, y no contarle a nadie."
+        doc "Por la primera, 6000 dólares."
+        doc "Condiciones: no lavarte ni cortarte el pelo mientras dure el tratamiento, y no contarle a nadie."
 
         hide doc_normal
 
         show doc_normal
 
         doc "Si no cumplís, devolvés la plata y te embargo los bienes."
-        doc "¿Aceptas?"
+        doc "¿Aceptás?"
 
         hide doc_normal
 
         show fran_normal
 
-        fran "Ahora entiendo al que se fué corriendo."
+        fran "Ahora entiendo al que se fue corriendo."
 
         hide fran_normal
 
@@ -328,20 +332,21 @@
         show fran_normal
 
         fran "Es demasiado para mí."
-        fran "Mejor lo dejamos acá"
+        fran "Mejor lo dejamos acá."
 
         hide fran_normal
         
         show doc_normal
 
         doc "¡Es por la ciencia!"
-        doc "¡Te estás perdiendo la oportunidad de tu vida!"
+        doc "Te estás perdiendo la oportunidad de tu vida."
+
+        "Francisco vuelve caminando a su casa. Se le hace de noche."
 
         
     label acto1_escena10:
         scene hab_int
 
-        "Iluminada solo por los faroles de la calle."
 
         show fran_triste
 
@@ -355,7 +360,7 @@
 
         show fran_triste
 
-        "Otra vez. No se cansa."
+        fran "Otra vez. No se cansa."
 
         hide fran_triste
     
@@ -363,22 +368,25 @@
 
         scene hab_int
 
-        "Mensaje del Dueño
-        Fran, tengo una changa para vos."
+        "Mensaje del Dueño"
+        "Fran, tengo una changa para vos."
 
         "Me das una mano y te descuento el alquiler."
-        "¿Qué decis?"
+        "¿Qué decís?"
 
         show fran_triste
 
-        "Y bueno..."
-        "Si no queda otra."
+        fran "Y bueno."
+        fran "Si no queda otra."
 
-        "FINAL NORMAL - TODO SGUE IGUAL."
+        "Francisco contesta y se prepara para salir. Nada cambió."
+
+        "FINAL NORMAL — TODO SIGUE IGUAL"
+        "FIN"
 
         label menu_normal:
             menu:
-                "Volver a la última decisión.":
+                "Volver a la última decisión":
                     scene consultorio with dissolve
                     jump menu_trato
 
@@ -390,7 +398,7 @@
 
         scene consultorio with dissolve
 
-        "Francisco firma el contrato"
+        "Francisco firma el contrato."
 
         show doc_normal
 
@@ -401,6 +409,7 @@
         hide doc_normal
 
         "Es un shampoo de manzana barato."
+        "Después, el doctor le apunta con una secadora enorme mientras habla sin parar de fórmulas."
 
         show fran_normal
 
@@ -410,9 +419,11 @@
 
         show doc_normal
 
-        "Ahora la crema. SOlo se aplica acá, en ambiente esteril."
+        doc "Ahora la crema. Solo se aplica acá, en ambiente estéril."
 
         hide doc_normal
+
+        "El doctor le aplica la crema en el cuero cabelludo a Francisco, espera unos segundos y le pregunta."
 
         show doc_normal
         
@@ -424,16 +435,17 @@
         show fran_normal
 
         fran "Nada."
-        "..."
         fran "¿Debería?"
 
         hide fran_normal
 
         show doc_normal
 
-        doc "No no. Solo dejame anotar."
+        doc "No, no. Solo dejame anotar."
 
         hide doc_normal
+
+        "El doctor le mide la cabeza con reglas y lupas, saca un sobre grueso de un cajón y se lo da."
 
         "Recibiste USD 6000"
 
@@ -441,14 +453,14 @@
 
         doc "Nos vemos en una semana."
         doc "Nada de agua, nada de tijera"
-        doc "y ni una palabra a nadie."
+        doc "y ni una palabra a nadie.."
 
         hide doc_normal
 
         show fran_sorpresa
 
         fran "¿Todo esto es para mí?"
-        fran "Si, si... entendido."
+        fran "Sí, sí… entendido."
 
         hide fran_sorpresa
         show fran_normal

@@ -1,8 +1,9 @@
 # Definicion de los personajes #
 
 define fran = Character ("Francisco")
-define ma = Character ("Maria")
+define ma = Character ("María")
 define doc = Character ("Doctor Malandra")
+define cand = Character("Candidato")
 
 # Sprites de Francisco #
 
