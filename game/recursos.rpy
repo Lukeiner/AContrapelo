@@ -16,11 +16,11 @@ image fran_enojo = "images/Sprites/Francisco/Francisco_enojo.png"
 image mar_normal = "images/Sprites/Maria/Maria_normal.png"
 image mar_preo = "images/Sprites/Maria/Maria_preocupada.png"
 image mar_det = "images/Sprites/Maria/Maria_determinada.png"
-image mar_alivio = "images/Sprites/Maria/Maria_alivio.png"
+image mar_alivio = "images/Sprites/Maria/maria_alivio.png"
 
 # Sprites de Doctor Malandra #
 
-image doc_normal = "images/Sprites/Malandra/Doctor_normal.png"
+image doc_normal = "images/Sprites/Malandra/Doctor_Normal.png"
 image doc_mani = "images/Sprites/Malandra/Doctor_maniaco.png"
 image doc_shock = "images/Sprites/Malandra/Doctor_shock.png"
 image doc_eno = "images/Sprites/Malandra/Doctor_enojo.png"
@@ -33,6 +33,7 @@ image cocina = "images/Background/Cocina.jpg"
 image calle = "images/Background/Calle.jpg"
 image centro = "images/Background/Centro_Investigacion.jpg"
 image sala = "images/Background/Clinica_Sala.jpg"
+image consultorio = "images/Background/Clinica_consultorio.jpg"
 
 
 

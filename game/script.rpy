@@ -148,6 +148,8 @@
                     show fran_normal
                     fran "Si anoche comí, fue gracias a Maria."
                     fran "Tengo que devolverle el tupper."
+                    hide fran_normal
+                    jump menu_cocina
                 
                 "Mate":
                     jump sub_menu_mate
@@ -174,7 +176,6 @@
 
     label acto1_escena5:
 
-        scene hab_interior
 
         label menu_conocer:
             scene hab_int
@@ -182,6 +183,8 @@
                 "Facturas":
                     show fran_normal
                     "Luz, gas, internet... se me juntan todas."
+                    hide fran_normal
+                    jump menu_conocer
                 
                 "Puerta de salida":
                     jump sub_menu_conocer
@@ -227,7 +230,7 @@
 
     label acto1_escena6:
 
-        show calle with dissolve
+        scene calle with dissolve
 
         show fran_normal
 
@@ -257,7 +260,7 @@
 
     label acto1_escena8:
 
-        scene sala with dissolve
+        scene consultorio with dissolve
 
         show fran_normal
 
@@ -320,7 +323,7 @@
     
     label acto1_escena9:
 
-        scene sala
+        scene consultorio
 
         show fran_normal
 
@@ -354,11 +357,11 @@
 
         "Otra vez. No se cansa."
 
-        hide fran_normal
+        hide fran_triste
     
     label acto1_escena11:
 
-        scene cocina
+        scene hab_int
 
         "Mensaje del Dueño
         Fran, tengo una changa para vos."
@@ -376,7 +379,8 @@
         label menu_normal:
             menu:
                 "Volver a la última decisión.":
-                    jump acto1_escena8
+                    scene consultorio with dissolve
+                    jump menu_trato
 
 
                 "Salir al menú":
@@ -384,7 +388,7 @@
     
     label acto1_escena12:
 
-        scene sala with dissolve
+        scene consultorio with dissolve
 
         "Francisco firma el contrato"
 
@@ -446,6 +450,7 @@
         fran "¿Todo esto es para mí?"
         fran "Si, si... entendido."
 
+        hide fran_sorpresa
         show fran_normal
         fran "Con esto pago todo y me sobra."
         fran "Mejor vuelvo en colectivo."
