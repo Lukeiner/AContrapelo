@@ -82,9 +82,9 @@
 
     #Primero plano de una pagina de avisos clasificados #
 
-    hide fran_normal with dissolve
-
     fran_int "A ver si hay algo en gastronomía para arrancar tranqui."
+
+    hide fran_normal with dissolve
 
     label menu_trabajos:
         menu:
@@ -206,39 +206,46 @@
         label sub_menu_conocer:
             menu:
                 "Atender la puerta":
-                    show mar_alivio with dissolve
+                    show fran_normal at izq
+                    show mar_alivio at der
+                    with dissolve
                     ma "¡Hola, Fran! Vengo a buscar el táper."
-                    hide mar_alivio with dissolve
 
-                    show fran_normal with dissolve
                     fran "Hola Mari. Gracias por la cena, de verdad. ¿Pasás?"
                     fran "Hice unos mates."
-                    hide fran_normal with dissolve
 
-                    show mar_normal with dissolve
+                    hide mar_alivio
+                    show mar_normal at der
+                    with dissolve
                     ma "Dale. ¿Cómo andás con la búsqueda?"
-                    hide mar_normal with dissolve
 
-                    show fran_triste with dissolve
+                    hide fran_normal
+                    show fran_triste at izq
+                    with dissolve
                     fran "Mal. No sale nada y las facturas se me apilan."
                     fran "¿Y vos en el laburo?"
-                    hide fran_triste with dissolve
 
-                    show mar_preo with dissolve
+                    hide mar_normal
+                    show mar_preo at der
+                    with dissolve
                     ma "No es lo que más me gusta, pero me alcanza para el tratamiento de mi papá."
+
                     hide mar_preo
-                    show mar_alivio
+                    show mar_alivio at der
                     with dissolve
                     ma "No te castigues tanto. Salí a dar una vuelta, despejate."
                     ma "Y te dejo torta para después."
-                    hide mar_alivio with dissolve
 
                 "Todavía no":
                     jump menu_conocer
 
         "María agarra su táper, deja otro con torta sobre la mesa y se va."
 
-        show fran_normal with dissolve
+        hide mar_alivio with dissolve
+
+        hide fran_triste
+        show fran_normal at izq
+        with dissolve
 
         fran_int "Bueno, debería hacerle caso a Mari, después de terminarme el termo."
 
@@ -279,19 +286,15 @@
 
         scene consultorio with dissolve
 
-        show fran_normal with dissolve
+        show fran_normal at izq with dissolve
 
         fran "Buen día, vengo por el anuncio..."
 
-        hide fran_normal with dissolve
+        show doc_normal at der with dissolve
 
         "Aparece el Dr. Malandra y le pone un cuestionario en las manos."
 
-        show doc_normal with dissolve
-
         doc "Qué bueno que llegaste. Completame esto."
-
-        hide doc_normal with dissolve
 
         menu:
             "¿Vivís solo?"
@@ -307,13 +310,15 @@
         while not (respuesta.isdigit() and 1 <= int(respuesta) <= 10):
             $ respuesta = renpy.input("Del 1 al 10, ¿cuánto te importa lo que piense la gente?", allow="0123456789", length=2).strip()
 
-        show doc_mani with dissolve
+        hide doc_normal
+        show doc_mani at der
+        with dissolve
 
         doc "¡Perfecto! Sos la persona ideal."
         doc "Estoy desarrollando un producto para el crecimiento capilar."
 
         hide doc_mani
-        show doc_eno
+        show doc_eno at der
         with dissolve
 
         doc "Son tres aplicaciones y cobrás en cada una."
@@ -321,19 +326,17 @@
         doc "Condiciones: no lavarte ni cortarte el pelo mientras dure el tratamiento, y no contarle a nadie."
 
         hide doc_eno
-        show doc_normal
+        show doc_normal at der
         with dissolve
 
         doc "Si no cumplís, devolvés la plata y te embargo los bienes."
         doc "¿Aceptás?"
 
-        hide doc_normal with dissolve
-
-        show fran_triste with dissolve
+        hide fran_normal
+        show fran_triste at izq
+        with dissolve
 
         fran_int "Ahora entiendo al que se fue corriendo."
-
-        hide fran_triste with dissolve
 
         label menu_trato:
             menu:
@@ -345,25 +348,26 @@
     
     label acto1_escena9:
 
-        scene consultorio
-
-        show fran_normal with dissolve
+        hide fran_triste
+        show fran_normal at izq
+        with dissolve
 
         fran "Es demasiado para mí."
         fran "Mejor lo dejamos acá."
 
-        hide fran_normal with dissolve
-        
-        show doc_eno with dissolve
+        hide doc_normal
+        show doc_eno at der
+        with dissolve
 
         doc "¡Es por la ciencia!"
         doc "Te estás perdiendo la oportunidad de tu vida."
 
-        hide doc_eno with dissolve
+        hide fran_normal
+        hide doc_eno
+        with dissolve
 
         "Francisco vuelve caminando a su casa. Se le hace de noche."
 
-        
     label acto1_escena10:
         scene hab_int with dissolve
 
@@ -407,7 +411,10 @@
         label menu_normal:
             menu:
                 "Volver a la última decisión":
-                    scene consultorio with dissolve
+                    scene consultorio
+                    show fran_triste at izq
+                    show doc_normal at der
+                    with dissolve
                     jump menu_trato
 
 
@@ -416,83 +423,66 @@
     
     label acto1_escena12:
 
-        scene consultorio with dissolve
+        hide fran_triste
+        show fran_normal at izq
+        with dissolve
 
         "Francisco firma el contrato."
 
-        show doc_mani with dissolve
+        hide doc_normal
+        show doc_mani at der
+        with dissolve
 
         doc "¡Perfecto!"
         doc "Primero, lavate la cabeza con esto."
         doc "No desperdicies ni una gota."
 
+        "Es un shampoo de manzana barato."
+
+        # Formulas y secadora: Francisco queda solo
         hide doc_mani with dissolve
 
-        "Es un shampoo de manzana barato."
         "Después, el doctor le apunta con una secadora enorme mientras habla sin parar de fórmulas."
-
-        show fran_normal with dissolve
 
         fran_int "Con tanta palabrería y el secador no escuché nada."
 
-        hide fran_normal with dissolve
-
-        show doc_mani with dissolve
+        show doc_mani at der with dissolve
 
         doc "Ahora la crema. Solo se aplica acá, en ambiente estéril."
 
-        hide doc_mani with dissolve
-
         "El doctor le aplica la crema en el cuero cabelludo a Francisco, espera unos segundos y le pregunta."
 
-        show doc_mani with dissolve
-        
         doc "¿Te pica?"
         doc "¿Sentís algo raro?"
-
-        hide doc_mani with dissolve
-
-        show fran_normal with dissolve
 
         fran "Nada."
         fran "¿Debería?"
 
-        hide fran_normal with dissolve
-
-        show doc_normal with dissolve
+        hide doc_mani
+        show doc_normal at der
+        with dissolve
 
         doc "No, no. Solo dejame anotar."
-
-        hide doc_normal with dissolve
 
         "El doctor le mide la cabeza con reglas y lupas, saca un sobre grueso de un cajón y se lo da."
 
         "Recibiste USD 6000"
 
-        show doc_normal with dissolve
-
         doc "Nos vemos en una semana."
         doc "Nada de agua, nada de tijera"
         doc "y ni una palabra a nadie."
 
-        hide doc_normal with dissolve
-
-        show fran_sorpresa with dissolve
+        hide fran_normal
+        show fran_sorpresa at izq
+        with dissolve
 
         fran "¿Todo esto es para mí?"
         fran "Sí, sí… entendido."
 
+        hide doc_normal
         hide fran_sorpresa
-        show fran_normal
+        show fran_normal at izq
         with dissolve
+
         fran_int "Con esto pago todo y me sobra."
         fran_int "Mejor vuelvo en colectivo."
-    
-
-
-
-    
-
-    
-
-

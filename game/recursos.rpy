@@ -6,6 +6,16 @@ define ma = Character ("María")
 define doc = Character ("Doctor Malandra")
 define cand = Character("Candidato")
 
+# Posiciones para dos personajes en escena #
+
+transform izq:
+    xalign 0.15
+    yalign 1.0
+
+transform der:
+    xalign 0.85
+    yalign 1.0
+
 # Sprites de Francisco #
 
 image fran_normal = "images/Sprites/Francisco/Francisco_normal.png"
