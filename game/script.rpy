@@ -126,7 +126,7 @@
                 jump menu_trabajos
         
 
-        show fran_normal with dissolve
+        show fran_triste with dissolve
 
         fran "Por más que intente, nada."
         fran "Me voy a hacer unos mates."
@@ -160,11 +160,14 @@
             menu:
                 "Preparar mate":
                     "Francisco se termina la poca yerba que le quedaba."
-                    show fran_normal
+                    show fran_triste
                     fran "Ya ni para la yerba me alcanza."
                     fran "Si no fuera por María, me moría de hambre."
                     
                     #Golpes
+                    hide fran_triste
+                    show fran_normal
+
                     fran "¿Quién golpea?"
 
                     hide fran_normal
@@ -195,9 +198,9 @@
             scene hab_int
             menu:
                 "Atender la puerta":
-                    show mar_normal
+                    show mar_alivio
                     ma "¡Hola, Fran! Vengo a buscar el táper."
-                    hide mar_normal
+                    hide mar_alivio
 
                     show fran_normal
                     fran "Hola Mari. Gracias por la cena, de verdad. ¿Pasás?"
@@ -208,18 +211,18 @@
                     ma "Dale. ¿Cómo andás con la búsqueda?"
                     hide mar_normal
 
-                    show fran_normal
+                    show fran_triste
                     fran "Mal. No sale nada y las facturas se me apilan."
                     fran "¿Y vos en el laburo?"
-                    hide fran_normal
+                    hide fran_triste
 
-                    show mar_normal
+                    show mar_preo
                     ma "No es lo que más me gusta, pero me alcanza para el tratamiento de mi papá."
-                    hide mar_normal
-                    show mar_normal
+                    hide mar_preo
+                    show mar_alivio
                     ma "No te castigues tanto. Salí a dar una vuelta, despejate."
                     ma "Y te dejo torta para después."
-                    hide mar_normal
+                    hide mar_alivio
 
                 "Todavía no":
                     jump acto1_escena5
@@ -234,18 +237,18 @@
 
         scene calle with dissolve
 
-        show fran_normal
+        show fran_triste
 
         fran "Capaz pueda vender algo de ropa."
         fran "Ya no se me ocurre nada."
 
-        hide fran_normal
+        hide fran_triste
 
         "Francisco ve gente amontonada frente a un poste."
         "Cuando se acerca, se dispersan y queda a la vista un cartel."
 
         "¿Necesitás plata? Clínica busca voluntarios para tratamiento experimental. Excelente paga."
-        show fran_normal
+        show fran_sorpresa
         fran "Justo cuando necesito plata..."
         fran "Queda a unas cuadras."
         fran "Paso a ver."
@@ -258,7 +261,7 @@
 
         cand "¡Está loco ese tipo! Nadie va a aceptar hacerse eso."
 
-        show fran_normal
+        show fran_triste
 
         fran "Se nota que él no necesita plata. El alquiler no se paga solo."
 
@@ -289,20 +292,20 @@
         "Del 1 al 10, ¿cuánto te importa lo que piense la gente?"
         #renpy.input("Del 1 al 10, ¿cuánto te importa lo que piense la gente?", default="1")
 
-        show doc_normal
+        show doc_mani
 
         doc "¡Perfecto! Sos la persona ideal."
         doc "Estoy desarrollando un producto para el crecimiento capilar."
 
-        hide doc_normal
+        hide doc_mani
 
-        show doc_normal
+        show doc_eno
 
         doc "Son tres aplicaciones y cobrás en cada una."
         doc "Por la primera, 6000 dólares."
         doc "Condiciones: no lavarte ni cortarte el pelo mientras dure el tratamiento, y no contarle a nadie."
 
-        hide doc_normal
+        hide doc_eno
 
         show doc_normal
 
@@ -311,11 +314,11 @@
 
         hide doc_normal
 
-        show fran_normal
+        show fran_triste
 
         fran "Ahora entiendo al que se fue corriendo."
 
-        hide fran_normal
+        hide fran_triste
 
         label menu_trato:
             menu:
@@ -336,7 +339,7 @@
 
         hide fran_normal
         
-        show doc_normal
+        show doc_eno
 
         doc "¡Es por la ciencia!"
         doc "Te estás perdiendo la oportunidad de tu vida."
@@ -400,13 +403,13 @@
 
         "Francisco firma el contrato."
 
-        show doc_normal
+        show doc_mani
 
         doc "¡Perfecto!"
         doc "Primero, lavate la cabeza con esto."
         doc "No desperdicies ni una gota."
 
-        hide doc_normal
+        hide doc_mani
 
         "Es un shampoo de manzana barato."
         "Después, el doctor le apunta con una secadora enorme mientras habla sin parar de fórmulas."
@@ -417,20 +420,20 @@
 
         hide fran_normal
 
-        show doc_normal
+        show doc_mani
 
         doc "Ahora la crema. Solo se aplica acá, en ambiente estéril."
 
-        hide doc_normal
+        hide doc_mani
 
         "El doctor le aplica la crema en el cuero cabelludo a Francisco, espera unos segundos y le pregunta."
 
-        show doc_normal
+        show doc_mani
         
         doc "¿Te pica?"
         doc "¿Sentís algo raro?"
 
-        hide doc_normal
+        hide doc_mani
 
         show fran_normal
 
