@@ -16,16 +16,18 @@ image fran_enojo = "images/Sprites/Francisco/Francisco_enojo.png"
 # Sprites de Maria #
 
 image mar_normal = "images/Sprites/Maria/Maria_normal.png"
-image mar_preo = "images/Sprites/Maria/Maria_preocupada.png"
+# TEMPORAL: mar_preo y mar_alivio usan el sprite neutral hasta tener los completos (A-11).
+image mar_preo = "images/Sprites/Maria/Maria_normal.png"
 image mar_det = "images/Sprites/Maria/Maria_determinada.png"
-image mar_alivio = "images/Sprites/Maria/maria_alivio.png"
+image mar_alivio = "images/Sprites/Maria/Maria_normal.png"
 
 # Sprites de Doctor Malandra #
 
+# TEMPORAL: doc_mani y doc_eno usan el sprite neutral hasta tener los completos (A-11).
 image doc_normal = "images/Sprites/Malandra/Doctor_Normal.png"
-image doc_mani = "images/Sprites/Malandra/Doctor_maniaco.png"
+image doc_mani = "images/Sprites/Malandra/Doctor_Normal.png"
 image doc_shock = "images/Sprites/Malandra/Doctor_shock.png"
-image doc_eno = "images/Sprites/Malandra/Doctor_enojo.png"
+image doc_eno = "images/Sprites/Malandra/Doctor_Normal.png"
 
 
 # Backgrounds #
