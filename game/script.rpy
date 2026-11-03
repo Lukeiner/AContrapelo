@@ -1,6 +1,14 @@
 ﻿label start:
     
-    #A1E0 (Completar)
+    #A1E0
+
+    scene black
+    show text "GRUPO PENTANILO PRESENTA" at truecenter with Dissolve(1.0)
+    pause 5
+    hide text with Dissolve(1.0)
+    show text "A CONTRAPELO" at truecenter with Dissolve(1.0)
+    pause 2
+    hide text with Dissolve(1.0)
 
 
     #Acto 1 - Escena 1
@@ -16,14 +24,14 @@
 
         show fran_normal
 
-        fran "¿Antes del viernes? Si apenas llego a mañana."
+        fran_int "¿Antes del viernes? Si apenas llego a mañana."
 
         hide fran_normal
 
         show fran_triste
 
-        fran "¿Hasta cuándo voy a estar así?"
-        fran "Necesito un laburo fijo, algo en serio."
+        fran_int "¿Hasta cuándo voy a estar así?"
+        fran_int "Necesito un laburo fijo, algo en serio."
 
     #Acto 1 - Escena 2
 
@@ -41,20 +49,20 @@
                 $ celular_visto = True
 
                 "Mensaje del Dueño: 'Francisco, pagame el alquiler antes del viernes. No quiero que pase como el mes pasado.'"
-                fran "Qué manera de ser molesto. ¿No me puede dejar un día tranquilo?"
+                fran_int "Qué manera de ser molesto. ¿No me puede dejar un día tranquilo?"
                 jump menu_habitacion
             
             "Examinar el boceto":
                 $ boceto_visto = True
                 "Examinás el boceto a mano del local de comida."
-                fran "Ojalá algún día se haga realidad. Solo necesito juntar para arrancar; lo demás viene solo."
+                fran_int "Ojalá algún día se haga realidad. Solo necesito juntar para arrancar; lo demás viene solo."
                 jump menu_habitacion
             
             "Usar la computadora":
                 jump submenu_computadora
     
     label submenu_computadora:
-    fran "(Tengo que ponerme a buscar laburo.)"
+    fran_int "Tengo que ponerme a buscar laburo."
     
     menu:
         "¿Qué querés hacer frente a la computadora?"
@@ -76,7 +84,7 @@
 
     show fran_normal
 
-    fran "A ver si hay algo en gastronomía para arrancar tranqui."
+    fran_int "A ver si hay algo en gastronomía para arrancar tranqui."
 
     label menu_trabajos:
         menu:
@@ -89,7 +97,7 @@
 
                 show fran_normal
 
-                fran "Si nadie te contrata, ¿cómo vas a juntar experiencia?"
+                fran_int "Si nadie te contrata, ¿cómo vas a juntar experiencia?"
 
                 hide fran_normal
 
@@ -104,7 +112,7 @@
 
                 show fran_normal
 
-                fran "Era obvio. Tampoco iba a repartir las pizzas corriendo."
+                fran_int "Era obvio. Tampoco iba a repartir las pizzas corriendo."
 
                 hide fran_normal
 
@@ -118,8 +126,8 @@
                 
                 show fran_normal
 
-                fran "Y eso que algo me había enseñado Hana."
-                fran "Se ve que todos buscan laburo."
+                fran_int "Y eso que algo me había enseñado Hana."
+                fran_int "Se ve que todos buscan laburo."
 
                 hide fran_normal
 
@@ -128,8 +136,8 @@
 
         show fran_triste with dissolve
 
-        fran "Por más que intente, nada."
-        fran "Me voy a hacer unos mates."
+        fran_int "Por más que intente, nada."
+        fran_int "Me voy a hacer unos mates."
 
     #Acto 1 - Escena 4
     label acto1_escena4:
@@ -140,16 +148,16 @@
             menu:
                 "Heladera":
                     show fran_normal
-                    fran "Un limón, un tomate a punto de pudrirse y agua."
-                    fran "Tremendo banquete."
+                    fran_int "Un limón, un tomate a punto de pudrirse y agua."
+                    fran_int "Tremendo banquete."
                     hide fran_normal
 
                     jump menu_cocina
                 
                 "Táper de María":
                     show fran_normal
-                    fran "Si anoche comí, fue gracias a María."
-                    fran "Tengo que devolverle el táper."
+                    fran_int "Si anoche comí, fue gracias a María."
+                    fran_int "Tengo que devolverle el táper."
                     hide fran_normal
                     jump menu_cocina
                 
@@ -161,14 +169,14 @@
                 "Preparar mate":
                     "Francisco se termina la poca yerba que le quedaba."
                     show fran_triste
-                    fran "Ya ni para la yerba me alcanza."
-                    fran "Si no fuera por María, me moría de hambre."
+                    fran_int "Ya ni para la yerba me alcanza."
+                    fran_int "Si no fuera por María, me moría de hambre."
                     
                     #Golpes
                     hide fran_triste
                     show fran_normal
 
-                    fran "¿Quién golpea?"
+                    fran_int "¿Quién golpea?"
 
                     hide fran_normal
                     
@@ -187,7 +195,7 @@
             menu:
                 "Facturas":
                     show fran_normal
-                    fran "Luz, gas, internet... se me juntan todas."
+                    fran_int "Luz, gas, internet... se me juntan todas."
                     hide fran_normal
                     jump menu_conocer
                 
@@ -231,7 +239,7 @@
 
         show fran_normal
 
-        fran "Bueno, debería hacerle caso a Mari, después de terminarme el termo."
+        fran_int "Bueno, debería hacerle caso a Mari, después de terminarme el termo."
 
     label acto1_escena6:
 
@@ -239,8 +247,8 @@
 
         show fran_triste
 
-        fran "Capaz pueda vender algo de ropa."
-        fran "Ya no se me ocurre nada."
+        fran_int "Capaz pueda vender algo de ropa."
+        fran_int "Ya no se me ocurre nada."
 
         hide fran_triste
 
@@ -249,9 +257,9 @@
 
         "¿Necesitás plata? Clínica busca voluntarios para tratamiento experimental. Excelente paga."
         show fran_sorpresa
-        fran "Justo cuando necesito plata..."
-        fran "Queda a unas cuadras."
-        fran "Paso a ver."
+        fran_int "Justo cuando necesito plata..."
+        fran_int "Queda a unas cuadras."
+        fran_int "Paso a ver."
 
     label acto1_escena7:
 
@@ -263,7 +271,7 @@
 
         show fran_triste
 
-        fran "Se nota que él no necesita plata. El alquiler no se paga solo."
+        fran_int "Se nota que él no necesita plata. El alquiler no se paga solo."
 
     label acto1_escena8:
 
@@ -283,14 +291,19 @@
 
         hide doc_normal
 
-        "¿Vivis solo?"
-        "Si, vivo solo"
+        menu:
+            "¿Vivís solo?"
+            "Sí, vivo solo":
+                pass
 
-        "¿Alguien notaría si no te ve por un tiempo?"
-        "Nadie lo notaría."
+        menu:
+            "¿Alguien notaría si no te ve por un tiempo?"
+            "Nadie lo notaría":
+                pass
 
-        "Del 1 al 10, ¿cuánto te importa lo que piense la gente?"
-        #renpy.input("Del 1 al 10, ¿cuánto te importa lo que piense la gente?", default="1")
+        $ respuesta = ""
+        while not (respuesta.isdigit() and 1 <= int(respuesta) <= 10):
+            $ respuesta = renpy.input("Del 1 al 10, ¿cuánto te importa lo que piense la gente?", allow="0123456789", length=2).strip()
 
         show doc_mani
 
@@ -316,7 +329,7 @@
 
         show fran_triste
 
-        fran "Ahora entiendo al que se fue corriendo."
+        fran_int "Ahora entiendo al que se fue corriendo."
 
         hide fran_triste
 
@@ -353,8 +366,8 @@
 
         show fran_triste
 
-        fran "¿Hice bien? Con esa plata pagaba todo..."
-        fran "y hasta capaz invitaba a María a comer algo."
+        fran_int "¿Hice bien? Con esa plata pagaba todo..."
+        fran_int "y hasta capaz invitaba a María a comer algo."
 
         hide fran_triste
 
@@ -363,7 +376,7 @@
 
         show fran_triste
 
-        fran "Otra vez. No se cansa."
+        fran_int "Otra vez. No se cansa."
 
         hide fran_triste
     
@@ -379,8 +392,8 @@
 
         show fran_triste
 
-        fran "Y bueno."
-        fran "Si no queda otra."
+        fran_int "Y bueno."
+        fran_int "Si no queda otra."
 
         "Francisco contesta y se prepara para salir. Nada cambió."
 
@@ -416,7 +429,7 @@
 
         show fran_normal
 
-        fran "Con tanta palabrería y el secador no escuché nada."
+        fran_int "Con tanta palabrería y el secador no escuché nada."
 
         hide fran_normal
 
@@ -467,8 +480,8 @@
 
         hide fran_sorpresa
         show fran_normal
-        fran "Con esto pago todo y me sobra."
-        fran "Mejor vuelvo en colectivo."
+        fran_int "Con esto pago todo y me sobra."
+        fran_int "Mejor vuelvo en colectivo."
     
 
 

@@ -1,6 +1,7 @@
 # Definicion de los personajes #
 
 define fran = Character ("Francisco")
+define fran_int = Character("Francisco", what_prefix="(", what_suffix=")")
 define ma = Character ("María")
 define doc = Character ("Doctor Malandra")
 define cand = Character("Candidato")
