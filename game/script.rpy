@@ -16,9 +16,9 @@
 
         fran "¿Antes del viernes? Si apenas llego a mañana..."
 
-        #hide fran_normal
+        hide fran_normal
 
-        #show fran_triste
+        show fran_triste
 
         fran "¿Hasta cuando voy a estar así?"
         fran "Necesito un laburo fijo, algo en serio."
@@ -271,6 +271,8 @@
 
         doc "Qué bueno que llegaste. Completame esto."
 
+        hide doc_normal
+
         "¿Vivis solo?"
         "Si, vivo solo"
 
@@ -278,22 +280,22 @@
         "Nadie lo notaría."
 
         "Del 1 al 10, ¿cuánto te importa lo que piense la gente?"
-        renpy.input("Del 1 al 10, ¿cuánto te importa lo que piense la gente?", default="1")
+        #renpy.input("Del 1 al 10, ¿cuánto te importa lo que piense la gente?", default="1")
 
-        show doc_mani
+        show doc_normal
 
         doc "¡Perfecto! Sos la persona ideal."
         doc "Estoy desarrollando un producto para el crecimiento capilar."
 
-        hide doc_mani
+        hide doc_normal
 
-        show doc_eno
+        show doc_normal
 
         doc "Son tres aplicaciones y cobrás en cada una."
         doc "Por la primera, 6000 dólares..."
         doc "Condiciones: No lavarte ni cortarte el pelo mientras dure el tratamiento, y no contarle a nadie."
 
-        hide doc_eno
+        hide doc_normal
 
         show doc_normal
 
@@ -313,8 +315,143 @@
                 "Rechazar el trato":
                     jump acto1_escena9
                 
-                "Aceptar el trato"
+                "Aceptar el trato":
                     jump acto1_escena12
+    
+    label acto1_escena9:
+
+        scene sala
+
+        show fran_normal
+
+        fran "Es demasiado para mí."
+        fran "Mejor lo dejamos acá"
+
+        hide fran_normal
+        
+        show doc_normal
+
+        doc "¡Es por la ciencia!"
+        doc "¡Te estás perdiendo la oportunidad de tu vida!"
+
+        
+    label acto1_escena10:
+        scene hab_int
+
+        "Iluminada solo por los faroles de la calle."
+
+        show fran_triste
+
+        fran "¿Hice bien? Con esa plata pagaba todo..."
+        fran "y hasta capaz invitaba a María a comer algo."
+
+        hide fran_triste
+
+        "Mensaje del Dueño" 
+        "Si el viernes no está la plata, buscate otro lugar."
+
+        show fran_triste
+
+        "Otra vez. No se cansa."
+
+        hide fran_normal
+    
+    label acto1_escena11:
+
+        scene cocina
+
+        "Mensaje del Dueño
+        Fran, tengo una changa para vos."
+
+        "Me das una mano y te descuento el alquiler."
+        "¿Qué decis?"
+
+        show fran_triste
+
+        "Y bueno..."
+        "Si no queda otra."
+
+        "FINAL NORMAL - TODO SGUE IGUAL."
+
+        label menu_normal:
+            menu:
+                "Volver a la última decisión.":
+                    jump acto1_escena8
+
+
+                "Salir al menú":
+                    return
+    
+    label acto1_escena12:
+
+        scene sala with dissolve
+
+        "Francisco firma el contrato"
+
+        show doc_normal
+
+        doc "¡Perfecto!"
+        doc "Primero, lavate la cabeza con esto."
+        doc "No desperdicies ni una gota."
+
+        hide doc_normal
+
+        "Es un shampoo de manzana barato."
+
+        show fran_normal
+
+        fran "Con tanta palabrería y el secador no escuché nada."
+
+        hide fran_normal
+
+        show doc_normal
+
+        "Ahora la crema. SOlo se aplica acá, en ambiente esteril."
+
+        hide doc_normal
+
+        show doc_normal
+        
+        doc "¿Te pica?"
+        doc "¿Sentís algo raro?"
+
+        hide doc_normal
+
+        show fran_normal
+
+        fran "Nada."
+        "..."
+        fran "¿Debería?"
+
+        hide fran_normal
+
+        show doc_normal
+
+        doc "No no. Solo dejame anotar."
+
+        hide doc_normal
+
+        "Recibiste USD 6000"
+
+        show doc_normal
+
+        doc "Nos vemos en una semana."
+        doc "Nada de agua, nada de tijera"
+        doc "y ni una palabra a nadie."
+
+        hide doc_normal
+
+        show fran_sorpresa
+
+        fran "¿Todo esto es para mí?"
+        fran "Si, si... entendido."
+
+        show fran_normal
+        fran "Con esto pago todo y me sobra."
+        fran "Mejor vuelvo en colectivo."
+    
+
+
 
     
 
