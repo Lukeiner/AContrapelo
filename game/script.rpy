@@ -22,13 +22,13 @@
         "Francisco, pagame el alquiler antes del viernes."
         "No quiero que pase como el mes pasado."
 
-        show fran_normal
+        show fran_normal with dissolve
 
         fran_int "¿Antes del viernes? Si apenas llego a mañana."
 
         hide fran_normal
-
         show fran_triste
+        with dissolve
 
         fran_int "¿Hasta cuándo voy a estar así?"
         fran_int "Necesito un laburo fijo, algo en serio."
@@ -37,9 +37,9 @@
 
     label acto1_escena2:
 
-        scene hab_int with dissolve
-
+        hide fran_triste
         show fran_normal at center
+        with dissolve
 
         "Elegí un objeto para interactuar."
 
@@ -82,7 +82,7 @@
 
     #Primero plano de una pagina de avisos clasificados #
 
-    show fran_normal
+    hide fran_normal with dissolve
 
     fran_int "A ver si hay algo en gastronomía para arrancar tranqui."
 
@@ -95,11 +95,11 @@
                 "Requisito: dos años de experiencia."
                 "Rechazado."
 
-                show fran_normal
+                show fran_normal with dissolve
 
                 fran_int "Si nadie te contrata, ¿cómo vas a juntar experiencia?"
 
-                hide fran_normal
+                hide fran_normal with dissolve
 
                 jump menu_trabajos
 
@@ -110,11 +110,11 @@
                 "Requisito: moto propia."
                 "Rechazado."
 
-                show fran_normal
+                show fran_normal with dissolve
 
                 fran_int "Era obvio. Tampoco iba a repartir las pizzas corriendo."
 
-                hide fran_normal
+                hide fran_normal with dissolve
 
                 jump menu_trabajos
 
@@ -124,12 +124,12 @@
 
                 "Página saturada. Todas las postulaciones fueron rechazadas."
                 
-                show fran_normal
+                show fran_normal with dissolve
 
                 fran_int "Y eso que algo me había enseñado Hana."
                 fran_int "Se ve que todos buscan laburo."
 
-                hide fran_normal
+                hide fran_normal with dissolve
 
                 jump menu_trabajos
         
@@ -147,18 +147,18 @@
         label menu_cocina:
             menu:
                 "Heladera":
-                    show fran_normal
+                    show fran_normal with dissolve
                     fran_int "Un limón, un tomate a punto de pudrirse y agua."
                     fran_int "Tremendo banquete."
-                    hide fran_normal
+                    hide fran_normal with dissolve
 
                     jump menu_cocina
                 
                 "Táper de María":
-                    show fran_normal
+                    show fran_normal with dissolve
                     fran_int "Si anoche comí, fue gracias a María."
                     fran_int "Tengo que devolverle el táper."
-                    hide fran_normal
+                    hide fran_normal with dissolve
                     jump menu_cocina
                 
                 "Mate":
@@ -168,17 +168,18 @@
             menu:
                 "Preparar mate":
                     "Francisco se termina la poca yerba que le quedaba."
-                    show fran_triste
+                    show fran_triste with dissolve
                     fran_int "Ya ni para la yerba me alcanza."
                     fran_int "Si no fuera por María, me moría de hambre."
                     
                     #Golpes
                     hide fran_triste
                     show fran_normal
+                    with dissolve
 
                     fran_int "¿Quién golpea?"
 
-                    hide fran_normal
+                    hide fran_normal with dissolve
                     
                     jump acto1_escena5
 
@@ -189,55 +190,55 @@
 
     label acto1_escena5:
 
+        scene hab_int with dissolve
 
         label menu_conocer:
-            scene hab_int
             menu:
                 "Facturas":
-                    show fran_normal
+                    show fran_normal with dissolve
                     fran_int "Luz, gas, internet... se me juntan todas."
-                    hide fran_normal
+                    hide fran_normal with dissolve
                     jump menu_conocer
                 
                 "Puerta de salida":
                     jump sub_menu_conocer
         
         label sub_menu_conocer:
-            scene hab_int
             menu:
                 "Atender la puerta":
-                    show mar_alivio
+                    show mar_alivio with dissolve
                     ma "¡Hola, Fran! Vengo a buscar el táper."
-                    hide mar_alivio
+                    hide mar_alivio with dissolve
 
-                    show fran_normal
+                    show fran_normal with dissolve
                     fran "Hola Mari. Gracias por la cena, de verdad. ¿Pasás?"
                     fran "Hice unos mates."
-                    hide fran_normal
+                    hide fran_normal with dissolve
 
-                    show mar_normal
+                    show mar_normal with dissolve
                     ma "Dale. ¿Cómo andás con la búsqueda?"
-                    hide mar_normal
+                    hide mar_normal with dissolve
 
-                    show fran_triste
+                    show fran_triste with dissolve
                     fran "Mal. No sale nada y las facturas se me apilan."
                     fran "¿Y vos en el laburo?"
-                    hide fran_triste
+                    hide fran_triste with dissolve
 
-                    show mar_preo
+                    show mar_preo with dissolve
                     ma "No es lo que más me gusta, pero me alcanza para el tratamiento de mi papá."
                     hide mar_preo
                     show mar_alivio
+                    with dissolve
                     ma "No te castigues tanto. Salí a dar una vuelta, despejate."
                     ma "Y te dejo torta para después."
-                    hide mar_alivio
+                    hide mar_alivio with dissolve
 
                 "Todavía no":
-                    jump acto1_escena5
+                    jump menu_conocer
 
         "María agarra su táper, deja otro con torta sobre la mesa y se va."
 
-        show fran_normal
+        show fran_normal with dissolve
 
         fran_int "Bueno, debería hacerle caso a Mari, después de terminarme el termo."
 
@@ -245,31 +246,32 @@
 
         scene calle with dissolve
 
-        show fran_triste
+        show fran_triste with dissolve
 
         fran_int "Capaz pueda vender algo de ropa."
         fran_int "Ya no se me ocurre nada."
 
-        hide fran_triste
+        hide fran_triste with dissolve
 
         "Francisco ve gente amontonada frente a un poste."
         "Cuando se acerca, se dispersan y queda a la vista un cartel."
 
         "¿Necesitás plata? Clínica busca voluntarios para tratamiento experimental. Excelente paga."
-        show fran_sorpresa
+        show fran_sorpresa with dissolve
         fran_int "Justo cuando necesito plata..."
         fran_int "Queda a unas cuadras."
         fran_int "Paso a ver."
 
     label acto1_escena7:
 
-        scene centro with hpunch
+        scene centro with dissolve
+        with hpunch
 
         "Un candidato sale apurado, casi lo choca."
 
         cand "¡Está loco ese tipo! Nadie va a aceptar hacerse eso."
 
-        show fran_triste
+        show fran_triste with dissolve
 
         fran_int "Se nota que él no necesita plata. El alquiler no se paga solo."
 
@@ -277,19 +279,19 @@
 
         scene consultorio with dissolve
 
-        show fran_normal
+        show fran_normal with dissolve
 
         fran "Buen día, vengo por el anuncio..."
 
-        hide fran_normal
+        hide fran_normal with dissolve
 
         "Aparece el Dr. Malandra y le pone un cuestionario en las manos."
 
-        show doc_normal
+        show doc_normal with dissolve
 
         doc "Qué bueno que llegaste. Completame esto."
 
-        hide doc_normal
+        hide doc_normal with dissolve
 
         menu:
             "¿Vivís solo?"
@@ -305,33 +307,33 @@
         while not (respuesta.isdigit() and 1 <= int(respuesta) <= 10):
             $ respuesta = renpy.input("Del 1 al 10, ¿cuánto te importa lo que piense la gente?", allow="0123456789", length=2).strip()
 
-        show doc_mani
+        show doc_mani with dissolve
 
         doc "¡Perfecto! Sos la persona ideal."
         doc "Estoy desarrollando un producto para el crecimiento capilar."
 
         hide doc_mani
-
         show doc_eno
+        with dissolve
 
         doc "Son tres aplicaciones y cobrás en cada una."
         doc "Por la primera, 6000 dólares."
         doc "Condiciones: no lavarte ni cortarte el pelo mientras dure el tratamiento, y no contarle a nadie."
 
         hide doc_eno
-
         show doc_normal
+        with dissolve
 
         doc "Si no cumplís, devolvés la plata y te embargo los bienes."
         doc "¿Aceptás?"
 
-        hide doc_normal
+        hide doc_normal with dissolve
 
-        show fran_triste
+        show fran_triste with dissolve
 
         fran_int "Ahora entiendo al que se fue corriendo."
 
-        hide fran_triste
+        hide fran_triste with dissolve
 
         label menu_trato:
             menu:
@@ -345,44 +347,46 @@
 
         scene consultorio
 
-        show fran_normal
+        show fran_normal with dissolve
 
         fran "Es demasiado para mí."
         fran "Mejor lo dejamos acá."
 
-        hide fran_normal
+        hide fran_normal with dissolve
         
-        show doc_eno
+        show doc_eno with dissolve
 
         doc "¡Es por la ciencia!"
         doc "Te estás perdiendo la oportunidad de tu vida."
+
+        hide doc_eno with dissolve
 
         "Francisco vuelve caminando a su casa. Se le hace de noche."
 
         
     label acto1_escena10:
-        scene hab_int
+        scene hab_int with dissolve
 
 
-        show fran_triste
+        show fran_triste with dissolve
 
         fran_int "¿Hice bien? Con esa plata pagaba todo..."
         fran_int "y hasta capaz invitaba a María a comer algo."
 
-        hide fran_triste
+        hide fran_triste with dissolve
 
         "Mensaje del Dueño" 
         "Si el viernes no está la plata, buscate otro lugar."
 
-        show fran_triste
+        show fran_triste with dissolve
 
         fran_int "Otra vez. No se cansa."
 
-        hide fran_triste
+        hide fran_triste with dissolve
     
     label acto1_escena11:
 
-        scene hab_int
+        scene hab_int with dissolve
 
         "Mensaje del Dueño"
         "Fran, tengo una changa para vos."
@@ -390,7 +394,7 @@
         "Me das una mano y te descuento el alquiler."
         "¿Qué decís?"
 
-        show fran_triste
+        show fran_triste with dissolve
 
         fran_int "Y bueno."
         fran_int "Si no queda otra."
@@ -416,70 +420,71 @@
 
         "Francisco firma el contrato."
 
-        show doc_mani
+        show doc_mani with dissolve
 
         doc "¡Perfecto!"
         doc "Primero, lavate la cabeza con esto."
         doc "No desperdicies ni una gota."
 
-        hide doc_mani
+        hide doc_mani with dissolve
 
         "Es un shampoo de manzana barato."
         "Después, el doctor le apunta con una secadora enorme mientras habla sin parar de fórmulas."
 
-        show fran_normal
+        show fran_normal with dissolve
 
         fran_int "Con tanta palabrería y el secador no escuché nada."
 
-        hide fran_normal
+        hide fran_normal with dissolve
 
-        show doc_mani
+        show doc_mani with dissolve
 
         doc "Ahora la crema. Solo se aplica acá, en ambiente estéril."
 
-        hide doc_mani
+        hide doc_mani with dissolve
 
         "El doctor le aplica la crema en el cuero cabelludo a Francisco, espera unos segundos y le pregunta."
 
-        show doc_mani
+        show doc_mani with dissolve
         
         doc "¿Te pica?"
         doc "¿Sentís algo raro?"
 
-        hide doc_mani
+        hide doc_mani with dissolve
 
-        show fran_normal
+        show fran_normal with dissolve
 
         fran "Nada."
         fran "¿Debería?"
 
-        hide fran_normal
+        hide fran_normal with dissolve
 
-        show doc_normal
+        show doc_normal with dissolve
 
         doc "No, no. Solo dejame anotar."
 
-        hide doc_normal
+        hide doc_normal with dissolve
 
         "El doctor le mide la cabeza con reglas y lupas, saca un sobre grueso de un cajón y se lo da."
 
         "Recibiste USD 6000"
 
-        show doc_normal
+        show doc_normal with dissolve
 
         doc "Nos vemos en una semana."
         doc "Nada de agua, nada de tijera"
         doc "y ni una palabra a nadie."
 
-        hide doc_normal
+        hide doc_normal with dissolve
 
-        show fran_sorpresa
+        show fran_sorpresa with dissolve
 
         fran "¿Todo esto es para mí?"
         fran "Sí, sí… entendido."
 
         hide fran_sorpresa
         show fran_normal
+        with dissolve
         fran_int "Con esto pago todo y me sobra."
         fran_int "Mejor vuelvo en colectivo."
     
