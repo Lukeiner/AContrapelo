@@ -469,7 +469,7 @@
 
         doc "Nos vemos en una semana."
         doc "Nada de agua, nada de tijera"
-        doc "y ni una palabra a nadie.."
+        doc "y ni una palabra a nadie."
 
         hide doc_normal
 
