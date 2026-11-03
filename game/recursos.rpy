@@ -30,6 +30,9 @@ image doc_eno = "images/Sprites/Malandra/Doctor_enojo.png"
 
 image hab_int = "images/Background/Habitacion_interior.jpg"
 image cocina = "images/Background/Cocina.jpg"
+image calle = "images/Background/Calle.jpg"
+image centro = "images/Background/Centro_Investigacion.jpg"
+image sala = "images/Background/Clinica_Sala.jpg"
 
 
 

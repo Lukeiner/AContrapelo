@@ -227,4 +227,97 @@
 
     label acto1_escena6:
 
+        show calle with dissolve
+
+        show fran_normal
+
+        fran "Capaz pueda vender algo de ropa."
+        fran "Ya no se me ocurre nada."
+
+        hide fran_normal
+
+        "Francisco ve gente amontonada frenta a un poste."
+        "Cuando se acerca, se dispersan y queda a la vista un cartel."
+
+        "¿Necesitás plata? Clínica busca voluntaris para tratamiento experimental. Excelente paga."
+        show fran_normal
+        fran "Justo cuando necesito plata..."
+        fran "Queda a unas cuadras."
+        fran "Paso a ver."
+
+    label acto1_escena7:
+
+        scene centro with hpunch
+
+        "¡Está loco ese tipo! Nadie va a aceptar hacerse eso."
+
+        show fran_normal
+
+        fran "Se nota que él no necesita plata. El alquiler no se paga solo."
+
+    label acto1_escena8:
+
+        scene sala with dissolve
+
+        show fran_normal
+
+        fran "Buen día, vengo por el anuncio..."
+
+        hide fran_normal
+
+        "Aparece el Dr Malandra y le pone un cuestionario en las manos."
+
+        show doc_normal
+
+        doc "Qué bueno que llegaste. Completame esto."
+
+        "¿Vivis solo?"
+        "Si, vivo solo"
+
+        "¿Alguien notaría si no te ve por un tiempo?"
+        "Nadie lo notaría."
+
+        "Del 1 al 10, ¿cuánto te importa lo que piense la gente?"
+        renpy.input("Del 1 al 10, ¿cuánto te importa lo que piense la gente?", default="1")
+
+        show doc_mani
+
+        doc "¡Perfecto! Sos la persona ideal."
+        doc "Estoy desarrollando un producto para el crecimiento capilar."
+
+        hide doc_mani
+
+        show doc_eno
+
+        doc "Son tres aplicaciones y cobrás en cada una."
+        doc "Por la primera, 6000 dólares..."
+        doc "Condiciones: No lavarte ni cortarte el pelo mientras dure el tratamiento, y no contarle a nadie."
+
+        hide doc_eno
+
+        show doc_normal
+
+        doc "Si no cumplís, devolvés la plata y te embargo los bienes."
+        doc "¿Aceptas?"
+
+        hide doc_normal
+
+        show fran_normal
+
+        fran "Ahora entiendo al que se fué corriendo."
+
+        hide fran_normal
+
+        label menu_trato:
+            menu:
+                "Rechazar el trato":
+                    jump acto1_escena9
+                
+                "Aceptar el trato"
+                    jump acto1_escena12
+
+    
+
+    
+
 
