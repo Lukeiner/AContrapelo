@@ -300,15 +300,22 @@
             "¿Vivís solo?"
             "Sí, vivo solo":
                 pass
+            "Sí, hace rato":
+                pass
 
         menu:
             "¿Alguien notaría si no te ve por un tiempo?"
             "Nadie lo notaría":
                 pass
+            "Casi nadie":
+                pass
 
-        $ respuesta = ""
-        while not (respuesta.isdigit() and 1 <= int(respuesta) <= 10):
-            $ respuesta = renpy.input("Del 1 al 10, ¿cuánto te importa lo que piense la gente?", allow="0123456789", length=2).strip()
+        menu:
+            "Del 1 al 10, ¿cuánto te importa lo que piense la gente?"
+            "1":
+                pass
+            "2":
+                pass
 
         hide doc_normal
         show doc_mani at der
@@ -439,14 +446,9 @@
 
         "Es un shampoo de manzana barato."
 
-        # Formulas y secadora: Francisco queda solo
-        hide doc_mani with dissolve
-
         "Después, el doctor le apunta con una secadora enorme mientras habla sin parar de fórmulas."
 
         fran_int "Con tanta palabrería y el secador no escuché nada."
-
-        show doc_mani at der with dissolve
 
         doc "Ahora la crema. Solo se aplica acá, en ambiente estéril."
 
@@ -479,7 +481,6 @@
         fran "¿Todo esto es para mí?"
         fran "Sí, sí… entendido."
 
-        hide doc_normal
         hide fran_sorpresa
         show fran_normal at izq
         with dissolve
