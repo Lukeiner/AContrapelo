@@ -17,16 +17,13 @@
 
         scene hab_int with dissolve
 
-        "Francisco se despierta y agarra el celular."
+        pause 1.0
 
-        "Francisco, pagame el alquiler antes del viernes."
-        "No quiero que pase como el mes pasado."
-
-        show fran_normal with dissolve
+        scene mensaje_alquiler with dissolve
 
         fran_int "¿Antes del viernes? Si apenas llego a mañana."
 
-        hide fran_normal
+        scene hab_int
         show fran_triste
         with dissolve
 
@@ -48,14 +45,26 @@
             "Ver el celular":
                 $ celular_visto = True
 
-                "Mensaje del Dueño: 'Francisco, pagame el alquiler antes del viernes. No quiero que pase como el mes pasado.'"
+                scene mensaje_alquiler with dissolve
+
                 fran_int "Qué manera de ser molesto. ¿No me puede dejar un día tranquilo?"
+
+                scene hab_int
+                show fran_normal at center
+                with dissolve
+
                 jump menu_habitacion
             
             "Examinar el boceto":
                 $ boceto_visto = True
-                "Examinás el boceto a mano del local de comida."
+                scene boceto with dissolve
+
                 fran_int "Ojalá algún día se haga realidad. Solo necesito juntar para arrancar; lo demás viene solo."
+
+                scene hab_int
+                show fran_normal at center
+                with dissolve
+
                 jump menu_habitacion
             
             "Usar la computadora":
@@ -80,14 +89,12 @@
 
     label acto1_escena3:
 
-    #Primero plano de una pagina de avisos clasificados #
-
     fran_int "A ver si hay algo en gastronomía para arrancar tranqui."
 
-    hide fran_normal with dissolve
+    scene computadora with dissolve
 
     label menu_trabajos:
-        menu:
+        menu (screen="choice_pc"):
             "Buscar trabajo de mozo" if not mozo_visto:
 
                 $ mozo_visto = True
@@ -190,7 +197,7 @@
 
     label acto1_escena5:
 
-        scene hab_int with dissolve
+        scene comedor_dia with dissolve
 
         label menu_conocer:
             menu:
@@ -261,9 +268,10 @@
         hide fran_triste with dissolve
 
         "Francisco ve gente amontonada frente a un poste."
+        scene parada with dissolve
+
         "Cuando se acerca, se dispersan y queda a la vista un cartel."
 
-        "¿Necesitás plata? Clínica busca voluntarios para tratamiento experimental. Excelente paga."
         show fran_sorpresa with dissolve
         fran_int "Justo cuando necesito plata..."
         fran_int "Queda a unas cuadras."
@@ -376,7 +384,7 @@
         "Francisco vuelve caminando a su casa. Se le hace de noche."
 
     label acto1_escena10:
-        scene hab_int with dissolve
+        scene hab_noche with dissolve
 
 
         show fran_triste with dissolve
@@ -384,31 +392,24 @@
         fran_int "¿Hice bien? Con esa plata pagaba todo..."
         fran_int "y hasta capaz invitaba a María a comer algo."
 
-        hide fran_triste with dissolve
-
-        "Mensaje del Dueño" 
-        "Si el viernes no está la plata, buscate otro lugar."
-
-        show fran_triste with dissolve
+        scene mensaje_viernes with dissolve
 
         fran_int "Otra vez. No se cansa."
-
-        hide fran_triste with dissolve
     
     label acto1_escena11:
 
         scene hab_int with dissolve
 
-        "Mensaje del Dueño"
-        "Fran, tengo una changa para vos."
+        pause 1.0
 
-        "Me das una mano y te descuento el alquiler."
-        "¿Qué decís?"
-
-        show fran_triste with dissolve
+        scene mensaje_changa with dissolve
 
         fran_int "Y bueno."
         fran_int "Si no queda otra."
+
+        scene hab_int
+        show fran_triste
+        with dissolve
 
         "Francisco contesta y se prepara para salir. Nada cambió."
 
@@ -444,15 +445,30 @@
         doc "Primero, lavate la cabeza con esto."
         doc "No desperdicies ni una gota."
 
-        "Es un shampoo de manzana barato."
+        hide fran_normal
+        hide doc_mani
+        show vineta shampoo at vineta_pos
+        with dissolve
 
-        "Después, el doctor le apunta con una secadora enorme mientras habla sin parar de fórmulas."
+        fran_int "Shampoo de manzana... qué científicamente avanzado."
 
+        show vineta secador at vineta_pos with dissolve
+
+        doc "Mirá, al oxidarse, el péptido reacciona con la queratina del folículo..."
+        doc "...lo que acelera la mitosis capilar en un cuatrocientos por ciento, según mis cálculos..."
         fran_int "Con tanta palabrería y el secador no escuché nada."
+
+        hide vineta
+        show fran_normal at izq
+        show doc_mani at der
+        with dissolve
 
         doc "Ahora la crema. Solo se aplica acá, en ambiente estéril."
 
-        "El doctor le aplica la crema en el cuero cabelludo a Francisco, espera unos segundos y le pregunta."
+        hide fran_normal
+        hide doc_mani
+        show vineta crema at vineta_pos
+        with dissolve
 
         doc "¿Te pica?"
         doc "¿Sentís algo raro?"
@@ -460,13 +476,24 @@
         fran "Nada."
         fran "¿Debería?"
 
-        hide doc_mani
+        hide vineta
+        show fran_normal at izq
         show doc_normal at der
         with dissolve
 
         doc "No, no. Solo dejame anotar."
 
-        "El doctor le mide la cabeza con reglas y lupas, saca un sobre grueso de un cajón y se lo da."
+        hide fran_normal
+        hide doc_normal
+        show vineta medicion at vineta_pos
+        with dissolve
+
+        pause 3.0
+
+        hide vineta
+        show fran_normal at izq
+        show doc_normal at der
+        with dissolve
 
         "Recibiste USD 6000"
 
