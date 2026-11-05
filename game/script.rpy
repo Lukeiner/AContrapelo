@@ -373,15 +373,15 @@
         doc "Estoy desarrollando un producto para el crecimiento capilar."
 
         hide doc_mani
-        show doc_eno at der
+        show doc_normal at der
         with dissolve
 
         doc "Son tres aplicaciones y cobrás en cada una."
         doc "Por la primera, 6000 dólares."
         doc "Condiciones: no lavarte ni cortarte el pelo mientras dure el tratamiento, y no contarle a nadie."
 
-        hide doc_eno
-        show doc_normal at der
+        hide doc_normal
+        show doc_eno at der
         with dissolve
 
         doc "Si no cumplís, devolvés la plata y te embargo los bienes."
@@ -409,10 +409,6 @@
 
         fran "Es demasiado para mí."
         fran "Mejor lo dejamos acá."
-
-        hide doc_normal
-        show doc_eno at der
-        with dissolve
 
         doc "¡Es por la ciencia!"
         doc "Te estás perdiendo la oportunidad de tu vida."
@@ -467,7 +463,7 @@
                     play music tema_clinica fadein 1.0
                     scene consultorio
                     show fran_triste at izq
-                    show doc_normal at der
+                    show doc_eno at der
                     with dissolve
                     jump menu_trato
 
@@ -478,7 +474,7 @@
     label acto1_escena12:
 
         hide fran_triste
-        hide doc_normal
+        hide doc_eno
         show vineta firma at vineta_pos
         with dissolve
 
@@ -549,24 +545,21 @@
         "Recibiste USD 6000"
 
         hide vineta
-        show fran_normal at izq
+        show fran_sorpresa at izq
         show doc_normal at der
         with dissolve
+
+        fran "¿Todo esto es para mí?"
 
         doc "Nos vemos en una semana."
         doc "Nada de agua, nada de tijera"
         doc "y ni una palabra a nadie."
 
-        hide fran_normal
-        show fran_sorpresa at izq
-        with dissolve
-
-        fran "¿Todo esto es para mí?"
-        fran "Sí, sí… entendido."
-
         hide fran_sorpresa
         show fran_normal at izq
         with dissolve
+
+        fran "Sí, sí… entendido."
 
         fran_int "Con esto pago todo y me sobra."
         fran_int "Mejor vuelvo en colectivo."
@@ -716,7 +709,7 @@
 
         # Provisorio: va frente a la pizzeria de dia (AR2-05)
         fran_int "Tengo que invitar a María a cenar."
-        fran_int "¿Sushi, en honor a Hana? ¿O una buena pizza, que no falla nunca?"
+        fran_int "¿Sushi, como el que me hacía Hana de chico? ¿O una buena pizza, que no falla nunca?"
 
     label menu_comida:
         menu:
@@ -793,17 +786,13 @@
         play sound cajon_abre
 
         hide mar_normal
-        show mar_det at der
+        show mar_alivio at der
         with dissolve
 
         ma "¡Jaja! ¡Comer esta obra de arte con tenedor es una falta de respeto!"
 
         fran "Tenés razón. Si Hana me viera..."
         fran "Ella y Kutetsu me cuidaron un año y medio cuando era chico."
-
-        hide mar_det
-        show mar_alivio at der
-        with dissolve
 
         ma "Con más razón. Agarrá el palillo, dale."
         ma "El de abajo fijo, el de arriba aprieta."
@@ -927,7 +916,7 @@
         with dissolve
 
         ma "Che, ¿te estás dejando el pelo largo?"
-        ma "Te creció un montón en dos días."
+        ma "Te creció un montón desde ayer."
 
         hide fran_largo_normal
         show fran_largo_sorpresa at izq
@@ -938,9 +927,11 @@
     label menu_pelo_pizza:
         menu:
             "Me lo estoy dejando crecer, quería probar algo distinto":
+                $ curso_peluqueria = False
                 jump acto2_escena28
 
             "No tuve tiempo de ir a la peluquería":
+                $ curso_peluqueria = True
                 jump acto2_escena29
 
     label acto2_escena28:
@@ -1148,6 +1139,12 @@
         doc "¿Perfume? ¿Querés arruinar meses de trabajo? ¡Nada de nada!"
         doc "Tomá tu plata y andate, que me apestás el consultorio."
 
+        hide fran_semana_triste
+        hide doc_shock
+        play sound cajon_abre
+        show vineta sobre at vineta_pos
+        with dissolve
+
         "Recibiste USD 11000"
 
         stop music fadeout 1.5
@@ -1155,6 +1152,8 @@
         scene centro
         show fran_semana_triste
         with dissolve
+
+        fran_int "Me pica más que nunca. ¿Cómo vuelvo?"
 
     label menu_vuelta_clinica:
         menu:
@@ -1307,6 +1306,9 @@
         ma "Eras vos… Vi el video. No te reconocí por la cara, sino por la campera."
         ma "¿Qué te pasó? Vení, dejame que te ayude a cortar ese pelo."
 
+        if curso_peluqueria:
+            ma "Algo de peluquería me acuerdo, ¿viste?"
+
         fran_int "No le puedo contar nada. Si le cuento, rompo el trato."
 
     label menu_decision9:
@@ -1334,6 +1336,10 @@
 
     label acto2_escena45:
 
+        play sound maquina_cortar
+
+        ma "Quedate quieto, es un segundo."
+
         hide fran_muy_triste
         show fran_monstruo_sorpresa at izq_pelo
         with Dissolve(0.5)
@@ -1342,6 +1348,7 @@
 
         ma "¡Fran! ¡Fran, contestame!"
 
+        stop sound fadeout 1.0
         scene black with fade
 
     # A3E50 tiene que entrar por aca: el guion retoma desde el mensaje del abogado

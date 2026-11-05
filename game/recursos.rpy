@@ -208,6 +208,7 @@ define audio.crema_squish = "audio/sfx/crema_squish.ogg"
 define audio.golpes_puerta = "audio/sfx/golpes_puerta.ogg"
 define audio.heladera_puerta = "audio/sfx/heladera_puerta.ogg"
 define audio.heladera_zumbido = "audio/sfx/heladera_zumbido.ogg"
+define audio.maquina_cortar = "audio/sfx/maquina_cortar.ogg"
 define audio.mate_sorbido = "audio/sfx/mate_sorbido.ogg"
 define audio.mouse_tipeo = "audio/sfx/mouse_tipeo.ogg"
 define audio.pava_silbido = "audio/sfx/pava_silbido.ogg"
@@ -228,6 +229,9 @@ default cena_sushi = False
 
  #A2E45: a que decision vuelve el final malo
 default vuelta_final_malo = "menu_decision9"
+
+ #A2E29: si Maria conto que hizo un curso de peluqueria, lo recuerda en A2E44
+default curso_peluqueria = False
 
  #A1E3
 default mozo_visto = False
