@@ -24,6 +24,8 @@
 
         pause 1.0
 
+        play music tema_casa fadein 2.0
+
         scene mensaje_alquiler with dissolve
 
         fran_int "¿Antes del viernes? Si apenas llego a mañana."
@@ -38,8 +40,6 @@
     #Acto 1 - Escena 2
 
     label acto1_escena2:
-
-        play music tema_casa fadein 2.0
 
         hide fran_triste
         show fran_normal at center
