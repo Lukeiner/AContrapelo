@@ -514,3 +514,238 @@
 
         fran_int "Con esto pago todo y me sobra."
         fran_int "Mejor vuelvo en colectivo."
+
+    label acto2_escena13:
+
+        scene parada with dissolve
+
+        show fran_normal
+
+        fran "Disculpá, ¿pasó hace mucho el 60?"
+
+        per "Ya debe estar por venir."
+        per "Che, qué pelo brilloso tenés."
+        per "¿Qué te ponés?"
+
+        hide fran_normal
+
+        show fran_sorpresa
+
+        fran "¿Mi pelo? Shampoo de manzana."
+
+        fran_int "- Si supiera..."
+
+    
+    label acto2_escena14:
+
+        scene cocina
+
+        show fran_normal
+
+        fran_int "- Qué lindo es poder comprar comida."
+        fran_int "La heladera se va a asustar."
+
+        scene black with fade
+
+        "Al día siguiente"
+
+    label acto2_escena15:
+
+        scene hab_int with fade
+
+        fran_int "- Hace rato no dormía tan bien."
+
+        label menu_habitacion_2:
+        menu:
+            "Ver el celular":
+
+                scene mensaje_alquiler with dissolve
+
+                fran_int "Qué manera de ser molesto. ¿No me puede dejar un día tranquilo?"
+
+                scene hab_int
+                show fran_normal at center
+                with dissolve
+
+                jump menu_habitacion
+            
+            "Examinar el boceto":
+                
+                scene boceto with dissolve
+
+                "Meta para el loca: USD 6000 / USD 25000"
+
+                scene hab_int
+                show fran_normal at center
+                with dissolve
+
+                fran_int "Por fin este sueño no parece tan lejano."
+            
+            "Puerta al comedor":
+                jump submenu_habitacion_2
+        
+        label submenu_habitacion_2:
+            menu:
+                "Ir al comedor":
+                    jump acto2_escena16
+                
+                "Todavía no":
+                    jump acto2_escena15
+    
+    label acto2_escena16:
+
+        scene comedor_dia with fade
+
+        show fran_normal with fade
+
+        fran_int "Tendría que aprovechar el día y salir a pasear un rato."
+
+        label menu_escena16:
+            menu:
+                "Facturas pagadas":
+                    fran "Todas pagadas. Que lindo es no preocuparse."
+                
+                "Puerta de salida":
+                    jump sub_menuescenario16
+        
+        label sub_menuescenario16:
+            menu:
+                "Salir a pasear":
+                    jump acto2_escena17
+
+                "Todavía no":
+                    jump acto2_escena16
+    
+    label acto2_escena17:
+
+        scene comedor_dia with fade
+
+        show fran_normal
+
+        fran_int "No lavarse ni cortarse el pelo..."
+        fran_int "¿Y el cuerpo?"
+        fran_int "Mejor no arriesgarme."
+
+        fran "¡Buen día, vecino!"
+        fran "Tome, cómprese una escoba nueva."
+
+        vec "No, Fran, si todos sabemos que andás corto de plata."
+
+        fran "Por fin me están saliendo las cosas"
+        fran "Acépteme esto"
+
+        scene pizzeria with fade
+
+        fran_int "Tengo que invitar a María a cenar."
+        fran_int "¿Sushi, en honor a Hana? ¿O una buena pizza, que no falla nunca?"
+
+        hide fran_normal
+
+        label menu_comida:
+            scene pizzeria with fade
+
+            menu:
+                "Sushi":
+
+                    jump acto2_escena18
+
+                "Pizza":
+
+                    jump acto2_escena26
+    
+    label acto2_escena18:
+
+        scene calle with fade
+        "Mensaje de Francisco - ¡Hola Mari! ¿Cenamos hoy? Invito yo, pido sushi. "
+
+        "Mensaje de Maria - ¿Vos invitando? ¿Quién sos y qué hiciste con Fran?"
+        "Dale, a las 9"
+
+        "Pedido confirmado - Combinado 30 piezas"
+
+        show fran_sorpresa
+        fran_int "¿Tanto sale? Bueno, es una ocasión especial"
+        hide fran_sorpresa
+    
+    label acto2_escena19:
+
+        scene comedor_dia with fade
+
+        show mar_normal
+
+        mar "Traje agua con gas."
+        mar "Se ve rico... ¿probás vos primero?"
+
+        label menu_cena:
+            menu:
+                "Pedirle ayuda a María":
+                    jump acto2_escena20
+                
+                "Ir a buscar un tenedor":
+                    jump acto2_escena21
+        
+        hide mar_normal
+        
+    label acto2_escena20:
+        scene comedor
+
+        show fran_normal
+
+        fran "Hasta partir los palitos me acuerdo. Después, ni idea."
+
+        hide fran_normal
+
+        show mar_alivio
+        mar "El de abajo queda fijo; el de arriba aprieta."
+
+        show mar_alivio with fade
+
+        mar "Y antes de comer se dice Itadakimasu"
+
+        hide mar_alivio
+
+        show fran_normal
+
+        fran "Hana siempre me lo decía."
+        fran "Ella y Kutetsu me cuidaron un año y medi cuando era chico."
+
+    label acto2_escena21
+
+        scene comedor with fade
+
+        show mar_det
+
+        mar "¡Jaja! ¡Comer esta obra de arte con tenedor es una falta de respeto!"
+
+        hide mar_det
+
+        show fran_normal
+
+        fran "Tenés razón. Si Hana me viera..."
+        fran "Ella y Kutetsu me cuidaron un año y medio cuando era chico."
+
+        hide fran_normal
+
+        show mar_alivio
+
+        mar "Con más razón. Agarrá el palillo, dale."
+        mar "El de abajo fijo, el de arriba aprieta."
+
+        show mar_alivio with fade
+
+        mar "Y antes de comer se dice Itadakimasu"
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+

@@ -1,10 +1,12 @@
 # Definicion de los personajes #
 
 define fran = Character ("Francisco")
-define fran_int = Character("Francisco", what_prefix="(", what_suffix=")")
+define fran_int = Character("Francisco", what_prefix="- ")
 define ma = Character ("María")
 define doc = Character ("Doctor Malandra")
 define cand = Character("Candidato")
+define per = Character("Persona")
+define vec = Character ("Vecinos")
 
 # Posiciones para dos personajes en escena #
 
@@ -50,7 +52,7 @@ image parada = "images/Background/Parada_micro.jpg"
 image centro = "images/Background/Centro_Investigacion.jpg"
 image sala = "images/Background/Clinica_Sala.jpg"
 image consultorio = "images/Background/Clinica_consultorio.jpg"
-
+image pizzeria = "images/Background/Pizzeria.jpg"
 # Imagenes a pantalla completa #
 
 image boceto = "images/Escenas/Boceto_local.jpg"
