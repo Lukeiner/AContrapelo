@@ -574,7 +574,7 @@
         show fran_normal
         with dissolve
 
-        fran "Disculpá, ¿pasó hace mucho el 60?"
+        fran "Disculpá, ¿pasó hace mucho el 45?"
 
         per "Ya debe estar por venir."
         per "Che, qué pelo brilloso tenés."
@@ -591,6 +591,9 @@
         with dissolve
 
         fran_int "Si supiera…"
+        fran_int "Antes de volver paso por el súper. Esa heladera necesita algo más que un limón."
+
+        scene black with fade
 
     label acto2_escena14:
 
@@ -627,6 +630,7 @@
         with fade
 
         fran_int "Hace rato no dormía tan bien."
+        fran_int "Hasta me dio tiempo de ordenar la cama."
 
     label menu_habitacion_2:
         menu:
@@ -648,6 +652,7 @@
 
                 "Meta para el local: USD 4000 / USD 30000"
 
+                fran_int "Tuve que gastar bastante para ponerme al día, pero el resto lo guardo para el local."
                 fran_int "Por fin este sueño no parece tan lejano."
 
                 scene hab_ordenada
@@ -670,6 +675,7 @@
         show fran_largo_normal
         with dissolve
 
+        fran_int "¿Y ahora qué hago con tanto tiempo libre?"
         fran_int "Tendría que aprovechar el día y salir a pasear un rato."
 
     label menu_escena16:
@@ -689,25 +695,26 @@
 
     label acto2_escena17:
 
+        scene black with fade
+
         play music tema_barrio fadeout 1.0 fadein 1.0
 
         scene calle
         show fran_largo_normal
-        with dissolve
+        with fade
+
+        pause 2.0
 
         fran_int "No lavarse ni cortarse el pelo..."
         fran_int "¿Y el cuerpo?"
         fran_int "Mejor no arriesgarme."
 
-        fran "¡Buen día, vecino!"
-        fran "Tome, cómprese una escoba nueva."
+        scene black with fade
 
-        vec "No, Fran, si todos sabemos que andás corto de plata."
+        scene calle
+        show fran_largo_normal
+        with fade
 
-        fran "Por fin me están saliendo las cosas."
-        fran "Acépteme esto."
-
-        # Provisorio: va frente a la pizzeria de dia (AR2-05)
         fran_int "Tengo que invitar a María a cenar."
         fran_int "¿Sushi, como el que me hacía Hana de chico? ¿O una buena pizza, que no falla nunca?"
 
@@ -735,7 +742,7 @@
 
         scene mensaje_pedido with dissolve
 
-        fran_int "¿Tanto sale? Bueno, es una ocasión especial."
+        fran_int "¡Bien! Vuelvo a casa así ordeno un poco."
 
     label acto2_escena19:
 
@@ -900,11 +907,12 @@
 
         pause
 
-        scene pizzeria
+        scene calle
         show fran_largo_normal
         with dissolve
 
         fran_int "Una buena muzza nunca falla."
+        fran_int "Vuelvo a casa así ordeno un poco."
 
     label acto2_escena27:
 
@@ -915,23 +923,20 @@
         show mar_normal at der
         with dissolve
 
-        ma "Che, ¿te estás dejando el pelo largo?"
-        ma "Te creció un montón desde ayer."
+        ma "Che, ¿te hiciste algo en el pelo?"
 
         hide fran_largo_normal
         show fran_largo_sorpresa at izq
         with dissolve
 
-        fran_int "¿Tanto se nota?"
+        fran_int "No puedo decirle nada. Tengo que mentirle."
 
     label menu_pelo_pizza:
         menu:
             "Me lo estoy dejando crecer, quería probar algo distinto":
-                $ curso_peluqueria = False
                 jump acto2_escena28
 
             "No tuve tiempo de ir a la peluquería":
-                $ curso_peluqueria = True
                 jump acto2_escena29
 
     label acto2_escena28:
@@ -962,7 +967,7 @@
         show mar_normal at der
         with dissolve
 
-        ma "Te veo distinto. ¿En qué andás?"
+        ma "¿Y a qué se debe este manjar culinario?"
 
         fran "Estoy juntando para abrir mi local de comida."
 
@@ -970,7 +975,7 @@
         show mar_alivio at der
         with dissolve
 
-        ma "¡Qué bueno, Fran! ¿Y de dónde sacaste la plata?"
+        ma "¡Qué bueno, Fran! ¿Pudiste conseguir un trabajo por fin?"
 
         hide fran_largo_normal
         show fran_largo_sorpresa at izq
@@ -1031,6 +1036,8 @@
 
         pause 3.0
 
+        scene black with fade
+
     #Rutas juntas
 
     label acto2_escena34:
@@ -1040,7 +1047,7 @@
         with dissolve
 
         fran_int "Hacía mucho que no la pasaba tan bien."
-        fran_int "Una aplicación más y estoy más cerca del local."
+        fran_int "¿Qué tan difícil puede ser aguantar un tiempo sin bañarse? La paga es muy buena."
 
         stop music fadeout 2.0
 
@@ -1058,7 +1065,7 @@
         show fran_semana_triste
         with dissolve
 
-        fran_int "No aguanto esta picazón. Lo único que quiero es una ducha."
+        fran_int "No aguanto esta picazón. Al final es más difícil de lo que creía."
         fran_int "Bueno, a la clínica. ¿Cómo voy?"
 
     label menu_ida_clinica:
@@ -1071,13 +1078,20 @@
 
     label acto2_escena35:
 
-        scene calle
-        show fran_semana_triste
-        with dissolve
+        scene black with fade
 
-        rem "Uf… ¿no sentís olor a algo? Capaz es el motor."
+        # Provisorio: no hay sonido de auto, se usa el del colectivo que pasa
+        play sound auto_movimiento
 
-        fran_int "No es el motor."
+        pause 2.0
+
+        scene remis_aromatizante with dissolve
+
+        rem "Uf… ¿no sentís olor a algo?"
+
+        fran "Debe venir de afuera."
+
+        fran_int "La verdad es que es mío. Ni yo me aguanto."
 
         jump acto2_escena37
 
@@ -1121,6 +1135,19 @@
 
         hide vineta
         show fran_semana_normal at izq
+        show doc_normal at der
+        with dissolve
+
+        fran "Doctor, ¿y cómo sabe que no me mojé el pelo?"
+
+        hide doc_normal
+        show doc_mani at der
+        with dissolve
+
+        doc "El producto reacciona violentamente al contacto con el agua y con cualquier objeto afilado."
+        doc "Te lo expliqué mientras te secaba el pelo."
+
+        hide doc_mani
         show doc_normal at der
         with dissolve
 
@@ -1172,7 +1199,7 @@
     label menu_garita:
         menu:
             "Personas":
-                fran "Disculpá, ¿pasó el 60?"
+                fran "Disculpá, ¿pasó el 45?"
 
                 per "No sé, no sé. Alejate, por favor."
 
@@ -1208,6 +1235,9 @@
         fran_int "¿Qué…? ¡¿Qué me está pasando?!"
 
         ado "¡Miralo! ¡Parece un yeti! ¡Grabalo!"
+
+        fran_int "¡Oh, no! Esto me va a traer problemas."
+        fran_int "¡Tengo que volver a casa!"
 
         scene black with fade
 
@@ -1303,11 +1333,10 @@
         show mar_preo at der
         with dissolve
 
-        ma "Eras vos… Vi el video. No te reconocí por la cara, sino por la campera."
+        ma "¡Vi un monstruo entrando a tu departamento, pero te reconocí por la campera!"
         ma "¿Qué te pasó? Vení, dejame que te ayude a cortar ese pelo."
 
-        if curso_peluqueria:
-            ma "Algo de peluquería me acuerdo, ¿viste?"
+        ma "¿Tenés una máquina de cortar o unas tijeras por acá?"
 
         fran_int "No le puedo contar nada. Si le cuento, rompo el trato."
 

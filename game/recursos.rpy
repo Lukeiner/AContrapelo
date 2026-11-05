@@ -101,6 +101,7 @@ image comedor_pizza = "images/Background/Comedor_pizza.jpg"
 image bano = "images/Background/Bano.jpg"
 image computadora = "images/Background/Computadora.jpg"
 image calle = "images/Background/Calle.jpg"
+image remis_aromatizante = "images/Background/Remis_aromatizante.jpg"
 image parada = "images/Background/Parada_micro.jpg"
 image parada_gente = "images/Background/Parada_gente.jpg"
 image parada_vacia = "images/Background/Parada_vacia.jpg"
@@ -209,6 +210,7 @@ define audio.golpes_puerta = "audio/sfx/golpes_puerta.ogg"
 define audio.heladera_puerta = "audio/sfx/heladera_puerta.ogg"
 define audio.heladera_zumbido = "audio/sfx/heladera_zumbido.ogg"
 define audio.maquina_cortar = "audio/sfx/maquina_cortar.ogg"
+define audio.auto_movimiento = "audio/sfx/auto_movimiento.ogg"
 define audio.mate_sorbido = "audio/sfx/mate_sorbido.ogg"
 define audio.mouse_tipeo = "audio/sfx/mouse_tipeo.ogg"
 define audio.pava_silbido = "audio/sfx/pava_silbido.ogg"
@@ -229,9 +231,6 @@ default cena_sushi = False
 
  #A2E45: a que decision vuelve el final malo
 default vuelta_final_malo = "menu_decision9"
-
- #A2E29: si Maria conto que hizo un curso de peluqueria, lo recuerda en A2E44
-default curso_peluqueria = False
 
  #A1E3
 default mozo_visto = False
