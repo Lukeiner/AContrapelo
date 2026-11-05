@@ -295,6 +295,8 @@
 
         play sound bocina_auto
 
+        fran_int "¿Eh? ¿Qué hace tanta gente amontonada ahí?"
+
         hide fran_triste with dissolve
 
         scene parada_gente with dissolve
@@ -322,7 +324,7 @@
         show fran_triste
         with dissolve
 
-        fran_int "Se nota que él no necesita plata. El alquiler no se paga solo."
+        fran_int "¿Tan mala será la oferta? Bueno, ya que estoy acá, entro a preguntar."
 
     label acto1_escena8:
 
@@ -378,13 +380,15 @@
 
         doc "Son tres aplicaciones y cobrás en cada una."
         doc "Por la primera, 6000 dólares."
-        doc "Condiciones: no lavarte ni cortarte el pelo mientras dure el tratamiento, y no contarle a nadie."
+        doc "Las condiciones a cumplir son que no te laves ni te cortes el pelo durante todo el tratamiento."
+        doc "Y firmar un acuerdo de confidencialidad para no hablar del tema con nadie."
 
         hide doc_normal
         show doc_eno at der
         with dissolve
 
         doc "Si no cumplís, devolvés la plata y te embargo los bienes."
+        doc "Así de fácil es la cosa."
         doc "¿Aceptás?"
 
         hide fran_normal
@@ -410,8 +414,7 @@
         fran "Es demasiado para mí."
         fran "Mejor lo dejamos acá."
 
-        doc "¡Es por la ciencia!"
-        doc "Te estás perdiendo la oportunidad de tu vida."
+        doc "Te estás perdiendo una oportunidad única en la vida."
 
         stop music fadeout 2.0
 
@@ -432,6 +435,10 @@
         scene mensaje_viernes with dissolve
 
         fran_int "Otra vez. No se cansa."
+
+        scene black with fade
+
+        "Al día siguiente"
 
     label acto1_escena11:
 
@@ -530,7 +537,7 @@
         show doc_normal at der
         with dissolve
 
-        doc "No, no. Solo dejame anotar."
+        doc "No, no. Dejame anotar algunas cosas primero."
 
         hide fran_normal
         hide doc_normal
@@ -538,6 +545,8 @@
         with dissolve
 
         pause 3.0
+
+        doc "Ok, todo listo. Acá tenés tu primera paga."
 
         play sound cajon_abre
         show vineta sobre at vineta_pos with dissolve
@@ -551,9 +560,9 @@
 
         fran "¿Todo esto es para mí?"
 
-        doc "Nos vemos en una semana."
-        doc "Nada de agua, nada de tijera"
-        doc "y ni una palabra a nadie."
+        doc "Sí, todo tuyo. Nos vemos en una semana."
+        doc "Y acordate: nada de agua ni tijeras."
+        doc "Y ni una palabra a nadie."
 
         hide fran_sorpresa
         show fran_normal at izq
@@ -638,7 +647,7 @@
 
                 scene mensaje_comprobante with dissolve
 
-                fran_int "Por cómo me persigue, parece que le encanta apurarme."
+                fran_int "Uno diría que se pondría contento porque le pagué."
 
                 scene hab_ordenada
                 show fran_largo_normal at lado_der
@@ -715,7 +724,8 @@
         show fran_largo_normal
         with fade
 
-        fran_int "Tengo que invitar a María a cenar."
+        fran_int "Tendría que invitar a María a cenar algo. Le tengo que devolver como mil tápers."
+        fran_int "Pero ¿qué podríamos cenar?"
         fran_int "¿Sushi, como el que me hacía Hana de chico? ¿O una buena pizza, que no falla nunca?"
 
     label menu_comida:
@@ -746,6 +756,8 @@
 
     label acto2_escena19:
 
+        scene black with fade
+
         play music tema_casa fadeout 1.0 fadein 1.0 volume 0.6
         play sound golpes_puerta
         queue sound puerta_abre
@@ -754,6 +766,10 @@
         show fran_largo_normal at izq
         show mar_normal at der
         with dissolve
+
+        ma "¡Hola, Fran! ¿Cómo andás?"
+
+        fran "¡Hola, Mari! Bien, pasá. Ya llegó el pedido."
 
         ma "Traje agua con gas."
 
@@ -783,6 +799,18 @@
         ma "El de abajo queda fijo; el de arriba aprieta."
         ma "Y antes de comer se dice \"itadakimasu\"."
 
+        hide fran_largo_normal
+        hide mar_alivio
+        show vineta rezo at vineta_pos
+        with dissolve
+
+        pause 3.0
+
+        hide vineta
+        show fran_largo_normal at izq
+        show mar_alivio at der
+        with dissolve
+
         fran "Hana siempre me lo decía."
         fran "Ella y Kutetsu me cuidaron un año y medio cuando era chico."
 
@@ -804,6 +832,13 @@
         ma "Con más razón. Agarrá el palillo, dale."
         ma "El de abajo fijo, el de arriba aprieta."
         ma "Y antes de comer se dice \"itadakimasu\"."
+
+        hide fran_largo_normal
+        hide mar_alivio
+        show vineta rezo at vineta_pos
+        with dissolve
+
+        pause 3.0
 
     label acto2_escena22:
 
@@ -916,12 +951,22 @@
 
     label acto2_escena27:
 
+        scene black with fade
+
         play music tema_casa fadeout 1.0 fadein 1.0 volume 0.6
 
         scene comedor_noche
         show fran_largo_normal at izq
         show mar_normal at der
         with dissolve
+
+        ma "¡Hola, Fran! Traje la gaseosa, como te prometí."
+
+        fran "¡Hola, Mari! Pasá, ponete cómoda."
+
+        ma "Qué raro verte tan contento. Hacía rato que no te veía así."
+
+        fran "Se me están acomodando un poco las cosas."
 
         ma "Che, ¿te hiciste algo en el pelo?"
 
@@ -1273,7 +1318,9 @@
             "Boceto":
                 scene boceto with dissolve
 
-                fran_int "Por esto lo hago. Una aplicación más y es mío."
+                "Meta para el local: USD 15000 / USD 30000"
+
+                fran_int "Por esto lo hago. Ya junté 15000 dólares y me faltan otros 15000."
 
                 scene hab_int
                 show fran_muy_normal
