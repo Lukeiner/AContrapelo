@@ -3,6 +3,7 @@
     #A1E0
 
     scene black
+    play music tema_principal fadein 1.0
     show text "GRUPO PENTANILO PRESENTA" at truecenter with Dissolve(1.0)
     pause 5
     hide text with Dissolve(1.0)
@@ -15,7 +16,11 @@
 
     label acto1_escena1:
 
+        stop music fadeout 1.0
+
         scene hab_int with dissolve
+
+        play sound celular_vibra
 
         pause 1.0
 
@@ -34,6 +39,8 @@
 
     label acto1_escena2:
 
+        play music tema_casa fadein 2.0
+        
         hide fran_triste
         show fran_normal at center
         with dissolve
@@ -92,12 +99,14 @@
     fran_int "A ver si hay algo en gastronomía para arrancar tranqui."
 
     scene computadora with dissolve
+    play sound mouse_tipeo
 
     label menu_trabajos:
         menu (screen="choice_pc"):
             "Buscar trabajo de mozo" if not mozo_visto:
 
                 $ mozo_visto = True
+                play sound mouse_tipeo
 
                 "Requisito: dos años de experiencia."
                 "Rechazado."
@@ -113,6 +122,7 @@
             "Buscar trabajo de repartidor" if not repartidor_visto:
 
                 $ repartidor_visto = True
+                play sound mouse_tipeo
 
                 "Requisito: moto propia."
                 "Rechazado."
@@ -128,6 +138,7 @@
             "Buscar trabajo de ayudante de cocina" if not ayudante_visto:
 
                 $ ayudante_visto = True
+                play sound mouse_tipeo
 
                 "Página saturada. Todas las postulaciones fueron rechazadas."
                 
@@ -154,8 +165,12 @@
         label menu_cocina:
             menu:
                 "Heladera":
+                    play sound heladera_puerta
+                    play ambiente heladera_zumbido fadein 0.5
                     show vineta heladera at vineta_pos with dissolve
                     fran_int "Tremendo banquete."
+                    stop ambiente fadeout 0.5
+                    play sound heladera_puerta
                     hide vineta with dissolve
 
                     jump menu_cocina
@@ -173,6 +188,7 @@
         label sub_menu_mate:
             menu:
                 "Preparar mate":
+                    play sound pava_silbido
                     show vineta yerba at vineta_pos with dissolve
                     fran_int "Ya ni para la yerba me alcanza."
                     hide vineta
@@ -180,7 +196,8 @@
                     with dissolve
                     fran_int "Si no fuera por María, me moría de hambre."
                     
-                    #Golpes
+                    play sound golpes_puerta
+
                     hide fran_triste
                     show fran_normal
                     with dissolve
@@ -214,6 +231,7 @@
         label sub_menu_conocer:
             menu:
                 "Atender la puerta":
+                    play sound puerta_abre
                     show fran_normal at izq
                     show mar_alivio at der
                     with dissolve
@@ -254,20 +272,28 @@
 
         pause 3.0
 
+        play sound puerta_cierra
+
         hide vineta
         show fran_normal at izq
         with dissolve
 
         fran_int "Bueno, debería hacerle caso a Mari, después de terminarme el termo."
+        
+        play sound mate_sorbido
 
     label acto1_escena6:
 
+        play music tema_barrio fadeout 1.0 fadein 1.0
+        
         scene calle with dissolve
 
         show fran_triste with dissolve
 
         fran_int "Capaz pueda vender algo de ropa."
         fran_int "Ya no se me ocurre nada."
+        
+        play sound bocina_auto
 
         hide fran_triste with dissolve
 
@@ -286,6 +312,7 @@
 
     label acto1_escena7:
 
+        play sound puerta_golpe
         scene candidato with dissolve
         with hpunch
 
@@ -299,6 +326,8 @@
 
     label acto1_escena8:
 
+        play music tema_clinica fadeout 1.0 fadein 1.0
+        
         scene consultorio with dissolve
 
         show fran_normal at izq with dissolve
@@ -388,6 +417,8 @@
         doc "¡Es por la ciencia!"
         doc "Te estás perdiendo la oportunidad de tu vida."
 
+        stop music fadeout 2.0
+
         hide fran_normal
         hide doc_eno
         with dissolve
@@ -401,6 +432,7 @@
         fran_int "¿Hice bien? Con esa plata pagaba todo..."
         fran_int "y hasta capaz invitaba a María a comer algo."
 
+        play sound celular_vibra
         scene mensaje_viernes with dissolve
 
         fran_int "Otra vez. No se cansa."
@@ -408,6 +440,8 @@
     label acto1_escena11:
 
         scene hab_int with dissolve
+
+        play sound celular_vibra
 
         pause 1.0
 
@@ -430,6 +464,7 @@
         label menu_normal:
             menu:
                 "Volver a la última decisión":
+                    play music tema_clinica fadein 1.0
                     scene consultorio
                     show fran_triste at izq
                     show doc_normal at der
@@ -465,11 +500,14 @@
 
         fran_int "Shampoo de manzana... qué científicamente avanzado."
 
+        play ambiente secadora fadein 0.3
         show vineta secador at vineta_pos with dissolve
 
         doc "Mirá, al oxidarse, el péptido reacciona con la queratina del folículo..."
         doc "...lo que acelera la mitosis capilar en un cuatrocientos por ciento, según mis cálculos..."
         fran_int "Con tanta palabrería y el secador no escuché nada."
+        
+        stop ambiente fadeout 0.5
 
         hide vineta
         show fran_normal at izq
@@ -477,6 +515,8 @@
         with dissolve
 
         doc "Ahora la crema. Solo se aplica acá, en ambiente estéril."
+        
+        play sound crema_squish
 
         hide fran_normal
         hide doc_mani
@@ -503,6 +543,7 @@
 
         pause 3.0
 
+        play sound cajon_abre
         show vineta sobre at vineta_pos with dissolve
 
         "Recibiste USD 6000"
@@ -534,6 +575,8 @@
 
     label acto2_escena13:
 
+        play music tema_barrio fadeout 1.0 fadein 1.0
+        
         scene parada
         show fran_largo_normal
         with dissolve
@@ -558,6 +601,9 @@
 
     label acto2_escena14:
 
+        play music tema_casa fadeout 1.0 fadein 1.0
+        play sound heladera_puerta
+        
         scene comedor_noche
         show fran_largo_normal
         with dissolve
@@ -638,6 +684,8 @@
 
     label acto2_escena17:
 
+        play music tema_barrio fadeout 1.0 fadein 1.0
+        
         scene calle
         show fran_largo_normal
         with dissolve
@@ -686,6 +734,10 @@
 
     label acto2_escena19:
 
+        play music tema_casa fadeout 1.0 fadein 1.0 volume 0.6
+        play sound golpes_puerta
+        queue sound puerta_abre
+        
         scene comedor_noche
         show fran_largo_normal at izq
         show mar_normal at der
@@ -720,6 +772,8 @@
 
     label acto2_escena21:
 
+        play sound cajon_abre
+        
         hide mar_normal
         show mar_det at der
         with dissolve
@@ -836,6 +890,8 @@
 
     label acto2_escena27:
 
+        play music tema_casa fadeout 1.0 fadein 1.0 volume 0.6
+        
         scene comedor_noche
         show fran_largo_normal at izq
         show mar_normal at der
@@ -959,6 +1015,8 @@
         fran_int "Hacía mucho que no la pasaba tan bien."
         fran_int "Una aplicación más y estoy más cerca del local."
 
+        stop music fadeout 2.0
+
         scene black with fade
 
         "6 días después"
@@ -1002,6 +1060,8 @@
 
     label acto2_escena37:
 
+        play music tema_clinica fadein 1.0
+        
         scene consultorio
         show vineta medicion at vineta_pos
         with dissolve
@@ -1016,6 +1076,8 @@
         doc "¡Siete centímetros en siete días! ¿Picazón? ¿Olor? ¿Sueños raros?"
 
         fran "Todo eso, sí."
+        
+        play sound crema_squish
 
         hide fran_largo_normal
         hide doc_mani
@@ -1045,6 +1107,8 @@
         doc "Tomá tu plata y andate, que me apestás el consultorio."
 
         "Recibiste USD 11000"
+        
+        stop music fadeout 1.5
 
         scene centro
         show fran_largo_triste
@@ -1102,6 +1166,8 @@
         ado "¡Miralo! ¡Parece un yeti! ¡Grabalo!"
 
         scene black with fade
+
+        play sound puerta_cierra
 
     label acto2_escena41:
 
@@ -1177,6 +1243,8 @@
 
             "Máquina de cortar pelo":
                 fran_int "Dos minutos y se termina todo. Vuelvo a ser yo…"
+                
+                play sound golpes_puerta
 
                 jump acto2_escena44
 
@@ -1190,6 +1258,8 @@
 
         # Provisorio hasta tener la imagen del mensaje (AR2-08)
         "Mensaje de María: ¡Fran! Soy yo. Abrí, por favor."
+
+        play sound puerta_abre
 
         show fran_muy_triste at izq
         show mar_preo at der
@@ -1214,6 +1284,8 @@
                 jump acto2_escena45
 
             "No decir nada y cerrarle la puerta":
+                play sound puerta_cierra
+
                 # Provisorio hasta que exista A3E46
                 scene black with fade
 

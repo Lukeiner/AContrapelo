@@ -146,6 +146,32 @@ style choice_pc_button_text is button_text:
     hover_color "#ffffff"
 
 
+# Audio #
+
+init python:
+    renpy.music.register_channel("ambiente", mixer="sfx", loop=True)
+
+define audio.tema_barrio = "audio/musica/tema_barrio.ogg"
+define audio.tema_casa = "audio/musica/tema_casa.ogg"
+define audio.tema_clinica = "audio/musica/tema_clinica.ogg"
+define audio.tema_principal = "audio/musica/tema_principal.ogg"
+
+define audio.bocina_auto = "audio/sfx/bocina_auto.ogg"
+define audio.cajon_abre = "audio/sfx/cajon_abre.ogg"
+define audio.celular_vibra = "audio/sfx/celular_vibra.ogg"
+define audio.crema_squish = "audio/sfx/crema_squish.ogg"
+define audio.golpes_puerta = "audio/sfx/golpes_puerta.ogg"
+define audio.heladera_puerta = "audio/sfx/heladera_puerta.ogg"
+define audio.heladera_zumbido = "audio/sfx/heladera_zumbido.ogg"
+define audio.mate_sorbido = "audio/sfx/mate_sorbido.ogg"
+define audio.mouse_tipeo = "audio/sfx/mouse_tipeo.ogg"
+define audio.pava_silbido = "audio/sfx/pava_silbido.ogg"
+define audio.puerta_abre = "audio/sfx/puerta_abre.ogg"
+define audio.puerta_cierra = "audio/sfx/puerta_cierra.ogg"
+define audio.puerta_golpe = "audio/sfx/puerta_golpe.ogg"
+define audio.secadora = "audio/sfx/secadora.ogg"
+
+
 # Variables Booleanas
 
  #A1E2
