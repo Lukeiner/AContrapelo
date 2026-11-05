@@ -6,7 +6,11 @@ define ma = Character ("María")
 define doc = Character ("Doctor Malandra")
 define cand = Character("Candidato")
 define per = Character("Persona")
-define vec = Character ("Vecinos")
+define vec = Character ("Vecino")
+define rem = Character("Remisero")
+define pas = Character("Pasajera")
+define col = Character("Colectivero")
+define ado = Character("Adolescentes")
 
 # Posiciones para dos personajes en escena #
 
@@ -24,6 +28,19 @@ image fran_normal = "images/Sprites/Francisco/Francisco_normal.png"
 image fran_triste = "images/Sprites/Francisco/Francisco_bajon.png"
 image fran_sorpresa = "images/Sprites/Francisco/Francisco_sorprendido.png"
 image fran_enojo = "images/Sprites/Francisco/Francisco_serio.png"
+
+# Pelo largo: desde la primera dosis #
+
+image fran_largo_normal = "images/Sprites/Francisco/Francisco_pelo_normal.png"
+image fran_largo_triste = "images/Sprites/Francisco/Francisco_pelo_bajon.png"
+image fran_largo_sorpresa = "images/Sprites/Francisco/Francisco_pelo_sorprendido.png"
+image fran_largo_enojo = "images/Sprites/Francisco/Francisco_pelo_serio.png"
+
+# Pelo muy largo: provisorio con el pelo normal hasta tener el sprite (AR2-02) #
+
+image fran_muy_normal = "images/Sprites/Francisco/Francisco_normal.png"
+image fran_muy_triste = "images/Sprites/Francisco/Francisco_bajon.png"
+image fran_muy_sorpresa = "images/Sprites/Francisco/Francisco_sorprendido.png"
 
 # Sprites de Maria #
 
@@ -46,19 +63,28 @@ image hab_int = "images/Background/Habitacion_dia.jpg"
 image hab_noche = "images/Background/Habitacion_noche.jpg"
 image cocina = "images/Background/Cocina.jpg"
 image comedor_dia = "images/Background/Comedor_dia.jpg"
+image comedor_noche = "images/Background/Comedor_noche.jpg"
+image bano = "images/Background/Bano.jpg"
 image computadora = "images/Background/Computadora.jpg"
 image calle = "images/Background/Calle.jpg"
+image calle_atardecer = Transform("images/Background/Calle.jpg", matrixcolor=TintMatrix("#ffbe8c"))
 image parada = "images/Background/Parada_micro.jpg"
 image centro = "images/Background/Centro_Investigacion.jpg"
 image sala = "images/Background/Clinica_Sala.jpg"
 image consultorio = "images/Background/Clinica_consultorio.jpg"
 image pizzeria = "images/Background/Pizzeria.jpg"
+
 # Imagenes a pantalla completa #
 
 image boceto = "images/Escenas/Boceto_local.jpg"
 image mensaje_alquiler = "images/Escenas/Mensaje_alquiler.jpg"
 image mensaje_viernes = "images/Escenas/Mensaje_viernes.jpg"
 image mensaje_changa = "images/Escenas/Mensaje_changa.jpg"
+image mensaje_comprobante = "images/Escenas/Mensaje_comprobante.jpg"
+
+# Provisorio hasta tener la imagen del pelo (AR2-10) #
+
+image pelo_pantalla = Solid("#1c120b")
 
 # Viñetas del tratamiento: se muestran en un recuadro sobre el consultorio #
 
@@ -115,6 +141,12 @@ style choice_pc_button_text is button_text:
  #A1E2
 default celular_visto = False
 default boceto_visto = False
+
+ #A2E17: el final del Acto 3 depende de esta eleccion
+default cena_sushi = False
+
+ #A2E45: a que decision vuelve el final malo
+default vuelta_final_malo = "menu_decision9"
 
  #A1E3
 default mozo_visto = False

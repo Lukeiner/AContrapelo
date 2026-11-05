@@ -515,11 +515,13 @@
         fran_int "Con esto pago todo y me sobra."
         fran_int "Mejor vuelvo en colectivo."
 
+    #Acto 2
+
     label acto2_escena13:
 
-        scene parada with dissolve
-
-        show fran_normal
+        scene parada
+        show fran_largo_normal
+        with dissolve
 
         fran "Disculpá, ¿pasó hace mucho el 60?"
 
@@ -527,22 +529,25 @@
         per "Che, qué pelo brilloso tenés."
         per "¿Qué te ponés?"
 
-        hide fran_normal
-
-        show fran_sorpresa
+        hide fran_largo_normal
+        show fran_largo_sorpresa
+        with dissolve
 
         fran "¿Mi pelo? Shampoo de manzana."
 
-        fran_int "- Si supiera..."
+        hide fran_largo_sorpresa
+        show fran_largo_normal
+        with dissolve
 
-    
+        fran_int "Si supiera…"
+
     label acto2_escena14:
 
-        scene cocina
+        scene comedor_noche
+        show fran_largo_normal
+        with dissolve
 
-        show fran_normal
-
-        fran_int "- Qué lindo es poder comprar comida."
+        fran_int "Qué lindo es poder comprar comida."
         fran_int "La heladera se va a asustar."
 
         scene black with fade
@@ -551,76 +556,76 @@
 
     label acto2_escena15:
 
-        scene hab_int with fade
+        scene hab_int
+        show fran_largo_normal
+        with fade
 
-        fran_int "- Hace rato no dormía tan bien."
+        fran_int "Hace rato no dormía tan bien."
 
-        label menu_habitacion_2:
+    label menu_habitacion_2:
         menu:
             "Ver el celular":
 
-                scene mensaje_alquiler with dissolve
+                scene mensaje_comprobante with dissolve
 
-                fran_int "Qué manera de ser molesto. ¿No me puede dejar un día tranquilo?"
+                fran_int "Por cómo me persigue, parece que le encanta apurarme."
 
                 scene hab_int
-                show fran_normal at center
+                show fran_largo_normal
                 with dissolve
 
-                jump menu_habitacion
-            
+                jump menu_habitacion_2
+
             "Examinar el boceto":
-                
+
                 scene boceto with dissolve
 
-                "Meta para el loca: USD 6000 / USD 25000"
-
-                scene hab_int
-                show fran_normal at center
-                with dissolve
+                "Meta para el local: USD 4000 / USD 30000"
 
                 fran_int "Por fin este sueño no parece tan lejano."
-            
+
+                scene hab_int
+                show fran_largo_normal
+                with dissolve
+
+                jump menu_habitacion_2
+
             "Puerta al comedor":
-                jump submenu_habitacion_2
-        
-        label submenu_habitacion_2:
-            menu:
-                "Ir al comedor":
-                    jump acto2_escena16
-                
-                "Todavía no":
-                    jump acto2_escena15
-    
+                menu:
+                    "Ir al comedor":
+                        jump acto2_escena16
+
+                    "Todavía no":
+                        jump menu_habitacion_2
+
     label acto2_escena16:
 
-        scene comedor_dia with fade
-
-        show fran_normal with fade
+        scene comedor_dia
+        show fran_largo_normal
+        with dissolve
 
         fran_int "Tendría que aprovechar el día y salir a pasear un rato."
 
-        label menu_escena16:
-            menu:
-                "Facturas pagadas":
-                    fran "Todas pagadas. Que lindo es no preocuparse."
-                
-                "Puerta de salida":
-                    jump sub_menuescenario16
-        
-        label sub_menuescenario16:
-            menu:
-                "Salir a pasear":
-                    jump acto2_escena17
+    label menu_escena16:
+        menu:
+            "Facturas pagadas":
+                fran_int "Todas pagadas. Qué lindo es no preocuparse."
 
-                "Todavía no":
-                    jump acto2_escena16
-    
+                jump menu_escena16
+
+            "Puerta de salida":
+                menu:
+                    "Salir a pasear":
+                        jump acto2_escena17
+
+                    "Todavía no":
+                        jump menu_escena16
+
     label acto2_escena17:
 
-        scene comedor_dia with fade
-
-        show fran_normal
+        scene calle
+        show fran_largo_normal
+        with dissolve
 
         fran_int "No lavarse ni cortarse el pelo..."
         fran_int "¿Y el cuerpo?"
@@ -631,121 +636,597 @@
 
         vec "No, Fran, si todos sabemos que andás corto de plata."
 
-        fran "Por fin me están saliendo las cosas"
-        fran "Acépteme esto"
+        fran "Por fin me están saliendo las cosas."
+        fran "Acépteme esto."
 
-        scene pizzeria with fade
-
+        # Provisorio: va frente a la pizzeria de dia (AR2-05)
         fran_int "Tengo que invitar a María a cenar."
         fran_int "¿Sushi, en honor a Hana? ¿O una buena pizza, que no falla nunca?"
 
-        hide fran_normal
+    label menu_comida:
+        menu:
+            "Sushi":
+                $ cena_sushi = True
+                jump acto2_escena18
 
-        label menu_comida:
-            scene pizzeria with fade
+            "Pizza":
+                $ cena_sushi = False
+                jump acto2_escena26
 
-            menu:
-                "Sushi":
+    #Ruta sushi
 
-                    jump acto2_escena18
-
-                "Pizza":
-
-                    jump acto2_escena26
-    
     label acto2_escena18:
 
-        scene calle with fade
-        "Mensaje de Francisco - ¡Hola Mari! ¿Cenamos hoy? Invito yo, pido sushi. "
+        scene calle_atardecer
+        with dissolve
 
-        "Mensaje de Maria - ¿Vos invitando? ¿Quién sos y qué hiciste con Fran?"
-        "Dale, a las 9"
+        # Provisorio hasta tener las imagenes de los mensajes (AR2-08)
+        "Mensaje de Francisco: ¡Hola, Mari! ¿Cenamos hoy? Invito yo, pido sushi."
+        "Mensaje de María: ¿Vos invitando? ¿Quién sos y qué hiciste con Fran? Dale, a las 9."
+        "Pedido confirmado — Combinado 30 piezas"
 
-        "Pedido confirmado - Combinado 30 piezas"
+        show fran_largo_sorpresa with dissolve
 
-        show fran_sorpresa
-        fran_int "¿Tanto sale? Bueno, es una ocasión especial"
-        hide fran_sorpresa
-    
+        fran_int "¿Tanto sale? Bueno, es una ocasión especial."
+
     label acto2_escena19:
 
-        scene comedor_dia with fade
+        scene comedor_noche
+        show fran_largo_normal at izq
+        show mar_normal at der
+        with dissolve
 
-        show mar_normal
+        ma "Traje agua con gas."
+        ma "Se ve rico… ¿probás vos primero?"
 
-        mar "Traje agua con gas."
-        mar "Se ve rico... ¿probás vos primero?"
+    label menu_cena:
+        menu:
+            "Pedirle ayuda a María":
+                jump acto2_escena20
 
-        label menu_cena:
-            menu:
-                "Pedirle ayuda a María":
-                    jump acto2_escena20
-                
-                "Ir a buscar un tenedor":
-                    jump acto2_escena21
-        
-        hide mar_normal
-        
+            "Ir a buscar un tenedor":
+                jump acto2_escena21
+
     label acto2_escena20:
-        scene comedor
-
-        show fran_normal
 
         fran "Hasta partir los palitos me acuerdo. Después, ni idea."
 
-        hide fran_normal
+        hide mar_normal
+        show mar_alivio at der
+        with dissolve
 
-        show mar_alivio
-        mar "El de abajo queda fijo; el de arriba aprieta."
-
-        show mar_alivio with fade
-
-        mar "Y antes de comer se dice Itadakimasu"
-
-        hide mar_alivio
-
-        show fran_normal
+        ma "El de abajo queda fijo; el de arriba aprieta."
+        ma "Y antes de comer se dice \"itadakimasu\"."
 
         fran "Hana siempre me lo decía."
-        fran "Ella y Kutetsu me cuidaron un año y medi cuando era chico."
+        fran "Ella y Kutetsu me cuidaron un año y medio cuando era chico."
 
-    label acto2_escena21
+        jump acto2_escena22
 
-        scene comedor with fade
+    label acto2_escena21:
 
-        show mar_det
+        hide mar_normal
+        show mar_det at der
+        with dissolve
 
-        mar "¡Jaja! ¡Comer esta obra de arte con tenedor es una falta de respeto!"
-
-        hide mar_det
-
-        show fran_normal
+        ma "¡Jaja! ¡Comer esta obra de arte con tenedor es una falta de respeto!"
 
         fran "Tenés razón. Si Hana me viera..."
         fran "Ella y Kutetsu me cuidaron un año y medio cuando era chico."
 
-        hide fran_normal
+        hide mar_det
+        show mar_alivio at der
+        with dissolve
 
-        show mar_alivio
+        ma "Con más razón. Agarrá el palillo, dale."
+        ma "El de abajo fijo, el de arriba aprieta."
+        ma "Y antes de comer se dice \"itadakimasu\"."
 
-        mar "Con más razón. Agarrá el palillo, dale."
-        mar "El de abajo fijo, el de arriba aprieta."
+    label acto2_escena22:
 
-        show mar_alivio with fade
+        hide mar_alivio
+        show mar_det at der
+        with dissolve
 
-        mar "Y antes de comer se dice Itadakimasu"
+        ma "¡Pará! El jengibre va entre pieza y pieza, para limpiar el gusto."
+        ma "Y este arroz está frío, tiene que estar tibio y con vinagre."
 
+        hide fran_largo_normal
+        show fran_largo_sorpresa at izq
+        with dissolve
 
+        fran_int "¿Desde cuándo María sabe tanto de esto?"
 
+    label menu_pregunta_sushi:
+        menu:
+            "¿Cómo sabés tanto?":
+                jump acto2_escena23
 
-    
+            "¿Por qué no lo hacés vos?":
+                jump acto2_escena24
 
+    label acto2_escena23:
 
+        hide mar_det
+        show mar_alivio at der
+        with dissolve
 
+        ma "Hice un curso de cocina japonesa."
+        ma "Mi sueño era ser itamae, chef de sushi, y tener mi barra."
 
+        hide mar_alivio
+        show mar_preo at der
+        with dissolve
 
+        ma "Después se enfermó mi papá y lo tuve que dejar."
 
+        hide fran_largo_sorpresa
+        show fran_largo_triste at izq
+        with dissolve
 
+        fran_int "Y yo quejándome todo el día."
 
+        jump acto2_escena25
 
+    label acto2_escena24:
 
+        hide mar_det
+        show mar_normal at der
+        with dissolve
+
+        ma "Estudié para ser itamae, chef de sushi, pero comprar diferentes ingredientes para hacer una buena variedad de piezas es muy caro."
+        ma "No me dan los números."
+
+        hide fran_largo_sorpresa
+        show fran_largo_normal at izq
+        with dissolve
+
+        fran "Como yo con el local."
+
+        hide mar_normal
+        show mar_alivio at der
+        with dissolve
+
+        ma "Estamos los dos en la misma, Fran."
+
+    label acto2_escena25:
+
+        scene comedor_noche
+        show fran_largo_normal at izq
+        show mar_alivio at der
+        with dissolve
+
+        fran "Te propongo algo: cuando tenga mi local, la chef sos vos."
+
+        ma "Mirá que los itamae no son baratos, eh."
+
+        fran_int "Lo dije en joda… pero capaz no tanto."
+
+        jump acto2_escena34
+
+    #Ruta pizza
+
+    label acto2_escena26:
+
+        scene pizzeria
+        with dissolve
+
+        # Provisorio hasta tener las imagenes de los mensajes (AR2-08)
+        "Mensaje de Francisco: Mari, ¿cenamos hoy? Invito una muzza."
+        "Mensaje de María: ¿Vos invitando? Dale, a las 9. Llevo la gaseosa."
+
+        show fran_largo_normal with dissolve
+
+        fran_int "Una buena muzza nunca falla."
+
+    label acto2_escena27:
+
+        scene comedor_noche
+        show fran_largo_normal at izq
+        show mar_normal at der
+        with dissolve
+
+        ma "Che, ¿te estás dejando el pelo largo?"
+        ma "Te creció un montón en dos días."
+
+        hide fran_largo_normal
+        show fran_largo_sorpresa at izq
+        with dissolve
+
+        fran_int "¿Tanto se nota?"
+
+    label menu_pelo_pizza:
+        menu:
+            "Me lo estoy dejando crecer, quería probar algo distinto":
+                jump acto2_escena28
+
+            "No tuve tiempo de ir a la peluquería":
+                jump acto2_escena29
+
+    label acto2_escena28:
+
+        hide mar_normal
+        show mar_alivio at der
+        with dissolve
+
+        ma "¿Vos, algo distinto? Si usás la misma campera desde que te conozco."
+        ma "Igual te queda bien."
+
+        jump acto2_escena30
+
+    label acto2_escena29:
+
+        hide mar_normal
+        show mar_alivio at der
+        with dissolve
+
+        ma "Si querés te lo corto yo. Hice un curso de peluquería, algo me acuerdo."
+
+        fran "¡No! Digo… no, gracias. Otro día."
+
+    label acto2_escena30:
+
+        scene comedor_noche
+        show fran_largo_normal at izq
+        show mar_normal at der
+        with dissolve
+
+        ma "Te veo distinto. ¿En qué andás?"
+
+        fran "Estoy juntando para abrir mi local de comida."
+
+        hide mar_normal
+        show mar_alivio at der
+        with dissolve
+
+        ma "¡Qué bueno, Fran! ¿Y de dónde sacaste la plata?"
+
+        hide fran_largo_normal
+        show fran_largo_sorpresa at izq
+        with dissolve
+
+        fran_int "\"Ni una palabra a nadie\". No le puedo contar."
+
+    label menu_plata_pizza:
+        menu:
+            "Mentir":
+                jump acto2_escena31
+
+            "Esquivar con un chiste":
+                jump acto2_escena32
+
+    label acto2_escena31:
+
+        hide fran_largo_sorpresa
+        show fran_largo_normal at izq
+        with dissolve
+
+        fran "Me salió una changa: pintar una casa entera."
+
+        hide mar_alivio
+        show mar_normal at der
+        with dissolve
+
+        ma "¿Vos pintando? No te imagino."
+
+        jump acto2_escena33
+
+    label acto2_escena32:
+
+        hide fran_largo_sorpresa
+        show fran_largo_normal at izq
+        with dissolve
+
+        fran "Robé un banco. Shh, no le digas a nadie."
+
+        ma "Ay, tarado. Bueno, no me cuentes."
+
+    label acto2_escena33:
+
+        scene comedor_noche
+        show fran_largo_normal at izq
+        show mar_normal at der
+        with dissolve
+
+        fran "¿Y a vos cómo te va en la vida?"
+
+        ma "En el laburo, como siempre. Mucho trabajo y poca plata."
+        ma "Pero alcanza para lo de mi papá así que estamos bien."
+
+    #Rutas juntas
+
+    label acto2_escena34:
+
+        scene hab_noche
+        show fran_largo_normal
+        with dissolve
+
+        fran_int "Hacía mucho que no la pasaba tan bien."
+        fran_int "Una aplicación más y estoy más cerca del local."
+
+        scene black with fade
+
+        "6 días después"
+
+        scene hab_int
+        show fran_largo_triste
+        with fade
+
+        fran_int "No aguanto esta picazón. Lo único que quiero es una ducha."
+        fran_int "Bueno, a la clínica. ¿Cómo voy?"
+
+    label menu_ida_clinica:
+        menu:
+            "En remís":
+                jump acto2_escena35
+
+            "En colectivo":
+                jump acto2_escena36
+
+    label acto2_escena35:
+
+        scene calle
+        show fran_largo_triste
+        with dissolve
+
+        rem "Uf… ¿no sentís olor a algo? Capaz es el motor."
+
+        fran_int "No es el motor."
+
+        jump acto2_escena37
+
+    label acto2_escena36:
+
+        scene parada
+        show fran_largo_triste
+        with dissolve
+
+        pas "¿Sentiste el olor?"
+
+        fran_int "¿Lo dicen por mí?"
+
+    label acto2_escena37:
+
+        scene consultorio
+        show vineta medicion at vineta_pos
+        with dissolve
+
+        pause 2.0
+
+        hide vineta
+        show fran_largo_normal at izq
+        show doc_mani at der
+        with dissolve
+
+        doc "¡Siete centímetros en siete días! ¿Picazón? ¿Olor? ¿Sueños raros?"
+
+        fran "Todo eso, sí."
+
+        hide fran_largo_normal
+        hide doc_mani
+        show vineta crema at vineta_pos
+        with dissolve
+
+        pause 2.0
+
+        hide vineta
+        show fran_largo_normal at izq
+        show doc_normal at der
+        with dissolve
+
+        doc "Las condiciones siguen igual. Y la última paga es mucho mayor."
+
+        hide fran_largo_normal
+        show fran_largo_triste at izq
+        with dissolve
+
+        fran "Doctor, ¿no hay algo para la picazón? Aunque sea un perfume, porque la gente…"
+
+        hide doc_normal
+        show doc_shock at der
+        with dissolve
+
+        doc "¿Perfume? ¿Querés arruinar meses de trabajo? ¡Nada de nada!"
+        doc "Tomá tu plata y andate, que me apestás el consultorio."
+
+        "Recibiste USD 11000"
+
+        scene centro
+        show fran_largo_triste
+        with dissolve
+
+    label menu_vuelta_clinica:
+        menu:
+            "En colectivo":
+                jump acto2_escena38
+
+            "En remís":
+                jump acto2_escena39
+
+    label acto2_escena38:
+
+        scene parada
+        show fran_largo_triste
+        with dissolve
+
+    label menu_garita:
+        menu:
+            "Personas":
+                fran "Disculpá, ¿pasó el 60?"
+
+                per "No sé, no sé. Alejate, por favor."
+
+                jump menu_garita
+
+            "Asiento de la garita":
+                col "No, no. Así no subís, recién limpiamos."
+
+                jump acto2_escena40
+
+    label acto2_escena39:
+
+        per "¡Qué asco, bañate!"
+
+        rem "No, maestro. Tengo el auto recién tapizado."
+
+    label acto2_escena40:
+
+        scene calle
+        show fran_largo_triste
+        with dissolve
+
+        fran_int "Bueno. Caminando, entonces."
+
+        # Efecto del pelo: se completa cuando este el sprite de pelo muy largo (P2-26)
+        hide fran_largo_triste
+        show fran_muy_sorpresa
+        with Dissolve(1.5)
+
+        fran_int "¿Qué…? ¡¿Qué me está pasando?!"
+
+        ado "¡Miralo! ¡Parece un yeti! ¡Grabalo!"
+
+        scene black with fade
+
+    label acto2_escena41:
+
+        scene comedor_dia
+        show fran_muy_triste
+        with dissolve
+
+    label menu_comedor_encierro:
+        menu:
+            "Puerta de salida":
+                fran_int "Ni loco salgo así."
+
+                jump menu_comedor_encierro
+
+            "Puerta a la habitación":
+                jump acto2_escena42
+
+            "Puerta al baño":
+                jump acto2_escena43
+
+    label acto2_escena42:
+
+        scene hab_int
+        show fran_muy_normal
+        with dissolve
+
+    label menu_habitacion_encierro:
+        menu:
+            "Boceto":
+                scene boceto with dissolve
+
+                fran_int "Por esto lo hago. Una aplicación más y es mío."
+
+                scene hab_int
+                show fran_muy_normal
+                with dissolve
+
+                jump menu_habitacion_encierro
+
+            "Computadora":
+                scene computadora with dissolve
+
+                # Provisorio hasta tener la imagen del video (AR2-08)
+                "Video: EL YETI DEL CONURBANO"
+                "\"ese tipo necesita una ducha urgente\""
+                "\"llamen a zoonosis\""
+
+                show fran_muy_sorpresa with dissolve
+
+                fran_int "¿Ese soy yo?"
+
+                scene hab_int
+                show fran_muy_normal
+                with dissolve
+
+                jump menu_habitacion_encierro
+
+            "Puerta al comedor":
+                jump acto2_escena41
+
+    label acto2_escena43:
+
+        scene bano
+        show fran_muy_triste
+        with dissolve
+
+    label menu_bano:
+        menu:
+            "Espejo":
+                fran_int "Ni yo me reconozco. Y el olor… y la picazón."
+
+                jump menu_bano
+
+            "Máquina de cortar pelo":
+                fran_int "Dos minutos y se termina todo. Vuelvo a ser yo…"
+
+                jump acto2_escena44
+
+            "Puerta al comedor":
+                jump acto2_escena41
+
+    label acto2_escena44:
+
+        scene comedor_dia
+        with dissolve
+
+        # Provisorio hasta tener la imagen del mensaje (AR2-08)
+        "Mensaje de María: ¡Fran! Soy yo. Abrí, por favor."
+
+        show fran_muy_triste at izq
+        show mar_preo at der
+        with dissolve
+
+        ma "Eras vos… Vi el video. No te reconocí por la cara, sino por la campera."
+        ma "¿Qué te pasó? Vení, dejame que te ayude a cortar ese pelo."
+
+        fran_int "No le puedo contar nada. Si le cuento, rompo el trato."
+
+    label menu_decision9:
+
+        $ vuelta_final_malo = "menu_decision9"
+
+        scene comedor_dia
+        show fran_muy_triste at izq
+        show mar_preo at der
+        with dissolve
+
+        menu:
+            "Aceptar la ayuda":
+                jump acto2_escena45
+
+            "No decir nada y cerrarle la puerta":
+                # Provisorio hasta que exista A3E46
+                scene black with fade
+
+                "Continúa en el Acto 3."
+
+                return
+
+    label acto2_escena45:
+
+        show pelo_pantalla with Dissolve(1.5)
+
+        ma "¡Fran! ¡Fran, contestame!"
+
+        scene black with fade
+
+    # A3E50 tiene que entrar por aca: el guion retoma desde el mensaje del doctor
+    label final_malo_mensaje:
+
+        # Provisorio hasta tener la imagen del mensaje (AR2-08)
+        "Mensaje del Dr. Malandra: Usted rompió el contrato. No me hago responsable. Mis abogados se encargan del embargo."
+
+        "FINAL MALO — EL YETI BONAERENSE"
+        "FIN"
+
+    label menu_final_malo:
+        menu:
+            "Volver a la última decisión":
+                jump expression vuelta_final_malo
+
+            "Salir al menú":
+                return
