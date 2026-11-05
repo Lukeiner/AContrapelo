@@ -87,7 +87,8 @@ define gui.title_text_size = 75
 ## Menú principal y menús del juego ############################################
 
 ## Imágenes del menú principal y menús del juego.
-define gui.main_menu_background = "gui/main_menu.png"
+## Provisorio: el pelo que cubre la pantalla en el final malo
+define gui.main_menu_background = "images/Escenas/Pelo_pantalla.jpg"
 define gui.game_menu_background = "gui/game_menu.png"
 
 

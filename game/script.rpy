@@ -219,9 +219,9 @@
 
         label menu_conocer:
             menu:
-                "Facturas":
+                "Impuestos":
                     show fran_normal with dissolve
-                    fran_int "Luz, gas, internet... se me juntan todas."
+                    fran_int "Luz, gas, internet... se me juntan todos."
                     hide fran_normal with dissolve
                     jump menu_conocer
 
@@ -248,7 +248,7 @@
                     hide fran_normal
                     show fran_triste at izq
                     with dissolve
-                    fran "Mal. No sale nada y las facturas se me apilan."
+                    fran "Mal. No sale nada y los impuestos se me apilan."
                     fran "¿Y vos en el laburo?"
 
                     hide mar_normal
@@ -387,7 +387,7 @@
         show doc_eno at der
         with dissolve
 
-        doc "Si no cumplís, devolvés la plata y te embargo los bienes."
+        doc "Si no cumplís, devolvés la plata o te embargo los bienes."
         doc "Así de fácil es la cosa."
         doc "¿Aceptás?"
 
@@ -577,6 +577,8 @@
 
     label acto2_escena13:
 
+        scene black with fade
+
         play music tema_barrio fadeout 1.0 fadein 1.0
 
         scene parada
@@ -639,7 +641,7 @@
         with fade
 
         fran_int "Hace rato no dormía tan bien."
-        fran_int "Hasta me dio tiempo de ordenar la cama."
+        fran_int "Hasta me dieron ganas de ordenar la cama."
 
     label menu_habitacion_2:
         menu:
@@ -689,8 +691,8 @@
 
     label menu_escena16:
         menu:
-            "Facturas pagadas":
-                fran_int "Todas pagadas. Qué lindo es no preocuparse."
+            "Impuestos pagados":
+                fran_int "Todos pagados. Qué lindo es no preocuparse."
 
                 jump menu_escena16
 
@@ -940,12 +942,6 @@
 
         scene mensaje_pizza2 with dissolve
 
-        pause
-
-        scene calle
-        show fran_largo_normal
-        with dissolve
-
         fran_int "Una buena muzza nunca falla."
         fran_int "Vuelvo a casa así ordeno un poco."
 
@@ -1081,11 +1077,13 @@
 
         pause 3.0
 
-        scene black with fade
-
     #Rutas juntas
 
     label acto2_escena34:
+
+        scene black with fade
+
+        "Terminaron de comer y María se fue a su casa."
 
         scene hab_ordenada_noche
         show fran_largo_normal at lado_der
@@ -1142,13 +1140,19 @@
 
     label acto2_escena36:
 
+        scene black with fade
+
         scene parada
         show fran_semana_triste
-        with dissolve
+        with fade
 
         pas "¿Sentiste el olor?"
 
         fran_int "¿Lo dicen por mí?"
+
+        scene black with fade
+
+        "Francisco se tomó el colectivo y llegó a la clínica."
 
     label acto2_escena37:
 
@@ -1221,9 +1225,11 @@
 
         stop music fadeout 1.5
 
+        scene black with fade
+
         scene centro
         show fran_semana_triste
-        with dissolve
+        with fade
 
         fran_int "Me pica más que nunca. ¿Cómo vuelvo?"
 
@@ -1237,9 +1243,11 @@
 
     label acto2_escena38:
 
+        scene black with fade
+
         scene parada
         show fran_semana_triste
-        with dissolve
+        with fade
 
     label menu_garita:
         menu:
@@ -1251,6 +1259,12 @@
                 jump menu_garita
 
             "Asiento de la garita":
+                scene black with fade
+
+                scene parada
+                show fran_semana_triste
+                with fade
+
                 col "No, no. Así no subís, recién limpiamos."
 
                 jump acto2_escena40

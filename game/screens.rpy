@@ -399,11 +399,15 @@ style main_menu_vbox:
 style main_menu_text:
     properties gui.text_properties("main_menu", accent=True)
 
+## Texto claro sobre el fondo provisorio del pelo, que es oscuro
 style main_menu_title:
     properties gui.text_properties("title")
+    color "#f4efe4"
+    outlines [(3, "#000000aa", 0, 0)]
 
 style main_menu_version:
     properties gui.text_properties("version")
+    color "#f4efe4"
 
 
 ## Pantalla del menú del juego #################################################
