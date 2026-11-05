@@ -154,10 +154,9 @@
         label menu_cocina:
             menu:
                 "Heladera":
-                    show fran_normal with dissolve
-                    fran_int "Un limón, un tomate a punto de pudrirse y agua."
+                    show vineta heladera at vineta_pos with dissolve
                     fran_int "Tremendo banquete."
-                    hide fran_normal with dissolve
+                    hide vineta with dissolve
 
                     jump menu_cocina
                 
@@ -174,9 +173,11 @@
         label sub_menu_mate:
             menu:
                 "Preparar mate":
-                    "Francisco se termina la poca yerba que le quedaba."
-                    show fran_triste with dissolve
+                    show vineta yerba at vineta_pos with dissolve
                     fran_int "Ya ni para la yerba me alcanza."
+                    hide vineta
+                    show fran_triste
+                    with dissolve
                     fran_int "Si no fuera por María, me moría de hambre."
                     
                     #Golpes
@@ -246,11 +247,14 @@
                 "Todavía no":
                     jump menu_conocer
 
-        "María agarra su táper, deja otro con torta sobre la mesa y se va."
-
-        hide mar_alivio with dissolve
-
         hide fran_triste
+        hide mar_alivio
+        show vineta taper at vineta_pos
+        with dissolve
+
+        pause 3.0
+
+        hide vineta
         show fran_normal at izq
         with dissolve
 
@@ -267,10 +271,13 @@
 
         hide fran_triste with dissolve
 
-        "Francisco ve gente amontonada frente a un poste."
-        scene parada with dissolve
+        scene parada_gente with dissolve
 
-        "Cuando se acerca, se dispersan y queda a la vista un cartel."
+        pause 2.0
+
+        scene parada_vacia with Dissolve(1.5)
+
+        pause 1.0
 
         show fran_sorpresa with dissolve
         fran_int "Justo cuando necesito plata..."
@@ -279,14 +286,14 @@
 
     label acto1_escena7:
 
-        scene centro with dissolve
+        scene candidato with dissolve
         with hpunch
-
-        "Un candidato sale apurado, casi lo choca."
 
         cand "¡Está loco ese tipo! Nadie va a aceptar hacerse eso."
 
-        show fran_triste with dissolve
+        scene centro
+        show fran_triste
+        with dissolve
 
         fran_int "Se nota que él no necesita plata. El alquiler no se paga solo."
 
@@ -300,32 +307,36 @@
 
         show doc_normal at der with dissolve
 
-        "Aparece el Dr. Malandra y le pone un cuestionario en las manos."
-
         doc "Qué bueno que llegaste. Completame esto."
 
-        menu:
+        hide fran_normal
+        hide doc_normal
+        show vineta cuestionario at vineta_pos
+        with dissolve
+
+        menu (screen="choice_pc"):
             "¿Vivís solo?"
             "Sí, vivo solo":
                 pass
             "Sí, hace rato":
                 pass
 
-        menu:
+        menu (screen="choice_pc"):
             "¿Alguien notaría si no te ve por un tiempo?"
             "Nadie lo notaría":
                 pass
             "Casi nadie":
                 pass
 
-        menu:
+        menu (screen="choice_pc"):
             "Del 1 al 10, ¿cuánto te importa lo que piense la gente?"
             "1":
                 pass
             "2":
                 pass
 
-        hide doc_normal
+        hide vineta
+        show fran_normal at izq
         show doc_mani at der
         with dissolve
 
@@ -381,8 +392,6 @@
         hide doc_eno
         with dissolve
 
-        "Francisco vuelve caminando a su casa. Se le hace de noche."
-
     label acto1_escena10:
         scene hab_noche with dissolve
 
@@ -407,11 +416,13 @@
         fran_int "Y bueno."
         fran_int "Si no queda otra."
 
+        scene mensaje_respuesta with dissolve
+
+        pause 3.0
+
         scene hab_int
         show fran_triste
         with dissolve
-
-        "Francisco contesta y se prepara para salir. Nada cambió."
 
         "FINAL NORMAL — TODO SIGUE IGUAL"
         "FIN"
@@ -432,12 +443,14 @@
     label acto1_escena12:
 
         hide fran_triste
-        show fran_normal at izq
+        hide doc_normal
+        show vineta firma at vineta_pos
         with dissolve
 
-        "Francisco firma el contrato."
+        pause 3.0
 
-        hide doc_normal
+        hide vineta
+        show fran_normal at izq
         show doc_mani at der
         with dissolve
 
@@ -490,12 +503,14 @@
 
         pause 3.0
 
+        show vineta sobre at vineta_pos with dissolve
+
+        "Recibiste USD 6000"
+
         hide vineta
         show fran_normal at izq
         show doc_normal at der
         with dissolve
-
-        "Recibiste USD 6000"
 
         doc "Nos vemos en una semana."
         doc "Nada de agua, nada de tijera"

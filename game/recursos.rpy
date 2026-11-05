@@ -69,7 +69,10 @@ image computadora = "images/Background/Computadora.jpg"
 image calle = "images/Background/Calle.jpg"
 image calle_atardecer = Transform("images/Background/Calle.jpg", matrixcolor=TintMatrix("#ffbe8c"))
 image parada = "images/Background/Parada_micro.jpg"
+image parada_gente = "images/Background/Parada_gente.jpg"
+image parada_vacia = "images/Background/Parada_vacia.jpg"
 image centro = "images/Background/Centro_Investigacion.jpg"
+image candidato = "images/Background/Candidato.jpg"
 image sala = "images/Background/Clinica_Sala.jpg"
 image consultorio = "images/Background/Clinica_consultorio.jpg"
 image pizzeria = "images/Background/Pizzeria.jpg"
@@ -81,12 +84,13 @@ image mensaje_alquiler = "images/Escenas/Mensaje_alquiler.jpg"
 image mensaje_viernes = "images/Escenas/Mensaje_viernes.jpg"
 image mensaje_changa = "images/Escenas/Mensaje_changa.jpg"
 image mensaje_comprobante = "images/Escenas/Mensaje_comprobante.jpg"
+image mensaje_respuesta = "images/Escenas/Mensaje_respuesta.jpg"
 
 # Provisorio hasta tener la imagen del pelo (AR2-10) #
 
 image pelo_pantalla = Solid("#1c120b")
 
-# Viñetas del tratamiento: se muestran en un recuadro sobre el consultorio #
+# Viñetas de acciones: se muestran en un recuadro sobre el fondo #
 
 init python:
     def vineta(archivo):
@@ -98,6 +102,12 @@ init python:
             (13, 13), Transform(archivo, xysize=(ancho, alto)),
         )
 
+image vineta heladera = vineta("images/Escenas/Heladera.jpg")
+image vineta yerba = vineta("images/Escenas/Yerba.jpg")
+image vineta taper = vineta("images/Escenas/Taper.jpg")
+image vineta cuestionario = vineta("images/Escenas/Cuestionario.jpg")
+image vineta firma = vineta("images/Escenas/Firma.jpg")
+image vineta sobre = vineta("images/Escenas/Sobre.jpg")
 image vineta shampoo = vineta("images/Escenas/Tratamiento_shampoo.jpg")
 image vineta secador = vineta("images/Escenas/Tratamiento_secador.jpg")
 image vineta crema = vineta("images/Escenas/Tratamiento_crema.jpg")
@@ -108,7 +118,7 @@ transform vineta_pos:
     ypos 36
     yanchor 0.0
 
-# Botones de la computadora (A1E3): resaltan sobre la pantalla blanca del monitor #
+# Botones que resaltan sobre una imagen: computadora (A1E3) y cuestionario (A1E8) #
 
 screen choice_pc(items):
     style_prefix "choice_pc"
