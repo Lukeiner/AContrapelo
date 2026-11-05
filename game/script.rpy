@@ -1,5 +1,5 @@
 ﻿label start:
-    
+
     #A1E0
 
     scene black
@@ -40,7 +40,7 @@
     label acto1_escena2:
 
         play music tema_casa fadein 2.0
-        
+
         hide fran_triste
         show fran_normal at center
         with dissolve
@@ -61,7 +61,7 @@
                 with dissolve
 
                 jump menu_habitacion
-            
+
             "Examinar el boceto":
                 $ boceto_visto = True
                 scene boceto with dissolve
@@ -73,13 +73,13 @@
                 with dissolve
 
                 jump menu_habitacion
-            
+
             "Usar la computadora":
                 jump submenu_computadora
-    
+
     label submenu_computadora:
     fran_int "Tengo que ponerme a buscar laburo."
-    
+
     menu:
         "¿Qué querés hacer frente a la computadora?"
 
@@ -141,7 +141,7 @@
                 play sound mouse_tipeo
 
                 "Página saturada. Todas las postulaciones fueron rechazadas."
-                
+
                 show fran_normal with dissolve
 
                 fran_int "Y eso que algo me había enseñado Hana."
@@ -150,7 +150,7 @@
                 hide fran_normal with dissolve
 
                 jump menu_trabajos
-        
+
 
         show fran_triste with dissolve
 
@@ -174,17 +174,17 @@
                     hide vineta with dissolve
 
                     jump menu_cocina
-                
+
                 "Táper de María":
                     show fran_normal with dissolve
                     fran_int "Si anoche comí, fue gracias a María."
                     fran_int "Tengo que devolverle el táper."
                     hide fran_normal with dissolve
                     jump menu_cocina
-                
+
                 "Mate":
                     jump sub_menu_mate
-            
+
         label sub_menu_mate:
             menu:
                 "Preparar mate":
@@ -195,7 +195,7 @@
                     show fran_triste
                     with dissolve
                     fran_int "Si no fuera por María, me moría de hambre."
-                    
+
                     play sound golpes_puerta
 
                     hide fran_triste
@@ -205,7 +205,7 @@
                     fran_int "¿Quién golpea?"
 
                     hide fran_normal with dissolve
-                    
+
                     jump acto1_escena5
 
                 "Todavía no":
@@ -224,10 +224,10 @@
                     fran_int "Luz, gas, internet... se me juntan todas."
                     hide fran_normal with dissolve
                     jump menu_conocer
-                
+
                 "Puerta de salida":
                     jump sub_menu_conocer
-        
+
         label sub_menu_conocer:
             menu:
                 "Atender la puerta":
@@ -279,20 +279,20 @@
         with dissolve
 
         fran_int "Bueno, debería hacerle caso a Mari, después de terminarme el termo."
-        
+
         play sound mate_sorbido
 
     label acto1_escena6:
 
         play music tema_barrio fadeout 1.0 fadein 1.0
-        
+
         scene calle with dissolve
 
         show fran_triste with dissolve
 
         fran_int "Capaz pueda vender algo de ropa."
         fran_int "Ya no se me ocurre nada."
-        
+
         play sound bocina_auto
 
         hide fran_triste with dissolve
@@ -327,7 +327,7 @@
     label acto1_escena8:
 
         play music tema_clinica fadeout 1.0 fadein 1.0
-        
+
         scene consultorio with dissolve
 
         show fran_normal at izq with dissolve
@@ -397,10 +397,10 @@
             menu:
                 "Rechazar el trato":
                     jump acto1_escena9
-                
+
                 "Aceptar el trato":
                     jump acto1_escena12
-    
+
     label acto1_escena9:
 
         hide fran_triste
@@ -436,7 +436,7 @@
         scene mensaje_viernes with dissolve
 
         fran_int "Otra vez. No se cansa."
-    
+
     label acto1_escena11:
 
         scene hab_int with dissolve
@@ -474,7 +474,7 @@
 
                 "Salir al menú":
                     return
-    
+
     label acto1_escena12:
 
         hide fran_triste
@@ -506,7 +506,7 @@
         doc "Mirá, al oxidarse, el péptido reacciona con la queratina del folículo..."
         doc "...lo que acelera la mitosis capilar en un cuatrocientos por ciento, según mis cálculos..."
         fran_int "Con tanta palabrería y el secador no escuché nada."
-        
+
         stop ambiente fadeout 0.5
 
         hide vineta
@@ -515,7 +515,7 @@
         with dissolve
 
         doc "Ahora la crema. Solo se aplica acá, en ambiente estéril."
-        
+
         play sound crema_squish
 
         hide fran_normal
@@ -576,9 +576,9 @@
     label acto2_escena13:
 
         play music tema_barrio fadeout 1.0 fadein 1.0
-        
+
         scene parada
-        show fran_largo_normal
+        show fran_normal
         with dissolve
 
         fran "Disculpá, ¿pasó hace mucho el 60?"
@@ -587,14 +587,14 @@
         per "Che, qué pelo brilloso tenés."
         per "¿Qué te ponés?"
 
-        hide fran_largo_normal
-        show fran_largo_sorpresa
+        hide fran_normal
+        show fran_sorpresa
         with dissolve
 
         fran "¿Mi pelo? Shampoo de manzana."
 
-        hide fran_largo_sorpresa
-        show fran_largo_normal
+        hide fran_sorpresa
+        show fran_normal
         with dissolve
 
         fran_int "Si supiera…"
@@ -602,13 +602,25 @@
     label acto2_escena14:
 
         play music tema_casa fadeout 1.0 fadein 1.0
-        play sound heladera_puerta
-        
+
+        scene comedor_apagado
+        show fran_normal
+        with dissolve
+
+        pause 1.0
+
         scene comedor_noche
-        show fran_largo_normal
+        show fran_normal
         with dissolve
 
         fran_int "Qué lindo es poder comprar comida."
+
+        play sound heladera_puerta
+
+        hide fran_normal
+        show vineta heladera_llena at vineta_pos
+        with dissolve
+
         fran_int "La heladera se va a asustar."
 
         scene black with fade
@@ -617,8 +629,8 @@
 
     label acto2_escena15:
 
-        scene hab_int
-        show fran_largo_normal
+        scene hab_ordenada
+        show fran_largo_normal at lado_der
         with fade
 
         fran_int "Hace rato no dormía tan bien."
@@ -631,8 +643,8 @@
 
                 fran_int "Por cómo me persigue, parece que le encanta apurarme."
 
-                scene hab_int
-                show fran_largo_normal
+                scene hab_ordenada
+                show fran_largo_normal at lado_der
                 with dissolve
 
                 jump menu_habitacion_2
@@ -645,8 +657,8 @@
 
                 fran_int "Por fin este sueño no parece tan lejano."
 
-                scene hab_int
-                show fran_largo_normal
+                scene hab_ordenada
+                show fran_largo_normal at lado_der
                 with dissolve
 
                 jump menu_habitacion_2
@@ -661,7 +673,7 @@
 
     label acto2_escena16:
 
-        scene comedor_dia
+        scene comedor_pagadas
         show fran_largo_normal
         with dissolve
 
@@ -685,7 +697,7 @@
     label acto2_escena17:
 
         play music tema_barrio fadeout 1.0 fadein 1.0
-        
+
         scene calle
         show fran_largo_normal
         with dissolve
@@ -720,15 +732,15 @@
 
     label acto2_escena18:
 
-        scene calle_atardecer
-        with dissolve
+        scene mensaje_sushi1 with dissolve
 
-        # Provisorio hasta tener las imagenes de los mensajes (AR2-08)
-        "Mensaje de Francisco: ¡Hola, Mari! ¿Cenamos hoy? Invito yo, pido sushi."
-        "Mensaje de María: ¿Vos invitando? ¿Quién sos y qué hiciste con Fran? Dale, a las 9."
-        "Pedido confirmado — Combinado 30 piezas"
+        pause
 
-        show fran_largo_sorpresa with dissolve
+        scene mensaje_sushi2 with dissolve
+
+        pause
+
+        scene mensaje_pedido with dissolve
 
         fran_int "¿Tanto sale? Bueno, es una ocasión especial."
 
@@ -737,13 +749,19 @@
         play music tema_casa fadeout 1.0 fadein 1.0 volume 0.6
         play sound golpes_puerta
         queue sound puerta_abre
-        
+
         scene comedor_noche
         show fran_largo_normal at izq
         show mar_normal at der
         with dissolve
 
         ma "Traje agua con gas."
+
+        scene comedor_sushi
+        show fran_largo_normal at izq
+        show mar_normal at der
+        with dissolve
+
         ma "Se ve rico… ¿probás vos primero?"
 
     label menu_cena:
@@ -773,7 +791,7 @@
     label acto2_escena21:
 
         play sound cajon_abre
-        
+
         hide mar_normal
         show mar_det at der
         with dissolve
@@ -793,7 +811,15 @@
 
     label acto2_escena22:
 
+        hide fran_largo_normal
         hide mar_alivio
+        show vineta jengibre at vineta_pos
+        with dissolve
+
+        pause 3.0
+
+        hide vineta
+        show fran_largo_normal at izq
         show mar_det at der
         with dissolve
 
@@ -860,7 +886,7 @@
 
     label acto2_escena25:
 
-        scene comedor_noche
+        scene comedor_sushi
         show fran_largo_normal at izq
         show mar_alivio at der
         with dissolve
@@ -877,21 +903,24 @@
 
     label acto2_escena26:
 
+        scene mensaje_pizza1 with dissolve
+
+        pause
+
+        scene mensaje_pizza2 with dissolve
+
+        pause
+
         scene pizzeria
+        show fran_largo_normal
         with dissolve
-
-        # Provisorio hasta tener las imagenes de los mensajes (AR2-08)
-        "Mensaje de Francisco: Mari, ¿cenamos hoy? Invito una muzza."
-        "Mensaje de María: ¿Vos invitando? Dale, a las 9. Llevo la gaseosa."
-
-        show fran_largo_normal with dissolve
 
         fran_int "Una buena muzza nunca falla."
 
     label acto2_escena27:
 
         play music tema_casa fadeout 1.0 fadein 1.0 volume 0.6
-        
+
         scene comedor_noche
         show fran_largo_normal at izq
         show mar_normal at der
@@ -937,7 +966,7 @@
 
     label acto2_escena30:
 
-        scene comedor_noche
+        scene comedor_pizza
         show fran_largo_normal at izq
         show mar_normal at der
         with dissolve
@@ -994,7 +1023,7 @@
 
     label acto2_escena33:
 
-        scene comedor_noche
+        scene comedor_pizza
         show fran_largo_normal at izq
         show mar_normal at der
         with dissolve
@@ -1004,12 +1033,19 @@
         ma "En el laburo, como siempre. Mucho trabajo y poca plata."
         ma "Pero alcanza para lo de mi papá así que estamos bien."
 
+        hide fran_largo_normal
+        hide mar_normal
+        show vineta charla_pizza at vineta_pos
+        with dissolve
+
+        pause 3.0
+
     #Rutas juntas
 
     label acto2_escena34:
 
-        scene hab_noche
-        show fran_largo_normal
+        scene hab_ordenada_noche
+        show fran_largo_normal at lado_der
         with dissolve
 
         fran_int "Hacía mucho que no la pasaba tan bien."
@@ -1022,8 +1058,14 @@
         "6 días después"
 
         scene hab_int
-        show fran_largo_triste
+        show vineta rascarse at vineta_pos
         with fade
+
+        pause 3.0
+
+        hide vineta
+        show fran_semana_triste
+        with dissolve
 
         fran_int "No aguanto esta picazón. Lo único que quiero es una ducha."
         fran_int "Bueno, a la clínica. ¿Cómo voy?"
@@ -1039,7 +1081,7 @@
     label acto2_escena35:
 
         scene calle
-        show fran_largo_triste
+        show fran_semana_triste
         with dissolve
 
         rem "Uf… ¿no sentís olor a algo? Capaz es el motor."
@@ -1051,7 +1093,7 @@
     label acto2_escena36:
 
         scene parada
-        show fran_largo_triste
+        show fran_semana_triste
         with dissolve
 
         pas "¿Sentiste el olor?"
@@ -1061,7 +1103,7 @@
     label acto2_escena37:
 
         play music tema_clinica fadein 1.0
-        
+
         scene consultorio
         show vineta medicion at vineta_pos
         with dissolve
@@ -1069,17 +1111,17 @@
         pause 2.0
 
         hide vineta
-        show fran_largo_normal at izq
+        show fran_semana_normal at izq
         show doc_mani at der
         with dissolve
 
         doc "¡Siete centímetros en siete días! ¿Picazón? ¿Olor? ¿Sueños raros?"
 
         fran "Todo eso, sí."
-        
+
         play sound crema_squish
 
-        hide fran_largo_normal
+        hide fran_semana_normal
         hide doc_mani
         show vineta crema at vineta_pos
         with dissolve
@@ -1087,14 +1129,14 @@
         pause 2.0
 
         hide vineta
-        show fran_largo_normal at izq
+        show fran_semana_normal at izq
         show doc_normal at der
         with dissolve
 
         doc "Las condiciones siguen igual. Y la última paga es mucho mayor."
 
-        hide fran_largo_normal
-        show fran_largo_triste at izq
+        hide fran_semana_normal
+        show fran_semana_triste at izq
         with dissolve
 
         fran "Doctor, ¿no hay algo para la picazón? Aunque sea un perfume, porque la gente…"
@@ -1107,11 +1149,11 @@
         doc "Tomá tu plata y andate, que me apestás el consultorio."
 
         "Recibiste USD 11000"
-        
+
         stop music fadeout 1.5
 
         scene centro
-        show fran_largo_triste
+        show fran_semana_triste
         with dissolve
 
     label menu_vuelta_clinica:
@@ -1125,7 +1167,7 @@
     label acto2_escena38:
 
         scene parada
-        show fran_largo_triste
+        show fran_semana_triste
         with dissolve
 
     label menu_garita:
@@ -1151,15 +1193,18 @@
     label acto2_escena40:
 
         scene calle
-        show fran_largo_triste
+        show fran_semana_triste
         with dissolve
 
         fran_int "Bueno. Caminando, entonces."
 
-        # Efecto del pelo: se completa cuando este el sprite de pelo muy largo (P2-26)
-        hide fran_largo_triste
+        hide fran_semana_triste
+        show fran_cintura
+        with Dissolve(1.2)
+
+        hide fran_cintura
         show fran_muy_sorpresa
-        with Dissolve(1.5)
+        with Dissolve(1.2)
 
         fran_int "¿Qué…? ¡¿Qué me está pasando?!"
 
@@ -1171,7 +1216,7 @@
 
     label acto2_escena41:
 
-        scene comedor_dia
+        scene comedor_pagadas
         show fran_muy_triste
         with dissolve
 
@@ -1208,14 +1253,9 @@
                 jump menu_habitacion_encierro
 
             "Computadora":
-                scene computadora with dissolve
+                scene video_yeti with dissolve
 
-                # Provisorio hasta tener la imagen del video (AR2-08)
-                "Video: EL YETI DEL CONURBANO"
-                "\"ese tipo necesita una ducha urgente\""
-                "\"llamen a zoonosis\""
-
-                show fran_muy_sorpresa with dissolve
+                pause
 
                 fran_int "¿Ese soy yo?"
 
@@ -1231,7 +1271,7 @@
     label acto2_escena43:
 
         scene bano
-        show fran_muy_triste
+        show fran_muy_triste at lado_der
         with dissolve
 
     label menu_bano:
@@ -1243,7 +1283,7 @@
 
             "Máquina de cortar pelo":
                 fran_int "Dos minutos y se termina todo. Vuelvo a ser yo…"
-                
+
                 play sound golpes_puerta
 
                 jump acto2_escena44
@@ -1253,15 +1293,14 @@
 
     label acto2_escena44:
 
-        scene comedor_dia
-        with dissolve
+        scene mensaje_maria_puerta with dissolve
 
-        # Provisorio hasta tener la imagen del mensaje (AR2-08)
-        "Mensaje de María: ¡Fran! Soy yo. Abrí, por favor."
+        pause
 
         play sound puerta_abre
 
-        show fran_muy_triste at izq
+        scene comedor_pagadas
+        show fran_muy_triste at izq_pelo
         show mar_preo at der
         with dissolve
 
@@ -1274,8 +1313,8 @@
 
         $ vuelta_final_malo = "menu_decision9"
 
-        scene comedor_dia
-        show fran_muy_triste at izq
+        scene comedor_pagadas
+        show fran_muy_triste at izq_pelo
         show mar_preo at der
         with dissolve
 
@@ -1295,17 +1334,24 @@
 
     label acto2_escena45:
 
+        hide fran_muy_triste
+        show fran_monstruo_sorpresa at izq_pelo
+        with Dissolve(0.5)
+
         show pelo_pantalla with Dissolve(1.5)
 
         ma "¡Fran! ¡Fran, contestame!"
 
         scene black with fade
 
-    # A3E50 tiene que entrar por aca: el guion retoma desde el mensaje del doctor
+    # A3E50 tiene que entrar por aca: el guion retoma desde el mensaje del abogado
     label final_malo_mensaje:
 
-        # Provisorio hasta tener la imagen del mensaje (AR2-08)
-        "Mensaje del Dr. Malandra: Usted rompió el contrato. No me hago responsable. Mis abogados se encargan del embargo."
+        scene mensaje_abogado with dissolve
+
+        pause
+
+        scene black with dissolve
 
         "FINAL MALO — EL YETI BONAERENSE"
         "FIN"
