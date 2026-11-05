@@ -11,6 +11,10 @@
     pause 2
     hide text with Dissolve(1.0)
 
+    show expression credito("{size=+20}ACTO 1{/size}") as cartel at truecenter with Dissolve(1.0)
+    pause 2
+    hide cartel with Dissolve(1.0)
+
 
     #Acto 1 - Escena 1
 
@@ -578,6 +582,10 @@
     label acto2_escena13:
 
         scene black with fade
+
+        show expression credito("{size=+20}ACTO 2{/size}") as cartel at truecenter with Dissolve(1.0)
+        pause 2
+        hide cartel with Dissolve(1.0)
 
         play music tema_barrio fadeout 1.0 fadein 1.0
 
@@ -1212,7 +1220,7 @@
         show doc_shock at der
         with dissolve
 
-        doc "¿Perfume? ¿Querés arruinar meses de trabajo? ¡Nada de nada!"
+        doc "¿Perfume? ¿Querés arruinar meses de trabajo? ¡Nada de nada! ¡Es por la ciencia!"
         doc "Tomá tu plata y andate, que me apestás el consultorio."
 
         hide fran_semana_triste
@@ -1417,12 +1425,7 @@
             "No decir nada y cerrarle la puerta":
                 play sound puerta_cierra
 
-                # Provisorio hasta que exista A3E46
-                scene black with fade
-
-                "Continúa en el Acto 3."
-
-                return
+                jump acto3_escena46
 
     label acto2_escena45:
 
@@ -1460,3 +1463,561 @@
 
             "Salir al menú":
                 return
+
+
+#Acto 3
+
+label acto3_escena46:
+
+    stop music fadeout 1.5
+
+    scene black with fade
+
+    show expression credito("{size=+20}ACTO 3{/size}") as cartel at truecenter with Dissolve(1.0)
+    pause 2
+    hide cartel with Dissolve(1.0)
+
+    # TEMPORAL: falta el tema lento y grave (S3-01); hasta tenerlo, silencio
+
+    "Siete días después"
+
+    scene hab_deteriorada
+    show fran_muy_triste
+    with fade
+
+    fran_int "Ya ni sé qué día es. Me cuesta hasta levantar los brazos."
+
+label menu_habitacion_acto3:
+    menu:
+        "Celular":
+            # TEMPORAL: texto hasta tener la imagen de los mensajes (AR3-07)
+            "Mensajes sin leer de María:"
+            "«Perdón si me metí.»"
+            "«¿Estás bien?»"
+            "«Te dejé comida en la puerta.»"
+
+            fran_int "Y yo le cerré la puerta en la cara."
+
+            jump menu_habitacion_acto3
+
+        "Computadora":
+            # TEMPORAL: la computadora con texto hasta tener el foro (AR3-08)
+            scene computadora with dissolve
+
+            "«Dicen que vive en las vías.»"
+            "«Es un experimento del gobierno, posta.»"
+
+            scene hab_deteriorada
+            show fran_muy_triste
+            with dissolve
+
+            jump menu_habitacion_acto3
+
+        "Boceto":
+            scene boceto with dissolve
+
+            "Meta para el local: USD 15000 / USD 30000"
+
+            scene hab_deteriorada
+            show fran_muy_normal
+            with dissolve
+
+            fran_int "Falta una. Una sola."
+
+    play sound celular_vibra
+
+    pause 1.0
+
+    # TEMPORAL: texto hasta tener la imagen del mensaje (AR3-07)
+    "Mensaje del Dr. Malandra: «Esta noche, tercera y última aplicación. Vení cuando oscurezca.»"
+
+label acto3_escena47:
+
+    scene black with fade
+
+    scene calle_noche
+    show fran_muy_triste at center, noche
+    with fade
+
+    # TEMPORAL: faltan los pasos lentos (S3-02)
+    play sound perro_ladra
+
+    pause 1.5
+
+    vec "¡Es el monstruo! ¡Cerrá todo, Marta!"
+
+    # TEMPORAL: faltan las persianas que bajan (S3-02)
+
+label acto3_escena48:
+
+    scene black with fade
+
+    play music tema_clinica fadein 1.0
+
+    scene consultorio_noche
+    show fran_muy_normal at izq_pelo, noche
+    show doc_mani at der, noche
+    with fade
+
+    doc "¡Mirate! ¡Es perfecto! Ni en mis mejores cálculos podría haber previsto semejante maravilla."
+
+    play sound crema_squish
+
+    # TEMPORAL: texto hasta tener la imagen de la tercera crema (AR3-09)
+    "(Tercera aplicación de la crema.)"
+
+    hide fran_muy_normal
+    show fran_muy_sorpresa at izq_pelo, noche
+    with dissolve
+
+    hide fran_muy_sorpresa
+    show fran_monstruo_enojo at izq_pelo, noche
+    with Dissolve(1.2)
+
+    fran "¿Para qué es todo esto, doctor? Y no me diga \"por la ciencia\"."
+
+    stop music fadeout 1.0
+
+    # TEMPORAL: texto hasta tener la imagen del peluquín (AR3-09)
+    "(El doctor se saca el peluquín: es pelado.)"
+
+    hide doc_mani
+    show doc_pelado_normal at der, noche
+    with Dissolve(1.0)
+
+    doc "Desde mi infancia ya estaba así. ¿Sabés lo que es que se rían de vos por tu aspecto?"
+
+    hide fran_monstruo_enojo
+    show fran_monstruo_sorpresa at izq_pelo, noche
+    with dissolve
+
+    fran "Sí. Ahora sí sé."
+
+    hide doc_pelado_normal
+    show doc_pelado_mani at der, noche
+    with dissolve
+
+    doc "Entonces me entendés. Siete días más. Si llegás, cobrás USD 15000, todo lo que tengo."
+
+label acto3_escena49:
+
+    scene black with fade
+
+    "Día 3 de 7"
+
+    scene bano_noche
+    show fran_monstruo_triste at lado_der, noche
+    with fade
+
+    # TEMPORAL: faltan el rascado y la respiración agitada (S3-02)
+
+    fran_int "Me pica hasta adentro de los huesos. No puedo dormir."
+
+    play sound celular_vibra
+
+    pause 1.0
+
+    # TEMPORAL: texto hasta tener la imagen del mensaje (AR3-07)
+    "Mensaje de María: «No sé qué te pasa, pero si necesitás ayuda, estoy acá. Siempre.»"
+
+    # TEMPORAL: texto hasta tener la imagen de la mano con la máquina (AR3-09)
+    "(Francisco agarra la máquina y la prende.)"
+
+    play sound maquina_cortar
+
+    fran_int "Cuatro días más. O un par de minutos y se termina todo."
+
+label menu_decision10:
+
+    $ vuelta_final_malo = "menu_decision10"
+
+    scene bano_noche
+    show fran_monstruo_triste at lado_der, noche
+    with dissolve
+
+    menu:
+        "Cortarse el pelo":
+            jump acto3_escena50
+
+        "Apagar la máquina y aguantar":
+            jump acto3_escena51
+
+label acto3_escena50:
+
+    fran_int "Perdón. No puedo más."
+
+    play sound maquina_cortar
+
+    show pelo_pantalla with Dissolve(1.5)
+
+    pause 1.5
+
+    stop sound fadeout 1.0
+    scene black with fade
+
+    jump final_malo_mensaje
+
+label acto3_escena51:
+
+    stop sound
+
+    fran_int "No. Llegué hasta acá. Puedo aguantar un poco más."
+
+    scene black with fade
+
+    scene hab_deteriorada
+    show fran_monstruo_triste
+    with fade
+
+    "Día 4"
+
+    scene hab_deteriorada_noche
+    show fran_monstruo_triste at center, noche
+    with Dissolve(1.0)
+
+    pause 1.0
+
+    scene hab_deteriorada
+    show fran_monstruo_triste
+    with Dissolve(1.0)
+
+    "Día 5"
+
+    scene hab_deteriorada_noche
+    show fran_monstruo_triste at center, noche
+    with Dissolve(1.0)
+
+    pause 1.0
+
+    scene hab_deteriorada
+    show fran_monstruo_triste
+    with Dissolve(1.0)
+
+    "Día 6"
+
+    scene hab_deteriorada_noche
+    show fran_monstruo_triste at center, noche
+    with Dissolve(1.0)
+
+    pause 1.0
+
+    scene hab_deteriorada
+    show fran_monstruo_triste
+    with Dissolve(1.0)
+
+    "Día 7"
+
+    play sound celular_vibra
+
+    pause 1.0
+
+    # TEMPORAL: texto hasta tener la imagen del mensaje (AR3-07)
+    "Mensaje del Dr. Malandra: «La prueba terminó. Vení cuanto antes.»"
+
+    hide fran_monstruo_triste
+    show fran_monstruo_normal
+    with dissolve
+
+    fran_int "Terminó. Terminó de verdad."
+
+label acto3_escena52:
+
+    scene black with fade
+
+    # TEMPORAL: falta el tema lento y grave (S3-01); hasta tenerlo, solo los murmullos
+    play ambiente murmullos fadein 1.5
+
+    scene calle
+    show fran_monstruo_normal
+    with fade
+
+    # TEMPORAL: faltan los pasos lentos y el pelo que se arrastra (S3-02)
+
+    fran_int "Diez cuadras. Una vez más y no vuelvo a pisar esa clínica."
+
+    # TEMPORAL: texto hasta tener la imagen de los adolescentes (AR3-09)
+    "(Desde la esquina, un grupo de adolescentes lo sigue, filmándolo con el celular.)"
+
+    ado "¡Salió el yeti! ¡Grabalo, grabalo! ¡Che, monstruo, mirá para acá!"
+
+    veca "¡Andá a bañarte, sucio! ¡Das asco!"
+
+    vec "¡Volvete a las vías!"
+
+    # TEMPORAL: faltan las risas y el aplauso (S3-02)
+
+    menu:
+        "Seguir caminando":
+            pass
+
+    hide fran_monstruo_normal
+    show fran_monstruo_triste
+    with dissolve
+
+    fran_int "Que se rían. Que filmen. Me falta una cuadra."
+
+    menu:
+        "Seguir caminando":
+            pass
+
+    stop ambiente fadeout 2.0
+
+    scene black with fade
+
+    scene centro with fade
+
+    pause 1.5
+
+label acto3_escena53:
+
+    play music tema_clinica fadein 1.0
+
+    scene consultorio
+    show fran_monstruo_normal at izq_pelo
+    show doc_pelado_normal at der
+    with fade
+
+    doc "El efecto ya se fijó. Ahora la parte más importante. Tengo que tomar todas las muestras que pueda, así que quedate quieto."
+
+    play sound tijera
+
+    scene black with fade
+
+    # TEMPORAL: falta el agua cayendo (S3-02)
+    pause 2.0
+
+    scene consultorio
+    show fran_sorpresa at izq
+    show doc_pelado_normal at der
+    with fade
+
+    fran "Soy yo. Volví a ser yo."
+
+    doc "Ahora andá y pegate una ducha que no te aguanto el olor."
+
+    scene black with fade
+
+    # TEMPORAL: falta el sonido de la ducha (S3-02)
+    pause 2.0
+
+    scene consultorio
+    show fran_normal at izq
+    show doc_pelado_normal at der
+    with fade
+
+    doc "Lo prometido. Un placer hacer negocios con vos."
+
+    hide fran_normal
+    hide doc_pelado_normal
+    play sound cajon_abre
+    show vineta sobre at vineta_pos
+    with dissolve
+
+    "Recibiste USD 15000 — Meta para el local: USD 30000 / USD 30000"
+
+    hide vineta
+    with dissolve
+
+    # TEMPORAL: texto hasta tener la imagen del espejo (AR3-09)
+    "(Antes de que se cierre la puerta, Francisco ve al doctor frente al espejo, untándose la crema en la pelada. Después tira los frascos que sobran y rompe sus anotaciones.)"
+
+    show doc_pelado_mani
+    with dissolve
+
+    doc "Nadie más va a tener esto. Voy a ser el único calvo que recuperó su pelo."
+
+    stop music fadeout 1.5
+
+label acto3_escena54:
+
+    scene black with fade
+
+    play music tema_barrio fadein 1.0
+
+    scene parada_vacia
+    show fran_normal
+    with fade
+
+    per "¡Buen día! ¿Esperás el 45? Ya está por pasar. ¿Viste lo del monstruo del barrio? Qué locura."
+
+    fran_int "Hace un rato la gente se cruzaba de vereda para no tenerme cerca."
+
+    fran "Sí, algo escuché."
+
+label acto3_escena55:
+
+    stop music fadeout 1.5
+
+    scene black with fade
+
+    play music tema_casa fadein 2.0
+
+    scene casa_maria with fade
+
+    # TEMPORAL: falta el timbre (S3-02)
+    play sound puerta_abre
+
+    show fran_triste at izq
+    show mar_preo at der
+    with dissolve
+
+    ma "¿Fran…?"
+
+    fran "Te debo una explicación. Y un perdón enorme."
+
+    # Francisco le cuenta todo (D3-05): fundido hasta tener la imagen (AR3-09)
+    scene black with fade
+
+    pause 1.5
+
+    scene casa_maria
+    show fran_triste at izq
+    show mar_det at der
+    with fade
+
+    ma "¿Por qué no me dijiste nada? Te podría haber pasado cualquier cosa."
+
+    fran "Porque me ibas a convencer de dejarlo. Y tenías razón, pero necesitaba llegar."
+
+    hide mar_det
+    show mar_alivio at der
+    with dissolve
+
+    ma "Sos un tarado. Pero estás bien, y eso es lo que importa."
+
+    stop music fadeout 1.5
+
+    if cena_sushi:
+        jump acto3_escena57
+    else:
+        jump acto3_escena56
+
+label acto3_escena56:
+
+    scene black with fade
+
+    "Un mes después"
+
+    # TEMPORAL: tema de barrio hasta tener el tema alegre (S3-01)
+    play music tema_barrio fadein 1.0
+
+    scene boceto with fade
+
+    pause 1.0
+
+    scene local_pizza with Dissolve(2.0)
+
+    pause 1.5
+
+    # TEMPORAL: falta la campanita de la puerta (S3-02)
+    scene local_pizza_int
+    show fran_normal at izq
+    show mar_alivio at der
+    with fade
+
+    ma "¿Ya está abierto? Quiero ser la primera."
+
+    fran "Para vos, la casa invita. Te debo como mil tápers."
+
+    # TEMPORAL: texto hasta tener la imagen de la noticia (AR3-02)
+    "Noticia en el celular: «El médico del conurbano que venció la calvicie: el Dr. Malandra luce una melena impecable y asegura que la fórmula se perdió para siempre. \"Fue un milagro, y es solo mío\"»."
+    "(En la foto, el doctor sonríe… y se rasca la cabeza.)"
+
+    hide fran_normal
+    show fran_sorpresa at izq
+    with dissolve
+
+    fran_int "Consiguió lo que quería: ser el único. Ojalá le pique tanto como me picó a mí."
+
+    scene black with fade
+
+    "FINAL BUENO"
+    "FIN"
+
+    jump creditos
+
+label acto3_escena57:
+
+    scene black with fade
+
+    "Un mes después"
+
+    # TEMPORAL: tema de barrio hasta tener el tema alegre (S3-01)
+    play music tema_barrio fadein 1.0
+
+    scene boceto with fade
+
+    pause 1.0
+
+    scene local_sushi with Dissolve(2.0)
+
+    pause 1.5
+
+    # TEMPORAL: falta la campanita de la puerta (S3-02)
+    scene local_sushi_int
+    show fran_normal at izq
+    show mar_normal at der
+    with fade
+
+    ma "¿Para qué me hiciste venir tan temprano?"
+
+    # TEMPORAL: texto hasta tener la imagen del delantal (AR3-09)
+    "(Francisco le señala la barra y le da un delantal.)"
+
+    fran "Te dije que cuando tuviera el local, la chef ibas a ser vos. Y este trato sí es bueno."
+
+    hide mar_normal
+    show mar_alivio at der
+    with dissolve
+
+    ma "Pensé que era una broma… Mirá que no soy barata, eh."
+
+    # TEMPORAL: texto hasta tener la imagen de la noticia (AR3-02)
+    "Noticia en el celular: «El médico del conurbano que venció la calvicie: el Dr. Malandra luce una melena impecable y asegura que la fórmula se perdió para siempre. \"Fue un milagro, y es solo mío\"»."
+    "(En la foto, el doctor sonríe… y se rasca la cabeza.)"
+
+    hide fran_normal
+    show fran_sorpresa at izq
+    with dissolve
+
+    fran_int "Consiguió lo que quería: ser el único. Ojalá le pique tanto como me picó a mí."
+
+    scene black with fade
+
+    "FINAL BUENO — CON MARÍA"
+    "FIN"
+
+    jump creditos
+
+# Creditos de los finales buenos (D3-06, D3-07): terminan en el menu principal, sin botones
+
+label creditos:
+
+    scene black with fade
+
+    play music tema_principal fadein 1.0
+
+    show expression credito("{size=+30}A CONTRAPELO{/size}\n\nBasado en \"Piel de Oso\", de los hermanos Grimm") as cred at truecenter with Dissolve(1.0)
+    pause 4
+    hide cred with Dissolve(1.0)
+
+    show expression credito("CREADO POR PENTANILO\n\nMejías, Fabricio — Producción\nGómez, Ignacio — Guion y sonido\nFernández, Lucas — Programación\nBrusadin, Bruno — Arte\nBoc-Ho, Gerardo — Programación") as cred at truecenter with Dissolve(1.0)
+    pause 6
+    hide cred with Dissolve(1.0)
+
+    show expression credito("MÚSICA\n\nKevin MacLeod (incompetech.com)\nScheming Weasel (slower version) · Teller of the Tales\nCattails · Investigations\n\nLicensed under Creative Commons: By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/") as cred at truecenter with Dissolve(1.0)
+    pause 6
+    hide cred with Dissolve(1.0)
+
+    show expression credito("EFECTOS DE SONIDO\n\nGómez, Ignacio\nFreesound.org (CC0): beansqueso31, sethlind, HunteR4708,\nwesleywestmusic, krnash, lucaslara, DeVern, Breviceps, lartti") as cred at truecenter with Dissolve(1.0)
+    pause 5
+    hide cred with Dissolve(1.0)
+
+    show expression credito("Narrativa y Guiones para Videojuegos — UPSO, 2026\n\n¡Gracias por jugar!") as cred at truecenter with Dissolve(1.0)
+    pause 4
+    hide cred with Dissolve(1.0)
+
+    stop music fadeout 2.0
+    pause 2.0
+
+    return

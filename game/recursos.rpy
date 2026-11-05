@@ -11,6 +11,7 @@ define rem = Character("Remisero")
 define pas = Character("Pasajera")
 define col = Character("Colectivero")
 define ado = Character("Adolescentes")
+define veca = Character("Vecina")
 
 # Posiciones para dos personajes en escena #
 
@@ -84,6 +85,11 @@ image doc_mani = "images/Sprites/Malandra/malandra_maniaco.png"
 image doc_shock = "images/Sprites/Malandra/malandra_sorprendido.png"
 image doc_eno = "images/Sprites/Malandra/malandra_enojado.png"
 
+# TEMPORAL: Malandra pelado usa los sprites con peluquin hasta tener AR3-01 #
+
+image doc_pelado_normal = "images/Sprites/Malandra/malandra_normal.png"
+image doc_pelado_mani = "images/Sprites/Malandra/malandra_maniaco.png"
+
 
 # Backgrounds #
 
@@ -110,6 +116,31 @@ image candidato = "images/Background/Candidato.jpg"
 image sala = "images/Background/Clinica_Sala.jpg"
 image consultorio = "images/Background/Clinica_consultorio.jpg"
 image pizzeria = "images/Background/Pizzeria.jpg"
+
+# Acto 3: la noche se oscurece desde el codigo #
+
+define luz_noche = TintMatrix("#6a78a8") * BrightnessMatrix(-0.3)
+
+# Sprites sobre un fondo de noche #
+
+transform noche:
+    matrixcolor TintMatrix("#aab4dc") * BrightnessMatrix(-0.08)
+
+# TEMPORAL: habitacion oscura hasta tener la deteriorada (AR3-10) #
+image hab_deteriorada = "images/Background/Habitacion_dia.jpg"
+image hab_deteriorada_noche = Transform("hab_deteriorada", matrixcolor=TintMatrix("#7d8ab8") * BrightnessMatrix(-0.12))
+
+# TEMPORAL hasta tener AR3-06; el consultorio y el baño pueden quedar asi (AR3-11) #
+image calle_noche = Transform("images/Background/Calle.jpg", matrixcolor=luz_noche)
+image consultorio_noche = Transform("images/Background/Clinica_consultorio.jpg", matrixcolor=TintMatrix("#8a96c0") * BrightnessMatrix(-0.2))
+image bano_noche = Transform("images/Background/Bano.jpg", matrixcolor=TintMatrix("#9aaad8") * BrightnessMatrix(-0.12))
+
+# TEMPORAL: la calle hasta tener la puerta de Maria (AR3-05) y el boceto hasta tener los locales (AR3-03, AR3-04) #
+image casa_maria = "images/Background/Calle.jpg"
+image local_pizza = "images/Escenas/Boceto_local.jpg"
+image local_pizza_int = "images/Escenas/Boceto_local.jpg"
+image local_sushi = "images/Escenas/Boceto_local.jpg"
+image local_sushi_int = "images/Escenas/Boceto_local.jpg"
 
 # Imagenes a pantalla completa #
 
@@ -159,6 +190,12 @@ image vineta shampoo = vineta("images/Escenas/Tratamiento_shampoo.jpg")
 image vineta secador = vineta("images/Escenas/Tratamiento_secador.jpg")
 image vineta crema = vineta("images/Escenas/Tratamiento_crema.jpg")
 image vineta medicion = vineta("images/Escenas/Tratamiento_medicion.jpg")
+
+# Texto centrado de los creditos #
+
+init python:
+    def credito(texto):
+        return Text(texto, text_align=0.5, color="#f4efe4", layout="subtitle")
 
 transform vineta_pos:
     xalign 0.5
@@ -219,6 +256,9 @@ define audio.puerta_abre = "audio/sfx/puerta_abre.ogg"
 define audio.puerta_cierra = "audio/sfx/puerta_cierra.ogg"
 define audio.puerta_golpe = "audio/sfx/puerta_golpe.ogg"
 define audio.secadora = "audio/sfx/secadora.ogg"
+define audio.perro_ladra = "audio/sfx/perro_ladra.ogg"
+define audio.tijera = "audio/sfx/tijera.ogg"
+define audio.murmullos = "audio/sfx/murmullos.ogg"
 
 
 # Variables Booleanas
