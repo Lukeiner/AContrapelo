@@ -110,11 +110,7 @@
                 "Requisito: dos años de experiencia en atención al público."
                 "Su CV no muestra experiencia corroborable. Rechazado."
 
-                show fran_normal with dissolve
-
                 fran_int "Si nadie te contrata, ¿cómo vas a juntar experiencia?"
-
-                hide fran_normal with dissolve
 
                 jump menu_trabajos
 
@@ -126,11 +122,7 @@
                 "Requisito: poseer vehículo propio y licencia de conducir."
                 "No se encontró ningún vehículo a su nombre. Rechazado."
 
-                show fran_normal with dissolve
-
                 fran_int "Y sí... Tampoco iba a repartir las pizzas corriendo."
-
-                hide fran_normal with dissolve
 
                 jump menu_trabajos
 
@@ -141,15 +133,9 @@
 
                 "Página saturada. Intente de nuevo más tarde."
 
-                show fran_normal with dissolve
-
                 fran_int "Fua, ¿tanta gente anda buscando laburo?"
 
-                hide fran_normal with dissolve
-
                 jump menu_trabajos
-
-        show fran_triste with dissolve
 
         fran_int "Otra vez no hubo suerte. Tocará hacerse unos mates."
 
