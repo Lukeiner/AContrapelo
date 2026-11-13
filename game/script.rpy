@@ -1058,6 +1058,8 @@
 
     label menu_ida_clinica:
         menu:
+            "¿En qué ir a la clínica?"
+
             "En remís":
                 jump acto2_escena35
 
