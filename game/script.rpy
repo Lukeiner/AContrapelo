@@ -15,7 +15,6 @@
     pause 2
     hide cartel with Dissolve(1.0)
 
-
     #Acto 1 - Escena 1
 
     label acto1_escena1:
@@ -38,8 +37,7 @@
         show fran_triste
         with dissolve
 
-        fran_int "¿Hasta cuándo voy a estar así?"
-        fran_int "Necesito un laburo fijo, algo en serio."
+        fran_int "Necesito un laburo fijo, ya basta de andar de changa en changa."
 
     #Acto 1 - Escena 2
 
@@ -58,7 +56,7 @@
 
                 scene mensaje_alquiler with dissolve
 
-                fran_int "Qué manera de ser molesto. ¿No me puede dejar un día tranquilo?"
+                fran_int "Qué manera de joder. ¿No me puede dejar un día tranquilo?"
 
                 scene hab_int
                 show fran_normal at center
@@ -70,7 +68,7 @@
                 $ boceto_visto = True
                 scene boceto with dissolve
 
-                fran_int "Ojalá algún día se haga realidad. Solo necesito juntar para arrancar; lo demás viene solo."
+                fran_int "Algún día..."
 
                 scene hab_int
                 show fran_normal at center
@@ -82,7 +80,6 @@
                 jump submenu_computadora
 
     label submenu_computadora:
-    fran_int "Tengo que ponerme a buscar laburo."
 
     menu:
         "¿Qué querés hacer frente a la computadora?"
@@ -100,8 +97,6 @@
 
     label acto1_escena3:
 
-    fran_int "A ver si hay algo en gastronomía para arrancar tranqui."
-
     scene computadora with dissolve
     play sound mouse_tipeo
 
@@ -112,8 +107,8 @@
                 $ mozo_visto = True
                 play sound mouse_tipeo
 
-                "Requisito: dos años de experiencia."
-                "Rechazado."
+                "Requisito: dos años de experiencia en atención al público."
+                "Su CV no muestra experiencia corroborable. Rechazado."
 
                 show fran_normal with dissolve
 
@@ -128,12 +123,12 @@
                 $ repartidor_visto = True
                 play sound mouse_tipeo
 
-                "Requisito: moto propia."
-                "Rechazado."
+                "Requisito: poseer vehículo propio y licencia de conducir."
+                "No se encontró ningún vehículo a su nombre. Rechazado."
 
                 show fran_normal with dissolve
 
-                fran_int "Era obvio. Tampoco iba a repartir las pizzas corriendo."
+                fran_int "Y sí... Tampoco iba a repartir las pizzas corriendo."
 
                 hide fran_normal with dissolve
 
@@ -144,22 +139,19 @@
                 $ ayudante_visto = True
                 play sound mouse_tipeo
 
-                "Página saturada. Todas las postulaciones fueron rechazadas."
+                "Página saturada. Intente de nuevo más tarde."
 
                 show fran_normal with dissolve
 
-                fran_int "Y eso que algo me había enseñado Hana."
-                fran_int "Se ve que todos buscan laburo."
+                fran_int "Fua, ¿tanta gente anda buscando laburo?"
 
                 hide fran_normal with dissolve
 
                 jump menu_trabajos
 
-
         show fran_triste with dissolve
 
-        fran_int "Por más que intente, nada."
-        fran_int "Me voy a hacer unos mates."
+        fran_int "Otra vez no hubo suerte. Tocará hacerse unos mates."
 
     #Acto 1 - Escena 4
     label acto1_escena4:
@@ -182,7 +174,6 @@
                 "Táper de María":
                     show fran_normal with dissolve
                     fran_int "Si anoche comí, fue gracias a María."
-                    fran_int "Tengo que devolverle el táper."
                     hide fran_normal with dissolve
                     jump menu_cocina
 
@@ -194,19 +185,16 @@
                 "Preparar mate":
                     play sound pava_silbido
                     show vineta yerba at vineta_pos with dissolve
-                    fran_int "Ya ni para la yerba me alcanza."
+                    fran_int "Uff, me alcanza para una última tanda nomás."
                     hide vineta
                     show fran_triste
                     with dissolve
-                    fran_int "Si no fuera por María, me moría de hambre."
 
                     play sound golpes_puerta
 
                     hide fran_triste
                     show fran_normal
                     with dissolve
-
-                    fran_int "¿Quién golpea?"
 
                     hide fran_normal with dissolve
 
@@ -225,7 +213,7 @@
             menu:
                 "Impuestos":
                     show fran_normal with dissolve
-                    fran_int "Luz, gas, internet... se me juntan todos."
+                    fran_int "Luz, gas, internet... no sé cómo voy a hacer para pagar todo esto."
                     hide fran_normal with dissolve
                     jump menu_conocer
 
@@ -239,21 +227,21 @@
                     show fran_normal at izq
                     show mar_alivio at der
                     with dissolve
-                    ma "¡Hola, Fran! Vengo a buscar el táper."
+                    ma "¡Buenos días, Fran!"
 
-                    fran "Hola Mari. Gracias por la cena, de verdad. ¿Pasás?"
-                    fran "Hice unos mates."
+                    fran "¡Buenas, Mari!"
+                    fran "Justo terminé de preparar unos mates. ¿Querés?"
 
                     hide mar_alivio
                     show mar_normal at der
                     with dissolve
-                    ma "Dale. ¿Cómo andás con la búsqueda?"
+                    ma "¡Ay, qué rico! Pero no puedo, mi turno arranca dentro de un rato. ¿Vos cómo venís con ese tema?"
 
                     hide fran_normal
                     show fran_triste at izq
                     with dissolve
-                    fran "Mal. No sale nada y los impuestos se me apilan."
-                    fran "¿Y vos en el laburo?"
+                    fran "Mal. Todos los días lo mismo, que no tengo experiencia o siempre pasa algo."
+                    fran "¿Y a vos cómo te va con esa panchería?"
 
                     hide mar_normal
                     show mar_preo at der
@@ -264,7 +252,7 @@
                     show mar_alivio at der
                     with dissolve
                     ma "No te castigues tanto. Salí a dar una vuelta, despejate."
-                    ma "Y te dejo torta para después."
+                    ma "¡Ah! Casi se me olvida, pasame el táper que te dejo una torta que cociné hoy temprano. ¡Nos vemos, Fran!"
 
                 "Todavía no":
                     jump menu_conocer
@@ -282,8 +270,6 @@
         show fran_normal at izq
         with dissolve
 
-        fran_int "Bueno, debería hacerle caso a Mari, después de terminarme el termo."
-
         play sound mate_sorbido
 
     label acto1_escena6:
@@ -294,12 +280,9 @@
 
         show fran_triste with dissolve
 
-        fran_int "Capaz pueda vender algo de ropa."
-        fran_int "Ya no se me ocurre nada."
+        fran_int "Capaz pueda vender algunas cosas..."
 
         play sound bocina_auto
-
-        fran_int "¿Eh? ¿Qué hace tanta gente amontonada ahí?"
 
         hide fran_triste with dissolve
 
@@ -313,8 +296,6 @@
 
         show fran_sorpresa with dissolve
         fran_int "Justo cuando necesito plata..."
-        fran_int "Queda a unas cuadras."
-        fran_int "Paso a ver."
 
     label acto1_escena7:
 
@@ -322,13 +303,13 @@
         scene candidato with dissolve
         with hpunch
 
-        cand "¡Está loco ese tipo! Nadie va a aceptar hacerse eso."
+        cand "¡Pero ese tipo está loco! Nadie va a aceptar hacerse eso."
 
         scene centro
         show fran_triste
         with dissolve
 
-        fran_int "¿Tan mala será la oferta? Bueno, ya que estoy acá, entro a preguntar."
+        fran_int "¿Tan mala será la oferta?"
 
     label acto1_escena8:
 
@@ -342,7 +323,7 @@
 
         show doc_normal at der with dissolve
 
-        doc "Qué bueno que llegaste. Completame esto."
+        doc "¡Ah! ¿Otro candidato? Qué bueno que llegaste. Completame esto."
 
         hide fran_normal
         hide doc_normal
@@ -375,15 +356,15 @@
         show doc_mani at der
         with dissolve
 
-        doc "¡Perfecto! Sos la persona ideal."
-        doc "Estoy desarrollando un producto para el crecimiento capilar."
+        doc "Mmm, sí. ¡Perfecto!"
+        doc "Escuchame bien, estoy desarrollando un tratamiento experimental y necesito conej... Digo, sujetos de prueba."
 
         hide doc_mani
         show doc_normal at der
         with dissolve
 
-        doc "Son tres aplicaciones y cobrás en cada una."
-        doc "Por la primera, 6000 dólares."
+        doc "Son tres aplicaciones y cobrás después de cada una."
+        doc "Por la primera, 6000 dólares, en efectivo y sin marcar."
         doc "Las condiciones a cumplir son que no te laves ni te cortes el pelo durante todo el tratamiento."
         doc "Y firmar un acuerdo de confidencialidad para no hablar del tema con nadie."
 
@@ -391,9 +372,9 @@
         show doc_eno at der
         with dissolve
 
-        doc "Si no cumplís, devolvés la plata o te embargo los bienes."
-        doc "Así de fácil es la cosa."
-        doc "¿Aceptás?"
+        doc "Esto es muy serio: si llegás a romper alguna de esas cláusulas, me tenés que devolver todos y cada uno de los dólares."
+        doc "Y si ya te los gastaste... te embargo hasta la vida."
+        doc "Dicho esto, ¿aceptás?"
 
         hide fran_normal
         show fran_triste at izq
@@ -415,7 +396,7 @@
         show fran_normal at izq
         with dissolve
 
-        fran "Es demasiado para mí."
+        fran "Esto me parece una banda."
         fran "Mejor lo dejamos acá."
 
         doc "Te estás perdiendo una oportunidad única en la vida."
@@ -429,16 +410,14 @@
     label acto1_escena10:
         scene hab_noche with dissolve
 
-
         show fran_triste with dissolve
 
-        fran_int "¿Hice bien? Con esa plata pagaba todo..."
-        fran_int "y hasta capaz invitaba a María a comer algo."
+        fran_int "¿Hice bien? Con esa plata hacía de todo..."
 
         play sound celular_vibra
         scene mensaje_viernes with dissolve
 
-        fran_int "Otra vez. No se cansa."
+        pause
 
         scene black with fade
 
@@ -454,8 +433,7 @@
 
         scene mensaje_changa with dissolve
 
-        fran_int "Y bueno."
-        fran_int "Si no queda otra."
+        fran_int "Y bueno. Si no queda otra."
 
         scene mensaje_respuesta with dissolve
 
@@ -477,7 +455,6 @@
                     show doc_eno at der
                     with dissolve
                     jump menu_trato
-
 
                 "Salir al menú":
                     return
@@ -512,7 +489,6 @@
 
         doc "Mirá, al oxidarse, el péptido reacciona con la queratina del folículo..."
         doc "...lo que acelera la mitosis capilar en un cuatrocientos por ciento, según mis cálculos..."
-        fran_int "Con tanta palabrería y el secador no escuché nada."
 
         stop ambiente fadeout 0.5
 
@@ -565,8 +541,8 @@
         fran "¿Todo esto es para mí?"
 
         doc "Sí, todo tuyo. Nos vemos en una semana."
-        doc "Y acordate: nada de agua ni tijeras."
-        doc "Y ni una palabra a nadie."
+        doc "Y nada de agua ni tijeras."
+        doc "Ni una palabra a nadie."
 
         hide fran_sorpresa
         show fran_normal at izq
@@ -575,7 +551,6 @@
         fran "Sí, sí… entendido."
 
         fran_int "Con esto pago todo y me sobra."
-        fran_int "Mejor vuelvo en colectivo."
 
     #Acto 2
 
@@ -603,14 +578,7 @@
         show fran_sorpresa
         with dissolve
 
-        fran "¿Mi pelo? Shampoo de manzana."
-
-        hide fran_sorpresa
-        show fran_normal
-        with dissolve
-
-        fran_int "Si supiera…"
-        fran_int "Antes de volver paso por el súper. Esa heladera necesita algo más que un limón."
+        fran "¿Mi pelo? Nada, un poco de shampoo de manzana nomás."
 
         scene black with fade
 
@@ -627,8 +595,6 @@
         scene comedor_noche
         show fran_normal
         with dissolve
-
-        fran_int "Qué lindo es poder comprar comida."
 
         play sound heladera_puerta
 
@@ -648,8 +614,7 @@
         show fran_largo_normal at lado_der
         with fade
 
-        fran_int "Hace rato no dormía tan bien."
-        fran_int "Hasta me dieron ganas de ordenar la cama."
+        fran_int "Hace una banda no dormía tan bien."
 
     label menu_habitacion_2:
         menu:
@@ -672,7 +637,6 @@
                 "Meta para el local: USD 4000 / USD 30000"
 
                 fran_int "Tuve que gastar bastante para ponerme al día, pero el resto lo guardo para el local."
-                fran_int "Por fin este sueño no parece tan lejano."
 
                 scene hab_ordenada
                 show fran_largo_normal at lado_der
@@ -695,7 +659,6 @@
         with dissolve
 
         fran_int "¿Y ahora qué hago con tanto tiempo libre?"
-        fran_int "Tendría que aprovechar el día y salir a pasear un rato."
 
     label menu_escena16:
         menu:
@@ -735,7 +698,6 @@
         with fade
 
         fran_int "Tendría que invitar a María a cenar algo. Le tengo que devolver como mil tápers."
-        fran_int "Pero ¿qué podríamos cenar?"
         fran_int "¿Sushi, como el que me hacía Hana de chico? ¿O una buena pizza, que no falla nunca?"
 
     label menu_comida:
@@ -762,7 +724,7 @@
 
         scene mensaje_pedido with dissolve
 
-        fran_int "¡Bien! Vuelvo a casa así ordeno un poco."
+        pause
 
     label acto2_escena19:
 
@@ -777,18 +739,18 @@
         show mar_normal at der
         with dissolve
 
-        ma "¡Hola, Fran! ¿Cómo andás?"
+        ma "¡Bueenaas!"
 
-        fran "¡Hola, Mari! Bien, pasá. Ya llegó el pedido."
+        fran "¡Mari! Vení, pasá. Ya llegó el pedido."
 
-        ma "Traje agua con gas."
+        ma "Cuando me enteré del menú, se me ocurrió traer agua con gas."
 
         scene comedor_sushi
         show fran_largo_normal at izq
         show mar_normal at der
         with dissolve
 
-        ma "Se ve rico… ¿probás vos primero?"
+        ma "Uhh... Se ve rico… ¿probás vos primero?"
 
     label menu_cena:
         menu:
@@ -806,7 +768,7 @@
         show mar_alivio at der
         with dissolve
 
-        ma "El de abajo queda fijo; el de arriba aprieta."
+        ma "El de abajo queda fijo y el de arriba aprieta."
         ma "Y antes de comer se dice \"itadakimasu\"."
 
         hide fran_largo_normal
@@ -821,8 +783,8 @@
         show mar_alivio at der
         with dissolve
 
-        fran "Hana siempre me lo decía."
-        fran "Ella y Kutetsu me cuidaron un año y medio cuando era chico."
+        fran "Ah, tenés razón. Hana siempre rezaba antes de comer."
+        fran "Ella y Kutetsu me cuidaron un año y medio cuando era chico y me hacían preparar las comidas todas las mañanas. Era lindo."
 
         jump acto2_escena22
 
@@ -834,10 +796,10 @@
         show mar_alivio at der
         with dissolve
 
-        ma "¡Jaja! ¡Comer esta obra de arte con tenedor es una falta de respeto!"
+        ma "¡Nahh! ¡Comer este manjar con tenedor es una falta de respeto!"
 
-        fran "Tenés razón. Si Hana me viera..."
-        fran "Ella y Kutetsu me cuidaron un año y medio cuando era chico."
+        fran "Uh, es verdad. ¡Si Hana me viera, me agarraría las pestañas con los palillos!"
+        fran "Ella y Kutetsu me cuidaron un año y medio cuando era chico y me hacían preparar las comidas todas las mañanas. Era lindo."
 
         ma "Con más razón. Agarrá el palillo, dale."
         ma "El de abajo fijo, el de arriba aprieta."
@@ -864,14 +826,12 @@
         show mar_det at der
         with dissolve
 
-        ma "¡Pará! El jengibre va entre pieza y pieza, para limpiar el gusto."
-        ma "Y este arroz está frío, tiene que estar tibio y con vinagre."
+        ma "¡Pará! ¡No seas bestia! El jengibre va entre pieza y pieza, para limpiar el gusto."
+        ma "Y este arroz está frío, tiene que estar tibio y con un poco más de vinagre. La textura está media fofa."
 
         hide fran_largo_normal
         show fran_largo_sorpresa at izq
         with dissolve
-
-        fran_int "¿Desde cuándo María sabe tanto de esto?"
 
     label menu_pregunta_sushi:
         menu:
@@ -887,20 +847,18 @@
         show mar_alivio at der
         with dissolve
 
-        ma "Hice un curso de cocina japonesa."
-        ma "Mi sueño era ser itamae, chef de sushi, y tener mi barra."
+        ma "Hice un curso de cocina japonesa hace unos años."
+        ma "Mi sueño era ser itamae, chef de sushi, y tener mi propia barra."
 
         hide mar_alivio
         show mar_preo at der
         with dissolve
 
-        ma "Después se enfermó mi papá y lo tuve que dejar."
+        ma "Después se enfermó mi papá y bueno, lo tuve que dejar. Nunca pude terminar el curso, pero la parte práctica siempre se me dio bien."
 
         hide fran_largo_sorpresa
         show fran_largo_triste at izq
         with dissolve
-
-        fran_int "Y yo quejándome todo el día."
 
         jump acto2_escena25
 
@@ -932,11 +890,9 @@
         show mar_alivio at der
         with dissolve
 
-        fran "Te propongo algo: cuando tenga mi local, la chef sos vos."
+        fran "Mirá, te propongo algo: cuando tenga mi local, la chef sos vos. ¿Qué te parece?"
 
-        ma "Mirá que los itamae no son baratos, eh."
-
-        fran_int "Lo dije en joda… pero capaz no tanto."
+        ma "Mirá que los itamae no son baratos, eh. Pero te tomo la palabra."
 
         jump acto2_escena34
 
@@ -951,7 +907,6 @@
         scene mensaje_pizza2 with dissolve
 
         fran_int "Una buena muzza nunca falla."
-        fran_int "Vuelvo a casa así ordeno un poco."
 
     label acto2_escena27:
 
@@ -964,21 +919,19 @@
         show mar_normal at der
         with dissolve
 
-        ma "¡Hola, Fran! Traje la gaseosa, como te prometí."
+        ma "¡Hola, Fran!"
 
-        fran "¡Hola, Mari! Pasá, ponete cómoda."
+        fran "¡Hola, Mari! Vení, pasá, ponete cómoda."
 
         ma "Qué raro verte tan contento. Hacía rato que no te veía así."
 
         fran "Se me están acomodando un poco las cosas."
 
-        ma "Che, ¿te hiciste algo en el pelo?"
+        ma "Che, ¿soy yo o te creció el pelo?"
 
         hide fran_largo_normal
         show fran_largo_sorpresa at izq
         with dissolve
-
-        fran_int "No puedo decirle nada. Tengo que mentirle."
 
     label menu_pelo_pizza:
         menu:
@@ -995,7 +948,6 @@
         with dissolve
 
         ma "¿Vos, algo distinto? Si usás la misma campera desde que te conozco."
-        ma "Igual te queda bien."
 
         jump acto2_escena30
 
@@ -1007,7 +959,7 @@
 
         ma "Si querés te lo corto yo. Hice un curso de peluquería, algo me acuerdo."
 
-        fran "¡No! Digo… no, gracias. Otro día."
+        fran "¡No! Digo… no, gracias. Otro día. Se nos va a llenar de pelos la pizza, si no."
 
     label acto2_escena30:
 
@@ -1024,7 +976,7 @@
         show mar_alivio at der
         with dissolve
 
-        ma "¡Qué bueno, Fran! ¿Pudiste conseguir un trabajo por fin?"
+        ma "¡Bien ahí! ¿Pudiste conseguir un trabajo por fin?"
 
         hide fran_largo_normal
         show fran_largo_sorpresa at izq
@@ -1046,13 +998,13 @@
         show fran_largo_normal at izq
         with dissolve
 
-        fran "Me salió una changa: pintar una casa entera."
+        fran "Me salió una changa bastante grosa, tengo que pintar una casa entera."
 
         hide mar_alivio
         show mar_normal at der
         with dissolve
 
-        ma "¿Vos pintando? No te imagino."
+        ma "¿Vos pintando? No te imagino, pero dale, metele, así capaz te dan más laburo con los vecinos y eso."
 
         jump acto2_escena33
 
@@ -1064,7 +1016,7 @@
 
         fran "Robé un banco. Shh, no le digas a nadie."
 
-        ma "Ay, tarado. Bueno, no me cuentes."
+        ma "¡Mirá vos, no te tenía como un ratero, eh! Bueno, no me cuentes si no querés."
 
     label acto2_escena33:
 
@@ -1076,7 +1028,7 @@
         fran "¿Y a vos cómo te va en la vida?"
 
         ma "En el laburo, como siempre. Mucho trabajo y poca plata."
-        ma "Pero alcanza para lo de mi papá así que estamos bien."
+        ma "Pero alcanza para lo de mi papá, así que me conformo con eso."
 
         hide fran_largo_normal
         hide mar_normal
@@ -1117,7 +1069,6 @@
         with dissolve
 
         fran_int "No aguanto esta picazón. Al final es más difícil de lo que creía."
-        fran_int "Bueno, a la clínica. ¿Cómo voy?"
 
     label menu_ida_clinica:
         menu:
@@ -1138,9 +1089,9 @@
 
         scene remis_aromatizante with dissolve
 
-        rem "Uf… ¿no sentís olor a algo?"
+        rem "Uf… ¿no sentís olor feo?"
 
-        fran "Debe venir de afuera."
+        fran "Debe venir de afuera, por ahí se ponen a arreglar las cloacas y eso."
 
         fran_int "La verdad es que es mío. Ni yo me aguanto."
 
@@ -1156,7 +1107,7 @@
 
         pas "¿Sentiste el olor?"
 
-        fran_int "¿Lo dicen por mí?"
+        fran_int "No sé si fue buena idea venir en micro."
 
         scene black with fade
 
@@ -1177,7 +1128,7 @@
         show doc_mani at der
         with dissolve
 
-        doc "¡Siete centímetros en siete días! ¿Picazón? ¿Olor? ¿Sueños raros?"
+        doc "¡Increíble, estupendo! Siete centímetros en siete días. ¿Picazón? ¿Olor? ¿Sueños raros?"
 
         fran "Todo eso, sí."
 
@@ -1202,25 +1153,25 @@
         with dissolve
 
         doc "El producto reacciona violentamente al contacto con el agua y con cualquier objeto afilado."
-        doc "Te lo expliqué mientras te secaba el pelo."
+        doc "Te lo expliqué mientras te secaba el pelo. ¿Que no me escuchaste?"
 
         hide doc_mani
         show doc_normal at der
         with dissolve
 
-        doc "Las condiciones siguen igual. Y la última paga es mucho mayor."
+        doc "No importa. Las condiciones siguen igual. Y la última paga es mucho mayor."
 
         hide fran_semana_normal
         show fran_semana_triste at izq
         with dissolve
 
-        fran "Doctor, ¿no hay algo para la picazón? Aunque sea un perfume, porque la gente…"
+        fran "¿Y no hay algo para la picazón? Aunque sea un perfume, porque la gente…"
 
         hide doc_normal
         show doc_shock at der
         with dissolve
 
-        doc "¿Perfume? ¿Querés arruinar meses de trabajo? ¡Nada de nada! ¡Es por la ciencia!"
+        doc "¿Perfume? ¿Querés arruinar meses de trabajo? ¡Nada de nada!"
         doc "Tomá tu plata y andate, que me apestás el consultorio."
 
         hide fran_semana_triste
@@ -1238,8 +1189,6 @@
         scene centro
         show fran_semana_triste
         with fade
-
-        fran_int "Me pica más que nunca. ¿Cómo vuelvo?"
 
     label menu_vuelta_clinica:
         menu:
@@ -1303,9 +1252,6 @@
 
         ado "¡Miralo! ¡Parece un yeti! ¡Grabalo!"
 
-        fran_int "¡Oh, no! Esto me va a traer problemas."
-        fran_int "¡Tengo que volver a casa!"
-
         scene black with fade
 
         play sound puerta_cierra
@@ -1342,7 +1288,7 @@
 
                 "Meta para el local: USD 15000 / USD 30000"
 
-                fran_int "Por esto lo hago. Ya junté 15000 dólares y me faltan otros 15000."
+                fran_int "Por esto lo hago."
 
                 scene hab_int
                 show fran_muy_normal
@@ -1375,7 +1321,7 @@
     label menu_bano:
         menu:
             "Espejo":
-                fran_int "Ni yo me reconozco. Y el olor… y la picazón."
+                fran_int "Ni yo me reconozco."
 
                 jump menu_bano
 
@@ -1402,12 +1348,8 @@
         show mar_preo at der
         with dissolve
 
-        ma "¡Vi un monstruo entrando a tu departamento, pero te reconocí por la campera!"
-        ma "¿Qué te pasó? Vení, dejame que te ayude a cortar ese pelo."
-
-        ma "¿Tenés una máquina de cortar o unas tijeras por acá?"
-
-        fran_int "No le puedo contar nada. Si le cuento, rompo el trato."
+        ma "¡Fran! Abrime, por favor."
+        ma "¿Pero qué te pasó? Vení, dejame cortar esos pelos."
 
     label menu_decision9:
 
@@ -1431,7 +1373,7 @@
 
         play sound maquina_cortar
 
-        ma "Quedate quieto, es un segundo."
+        ma "Quedate quieto, son solo unos segundos."
 
         hide fran_muy_triste
         show fran_monstruo_sorpresa at izq_pelo
@@ -1522,7 +1464,7 @@ label menu_habitacion_acto3:
             show fran_muy_normal
             with dissolve
 
-            fran_int "Falta una. Una sola."
+            fran_int "Ya casi."
 
     play sound celular_vibra
 
@@ -1544,7 +1486,7 @@ label acto3_escena47:
 
     pause 1.5
 
-    vec "¡Es el monstruo! ¡Cerrá todo, Marta!"
+    vec "¡Es el monstruo! ¡Marta, cerrá todo!"
 
     # TEMPORAL: faltan las persianas que bajan (S3-02)
 
@@ -1574,7 +1516,7 @@ label acto3_escena48:
     show fran_monstruo_enojo at izq_pelo, noche
     with Dissolve(1.2)
 
-    fran "¿Para qué es todo esto, doctor? Y no me diga \"por la ciencia\"."
+    fran "¿Para qué es todo esto, doctor?"
 
     stop music fadeout 1.0
 
@@ -1591,13 +1533,11 @@ label acto3_escena48:
     show fran_monstruo_sorpresa at izq_pelo, noche
     with dissolve
 
-    fran "Sí. Ahora sí sé."
-
     hide doc_pelado_normal
     show doc_pelado_mani at der, noche
     with dissolve
 
-    doc "Entonces me entendés. Siete días más. Si llegás, cobrás USD 15000, todo lo que tengo."
+    doc "Siete días más. Si llegás, cobrás USD 15000, todo lo que tengo."
 
 label acto3_escena49:
 
@@ -1611,7 +1551,7 @@ label acto3_escena49:
 
     # TEMPORAL: faltan el rascado y la respiración agitada (S3-02)
 
-    fran_int "Me pica hasta adentro de los huesos. No puedo dormir."
+    fran_int "Me pica hasta los huesos. No puedo dormir."
 
     play sound celular_vibra
 
@@ -1625,7 +1565,6 @@ label acto3_escena49:
 
     play sound maquina_cortar
 
-    fran_int "Cuatro días más. O un par de minutos y se termina todo."
 
 label menu_decision10:
 
@@ -1643,8 +1582,6 @@ label menu_decision10:
             jump acto3_escena51
 
 label acto3_escena50:
-
-    fran_int "Perdón. No puedo más."
 
     play sound maquina_cortar
 
@@ -1714,12 +1651,6 @@ label acto3_escena51:
     # TEMPORAL: texto hasta tener la imagen del mensaje (AR3-07)
     "Mensaje del Dr. Malandra: «La prueba terminó. Vení cuanto antes.»"
 
-    hide fran_monstruo_triste
-    show fran_monstruo_normal
-    with dissolve
-
-    fran_int "Terminó. Terminó de verdad."
-
 label acto3_escena52:
 
     scene black with fade
@@ -1732,8 +1663,6 @@ label acto3_escena52:
     with fade
 
     # TEMPORAL: faltan los pasos lentos y el pelo que se arrastra (S3-02)
-
-    fran_int "Diez cuadras. Una vez más y no vuelvo a pisar esa clínica."
 
     # TEMPORAL: texto hasta tener la imagen de los adolescentes (AR3-09)
     "(Desde la esquina, un grupo de adolescentes lo sigue, filmándolo con el celular.)"
@@ -1753,8 +1682,6 @@ label acto3_escena52:
     hide fran_monstruo_normal
     show fran_monstruo_triste
     with dissolve
-
-    fran_int "Que se rían. Que filmen. Me falta una cuadra."
 
     menu:
         "Seguir caminando":
@@ -1805,7 +1732,7 @@ label acto3_escena53:
     show doc_pelado_normal at der
     with fade
 
-    doc "Lo prometido. Un placer hacer negocios con vos."
+    doc "Lo prometido. Ahora largate."
 
     hide fran_normal
     hide doc_pelado_normal
@@ -1824,7 +1751,7 @@ label acto3_escena53:
     show doc_pelado_mani
     with dissolve
 
-    doc "Nadie más va a tener esto. Voy a ser el único calvo que recuperó su pelo."
+    doc "¡Nadie más va a tener esto! ¡Voy a ser el único calvo que recuperó su pelo!"
 
     stop music fadeout 1.5
 
@@ -1877,13 +1804,13 @@ label acto3_escena55:
 
     ma "¿Por qué no me dijiste nada? Te podría haber pasado cualquier cosa."
 
-    fran "Porque me ibas a convencer de dejarlo. Y tenías razón, pero necesitaba llegar."
+    fran "Porque firmé un acuerdo de confidencialidad, pero ya está, se terminó."
 
     hide mar_det
     show mar_alivio at der
     with dissolve
 
-    ma "Sos un tarado. Pero estás bien, y eso es lo que importa."
+    ma "Eso fue muy idiota de tu parte, Fran. Pero estás bien, y eso es lo que importa."
 
     stop music fadeout 1.5
 
@@ -1915,19 +1842,13 @@ label acto3_escena56:
     show mar_alivio at der
     with fade
 
-    ma "¿Ya está abierto? Quiero ser la primera."
+    ma "¿Y? ¿Ya está abierto? ¡Quiero ser tu primer cliente!"
 
     fran "Para vos, la casa invita. Te debo como mil tápers."
 
     # TEMPORAL: texto hasta tener la imagen de la noticia (AR3-02)
     "Noticia en el celular: «El médico del conurbano que venció la calvicie: el Dr. Malandra luce una melena impecable y asegura que la fórmula se perdió para siempre. \"Fue un milagro, y es solo mío\"»."
     "(En la foto, el doctor sonríe… y se rasca la cabeza.)"
-
-    hide fran_normal
-    show fran_sorpresa at izq
-    with dissolve
-
-    fran_int "Consiguió lo que quería: ser el único. Ojalá le pique tanto como me picó a mí."
 
     scene black with fade
 
@@ -1964,23 +1885,17 @@ label acto3_escena57:
     # TEMPORAL: texto hasta tener la imagen del delantal (AR3-09)
     "(Francisco le señala la barra y le da un delantal.)"
 
-    fran "Te dije que cuando tuviera el local, la chef ibas a ser vos. Y este trato sí es bueno."
+    fran "Te dije que cuando tuviera el local, la chef ibas a ser vos."
 
     hide mar_normal
     show mar_alivio at der
     with dissolve
 
-    ma "Pensé que era una broma… Mirá que no soy barata, eh."
+    ma "¡Pensé que era una joda! ¡Muchas gracias, Fran!"
 
     # TEMPORAL: texto hasta tener la imagen de la noticia (AR3-02)
     "Noticia en el celular: «El médico del conurbano que venció la calvicie: el Dr. Malandra luce una melena impecable y asegura que la fórmula se perdió para siempre. \"Fue un milagro, y es solo mío\"»."
     "(En la foto, el doctor sonríe… y se rasca la cabeza.)"
-
-    hide fran_normal
-    show fran_sorpresa at izq
-    with dissolve
-
-    fran_int "Consiguió lo que quería: ser el único. Ojalá le pique tanto como me picó a mí."
 
     scene black with fade
 
