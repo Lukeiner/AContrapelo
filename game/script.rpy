@@ -1180,6 +1180,8 @@
 
     label menu_vuelta_clinica:
         menu:
+            "¿En qué volver a casa?"
+
             "En colectivo":
                 jump acto2_escena38
 
