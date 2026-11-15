@@ -50,34 +50,35 @@
         "Elegí un objeto para interactuar."
 
     label menu_habitacion:
-        menu:
-            "Ver el celular":
-                $ celular_visto = True
+        call screen objetos_escena(objetos_habitacion)
 
-                scene mensaje_alquiler with dissolve
+        if _return == "celular":
+            $ celular_visto = True
 
-                fran_int "Qué manera de joder. ¿No me puede dejar un día tranquilo?"
+            scene mensaje_alquiler with dissolve
 
-                scene hab_int
-                show fran_normal at center
-                with dissolve
+            fran_int "Qué manera de joder. ¿No me puede dejar un día tranquilo?"
 
-                jump menu_habitacion
+            scene hab_int
+            show fran_normal at center
+            with dissolve
 
-            "Examinar el boceto":
-                $ boceto_visto = True
-                scene boceto with dissolve
+            jump menu_habitacion
 
-                fran_int "Algún día..."
+        elif _return == "boceto":
+            $ boceto_visto = True
+            scene boceto with dissolve
 
-                scene hab_int
-                show fran_normal at center
-                with dissolve
+            fran_int "Algún día..."
 
-                jump menu_habitacion
+            scene hab_int
+            show fran_normal at center
+            with dissolve
 
-            "Usar la computadora":
-                jump submenu_computadora
+            jump menu_habitacion
+
+        else:
+            jump submenu_computadora
 
     label submenu_computadora:
 
