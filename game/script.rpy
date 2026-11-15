@@ -47,8 +47,6 @@
         show fran_normal at center
         with dissolve
 
-        "Elegí un objeto para interactuar."
-
     label menu_habitacion:
         call screen objetos_escena(objetos_habitacion)
 
@@ -146,26 +144,27 @@
         scene cocina with dissolve
 
         label menu_cocina:
-            menu:
-                "Heladera":
-                    play sound heladera_puerta
-                    play ambiente heladera_zumbido fadein 0.5
-                    show vineta heladera at vineta_pos with dissolve
-                    fran_int "Tremendo banquete."
-                    stop ambiente fadeout 0.5
-                    play sound heladera_puerta
-                    hide vineta with dissolve
+            call screen objetos_escena(objetos_cocina)
 
-                    jump menu_cocina
+            if _return == "heladera":
+                play sound heladera_puerta
+                play ambiente heladera_zumbido fadein 0.5
+                show vineta heladera at vineta_pos with dissolve
+                fran_int "Tremendo banquete."
+                stop ambiente fadeout 0.5
+                play sound heladera_puerta
+                hide vineta with dissolve
 
-                "Táper de María":
-                    show fran_normal with dissolve
-                    fran_int "Si anoche comí, fue gracias a María."
-                    hide fran_normal with dissolve
-                    jump menu_cocina
+                jump menu_cocina
 
-                "Mate":
-                    jump sub_menu_mate
+            elif _return == "taper":
+                show fran_normal with dissolve
+                fran_int "Si anoche comí, fue gracias a María."
+                hide fran_normal with dissolve
+                jump menu_cocina
+
+            elif _return == "mate":
+                jump sub_menu_mate
 
         label sub_menu_mate:
             menu:
@@ -197,15 +196,16 @@
         scene comedor_dia with dissolve
 
         label menu_conocer:
-            menu:
-                "Impuestos":
-                    show fran_normal with dissolve
-                    fran_int "Luz, gas, internet... no sé cómo voy a hacer para pagar todo esto."
-                    hide fran_normal with dissolve
-                    jump menu_conocer
+            call screen objetos_escena(objetos_comedor_acto1)
 
-                "Puerta de salida":
-                    jump sub_menu_conocer
+            if _return == "impuestos":
+                show fran_normal with dissolve
+                fran_int "Luz, gas, internet... no sé cómo voy a hacer para pagar todo esto."
+                hide fran_normal with dissolve
+                jump menu_conocer
+
+            elif _return == "puerta":
+                jump sub_menu_conocer
 
         label sub_menu_conocer:
             menu:
@@ -604,63 +604,65 @@
         fran_int "Hace una banda no dormía tan bien."
 
     label menu_habitacion_2:
-        menu:
-            "Ver el celular":
+        call screen objetos_escena(objetos_habitacion_ordenada)
 
-                scene mensaje_comprobante with dissolve
+        if _return == "celular":
 
-                fran_int "Uno diría que se pondría contento porque le pagué."
+            scene mensaje_comprobante with dissolve
 
-                scene hab_ordenada
-                show fran_largo_normal at lado_der
-                with dissolve
+            fran_int "Uno diría que se pondría contento porque le pagué."
 
-                jump menu_habitacion_2
+            scene hab_ordenada
+            show fran_largo_normal at lado_der
+            with dissolve
 
-            "Examinar el boceto":
+            jump menu_habitacion_2
 
-                scene boceto with dissolve
+        elif _return == "boceto":
 
-                "Meta para el local: USD 4000 / USD 30000"
+            scene boceto with dissolve
 
-                fran_int "Tuve que gastar bastante para ponerme al día, pero el resto lo guardo para el local."
+            "Meta para el local: USD 4000 / USD 30000"
 
-                scene hab_ordenada
-                show fran_largo_normal at lado_der
-                with dissolve
+            fran_int "Tuve que gastar bastante para ponerme al día, pero el resto lo guardo para el local."
 
-                jump menu_habitacion_2
+            scene hab_ordenada
+            show fran_largo_normal at lado_der
+            with dissolve
 
-            "Puerta al comedor":
-                menu:
-                    "Ir al comedor":
-                        jump acto2_escena16
+            jump menu_habitacion_2
 
-                    "Todavía no":
-                        jump menu_habitacion_2
+        elif _return == "puerta":
+            menu:
+                "Ir al comedor":
+                    jump acto2_escena16
+
+                "Todavía no":
+                    jump menu_habitacion_2
 
     label acto2_escena16:
 
         scene comedor_pagadas
-        show fran_largo_normal
+        show fran_largo_normal at lado_der
         with dissolve
 
         fran_int "¿Y ahora qué hago con tanto tiempo libre?"
 
     label menu_escena16:
-        menu:
-            "Impuestos pagados":
-                fran_int "Todos pagados. Qué lindo es no preocuparse."
+        call screen objetos_escena(objetos_comedor_pagadas)
 
-                jump menu_escena16
+        if _return == "impuestos":
+            fran_int "Todos pagados. Qué lindo es no preocuparse."
 
-            "Puerta de salida":
-                menu:
-                    "Salir a pasear":
-                        jump acto2_escena17
+            jump menu_escena16
 
-                    "Todavía no":
-                        jump menu_escena16
+        elif _return == "puerta":
+            menu:
+                "Salir a pasear":
+                    jump acto2_escena17
+
+                "Todavía no":
+                    jump menu_escena16
 
     label acto2_escena17:
 
@@ -1198,24 +1200,25 @@
         with fade
 
     label menu_garita:
-        menu:
-            "Personas":
-                fran "Disculpá, ¿pasó el 45?"
+        call screen objetos_escena(objetos_garita, botones_garita)
 
-                per "No sé, no sé. Alejate, por favor."
+        if _return == "personas":
+            fran "Disculpá, ¿pasó el 45?"
 
-                jump menu_garita
+            per "No sé, no sé. Alejate, por favor."
 
-            "Asiento de la garita":
-                scene black with fade
+            jump menu_garita
 
-                scene parada
-                show fran_semana_triste
-                with fade
+        elif _return == "asiento":
+            scene black with fade
 
-                col "No, no. Así no subís, recién limpiamos."
+            scene parada
+            show fran_semana_triste
+            with fade
 
-                jump acto2_escena40
+            col "No, no. Así no subís, recién limpiamos."
+
+            jump acto2_escena40
 
     label acto2_escena39:
 
@@ -1254,17 +1257,18 @@
         with dissolve
 
     label menu_comedor_encierro:
-        menu:
-            "Puerta de salida":
-                fran_int "Ni loco salgo así."
+        call screen objetos_escena(objetos_comedor_encierro, botones_comedor_encierro)
 
-                jump menu_comedor_encierro
+        if _return == "salida":
+            fran_int "Ni loco salgo así."
 
-            "Puerta a la habitación":
-                jump acto2_escena42
+            jump menu_comedor_encierro
 
-            "Puerta al baño":
-                jump acto2_escena43
+        elif _return == "habitacion":
+            jump acto2_escena42
+
+        elif _return == "bano":
+            jump acto2_escena43
 
     label acto2_escena42:
 
@@ -1273,35 +1277,36 @@
         with dissolve
 
     label menu_habitacion_encierro:
-        menu:
-            "Boceto":
-                scene boceto with dissolve
+        call screen objetos_escena(objetos_habitacion_encierro)
 
-                "Meta para el local: USD 15000 / USD 30000"
+        if _return == "boceto":
+            scene boceto with dissolve
 
-                fran_int "Por esto lo hago."
+            "Meta para el local: USD 15000 / USD 30000"
 
-                scene hab_int
-                show fran_muy_normal
-                with dissolve
+            fran_int "Por esto lo hago."
 
-                jump menu_habitacion_encierro
+            scene hab_int
+            show fran_muy_normal
+            with dissolve
 
-            "Computadora":
-                scene video_yeti with dissolve
+            jump menu_habitacion_encierro
 
-                pause
+        elif _return == "computadora":
+            scene video_yeti with dissolve
 
-                fran_int "¿Ese soy yo?"
+            pause
 
-                scene hab_int
-                show fran_muy_normal
-                with dissolve
+            fran_int "¿Ese soy yo?"
 
-                jump menu_habitacion_encierro
+            scene hab_int
+            show fran_muy_normal
+            with dissolve
 
-            "Puerta al comedor":
-                jump acto2_escena41
+            jump menu_habitacion_encierro
+
+        elif _return == "puerta":
+            jump acto2_escena41
 
     label acto2_escena43:
 
@@ -1310,21 +1315,22 @@
         with dissolve
 
     label menu_bano:
-        menu:
-            "Espejo":
-                fran_int "Ni yo me reconozco."
+        call screen objetos_escena(objetos_bano)
 
-                jump menu_bano
+        if _return == "espejo":
+            fran_int "Ni yo me reconozco."
 
-            "Máquina de cortar pelo":
-                fran_int "Dos minutos y se termina todo. Vuelvo a ser yo…"
+            jump menu_bano
 
-                play sound golpes_puerta
+        elif _return == "maquina":
+            fran_int "Dos minutos y se termina todo. Vuelvo a ser yo…"
 
-                jump acto2_escena44
+            play sound golpes_puerta
 
-            "Puerta al comedor":
-                jump acto2_escena41
+            jump acto2_escena44
+
+        elif _return == "puerta":
+            jump acto2_escena41
 
     label acto2_escena44:
 
@@ -1421,41 +1427,42 @@ label acto3_escena46:
     fran_int "Ya ni sé qué día es. Me cuesta hasta levantar los brazos."
 
 label menu_habitacion_acto3:
-    menu:
-        "Celular":
-            # TEMPORAL: texto hasta tener la imagen de los mensajes (AR3-07)
-            "Mensajes sin leer de María:"
-            "«Perdón si me metí.»"
-            "«¿Estás bien?»"
-            "«Te dejé comida en la puerta.»"
+    call screen objetos_escena(objetos_habitacion_acto3)
 
-            fran_int "Y yo le cerré la puerta en la cara."
+    if _return == "celular":
+        # TEMPORAL: texto hasta tener la imagen de los mensajes (AR3-07)
+        "Mensajes sin leer de María:"
+        "«Perdón si me metí.»"
+        "«¿Estás bien?»"
+        "«Te dejé comida en la puerta.»"
 
-            jump menu_habitacion_acto3
+        fran_int "Y yo le cerré la puerta en la cara."
 
-        "Computadora":
-            # TEMPORAL: la computadora con texto hasta tener el foro (AR3-08)
-            scene computadora with dissolve
+        jump menu_habitacion_acto3
 
-            "«Dicen que vive en las vías.»"
-            "«Es un experimento del gobierno, posta.»"
+    elif _return == "computadora":
+        # TEMPORAL: la computadora con texto hasta tener el foro (AR3-08)
+        scene computadora with dissolve
 
-            scene hab_deteriorada
-            show fran_muy_triste
-            with dissolve
+        "«Dicen que vive en las vías.»"
+        "«Es un experimento del gobierno, posta.»"
 
-            jump menu_habitacion_acto3
+        scene hab_deteriorada
+        show fran_muy_triste
+        with dissolve
 
-        "Boceto":
-            scene boceto with dissolve
+        jump menu_habitacion_acto3
 
-            "Meta para el local: USD 15000 / USD 30000"
+    elif _return == "boceto":
+        scene boceto with dissolve
 
-            scene hab_deteriorada
-            show fran_muy_normal
-            with dissolve
+        "Meta para el local: USD 15000 / USD 30000"
 
-            fran_int "Ya casi."
+        scene hab_deteriorada
+        show fran_muy_normal
+        with dissolve
+
+        fran_int "Ya casi."
 
     play sound celular_vibra
 
