@@ -313,7 +313,7 @@
 
         play music tema_clinica fadeout 1.0 fadein 1.0
 
-        scene consultorio with dissolve
+        scene sala with dissolve
 
         show fran_normal at izq with dissolve
 
@@ -468,7 +468,7 @@
             menu:
                 "Volver a la última decisión":
                     play music tema_clinica fadein 1.0
-                    scene consultorio
+                    scene sala
                     show fran_triste at izq
                     show doc_eno at der
                     with dissolve
@@ -486,10 +486,12 @@
 
         pause 3.0
 
-        hide vineta
+        doc "Pasá, pasá. Por acá."
+
+        scene consultorio
         show fran_normal at izq
         show doc_mani at der
-        with dissolve
+        with fade
 
         doc "¡Perfecto!"
         doc "Primero, lavate la cabeza con esto."
@@ -1643,6 +1645,31 @@ label acto3_escena48:
 
     scene black with fade
 
+    # Vuelta a casa desde el consultorio
+    scene calle_noche
+    show fran_monstruo_triste at center, noche
+    with fade
+
+    play ambiente murmullos fadein 1.0
+
+    ado "¡Eh, yeti! ¡Te hiciste famoso! ¡Saludá a la cámara!"
+
+    veca "¡Por Dios, qué olor! ¡Cerrá la ventana, Raúl!"
+
+    play sound perro_ladra
+
+    vec "¡Andá a bañarte, mugriento!"
+
+    fran_int "Una semana más. Solo una semana más."
+
+    stop ambiente fadeout 1.5
+
+    scene black with fade
+
+    play sound puerta_cierra
+
+    pause 1.0
+
     scene hab_deteriorada_noche
     show fran_monstruo_triste at center, noche
     with fade
@@ -1851,6 +1878,7 @@ label acto3_escena53:
 
     doc "Ahora andá y pegate una ducha, que no te aguanto el olor."
     doc "El baño está al fondo, ya te preparé todo."
+    doc "Y frotate bien: no quiero que te quede ni un rastro de mi fórmula."
 
     scene black with fade
 
@@ -1945,14 +1973,24 @@ label acto3_escena55:
 
     fran "Mari, escuchame, te debo una explicación y una disculpa enorme."
 
-    scene black with fade
+    hide fran_normal
+    show fran_triste at izq
+    with dissolve
 
-    "Varios minutos después"
+    fran "¿Te acordás del anuncio de la parada? «Se buscan voluntarios, excelente paga»."
+    fran "Era de un médico, el doctor Malandra. Me pagaba por probar una crema para que me creciera el pelo."
+    fran "La condición era no lavarme ni cortarme el pelo hasta terminar, y no contarle nada a nadie. Por eso te cerré la puerta."
+    fran "Después se fue todo de las manos. El pelo no paraba de crecer, la gente me gritaba en la calle, me filmaban…"
 
-    scene casa_maria
+    hide fran_triste
     show fran_normal at izq
+    with dissolve
+
+    fran "Hoy me cortó el pelo y me pagó todo. Se terminó."
+
+    hide mar_preo
     show mar_det at der
-    with fade
+    with dissolve
 
     ma "¿Pero estás loco? Mirá si te pasaba algo: un día lluvioso y chau contrato. ¡O si alguien te tiraba un baldazo de agua!"
 
@@ -2041,15 +2079,7 @@ label acto3_escena56:
     ma "Ay, no, Fran, algo te voy a pagar, estás loco."
 
     fran "¡Bueno, si insistís!"
-    fran "Lo que no te voy a cobrar es esto."
-
-    # TEMPORAL: el táper del Acto 1 hasta tener la imagen del táper con comida
-    hide fran_normal
-    hide mar_normal
-    show vineta taper at vineta_pos
-    with dissolve
-
-    fran "Sé que no se acerca a los tuyos, pero tengo que devolverte como mil comidas. Que esta sea la primera. Pasá, dale."
+    fran "Pero por lo menos dejame devolverte todas las comidas que me hiciste. Un táper a la vez."
 
     scene local_pizza_int with fade
 
