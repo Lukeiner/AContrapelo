@@ -1977,7 +1977,7 @@ label acto3_escena55:
     show fran_triste at izq
     with dissolve
 
-    fran "¿Te acordás del anuncio de la parada? «Se buscan voluntarios, excelente paga»."
+    fran "¿Te acordás cuando me mandaste a caminar para despejarme? Me encontré un anuncio de que buscaban voluntarios, que era buena paga."
     fran "Era de un médico, el doctor Malandra. Me pagaba por probar una crema para que me creciera el pelo."
     fran "La condición era no lavarme ni cortarme el pelo hasta terminar, y no contarle nada a nadie. Por eso te cerré la puerta."
     fran "Después se fue todo de las manos. El pelo no paraba de crecer, la gente me gritaba en la calle, me filmaban…"
@@ -1986,7 +1986,7 @@ label acto3_escena55:
     show fran_normal at izq
     with dissolve
 
-    fran "Hoy me cortó el pelo y me pagó todo. Se terminó."
+    fran "Hoy fue el último día, ya no tengo que aguantar más esa tortura."
 
     hide mar_preo
     show mar_det at der
