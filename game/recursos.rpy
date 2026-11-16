@@ -41,6 +41,7 @@ image fran_normal = "images/Sprites/Francisco/Francisco_normal.png"
 image fran_triste = "images/Sprites/Francisco/Francisco_bajon.png"
 image fran_sorpresa = "images/Sprites/Francisco/Francisco_sorprendido.png"
 image fran_enojo = "images/Sprites/Francisco/Francisco_serio.png"
+image fran_risa = "images/Sprites/Francisco/Francisco_risa.png"
 
 # Pelo largo: desde la primera dosis #
 
@@ -77,6 +78,7 @@ image mar_normal = "images/Sprites/Maria/Maria_normal.png"
 image mar_preo = "images/Sprites/Maria/Maria_preocupada.png"
 image mar_det = "images/Sprites/Maria/Maria_seria.png"
 image mar_alivio = "images/Sprites/Maria/Maria_alivio.png"
+image mar_risa = "images/Sprites/Maria/Maria_risa.png"
 
 # Sprites de Doctor Malandra #
 
@@ -97,8 +99,8 @@ image hab_int = "images/Background/Habitacion_dia.jpg"
 image hab_noche = "images/Background/Habitacion_noche.jpg"
 image hab_ordenada = "images/Background/Habitacion_ordenada.jpg"
 image hab_ordenada_noche = "images/Background/Habitacion_ordenada_noche.jpg"
-# Cocina con el táper. TEMPORAL: el táper tiene torta; va a estar vacío
-image cocina = "images/Background/Cocina_taper.jpg"
+# Cocina con el táper vacío de María
+image cocina = "images/Background/Cocina_taper_vacio.jpg"
 image comedor_dia = "images/Background/Comedor_dia.jpg"
 image comedor_noche = "images/Background/Comedor_noche.jpg"
 image comedor_apagado = "images/Background/Comedor_apagado.jpg"
@@ -146,9 +148,11 @@ image bano_noche = Transform("images/Background/Bano.jpg", matrixcolor=TintMatri
 image casa_maria = "images/Background/Calle.jpg"
 # Fachadas del día de la inauguración (AR3-03 y AR3-04)
 image local_pizza = "images/Background/Fachada_pizza.jpg"
-image local_pizza_int = "images/Escenas/Boceto_local.jpg"
+# Epílogos: el local lleno, la propuesta en la barra y la barra llena
+image local_pizza_int = "images/Escenas/Local_pizza_lleno.jpg"
 image local_sushi = "images/Background/Fachada_sushi.jpg"
-image local_sushi_int = "images/Escenas/Boceto_local.jpg"
+image local_sushi_int = "images/Escenas/Barra_sushi_llena.jpg"
+image barra_delantal = "images/Escenas/Barra_sushi_delantal.jpg"
 
 # Imagenes a pantalla completa #
 

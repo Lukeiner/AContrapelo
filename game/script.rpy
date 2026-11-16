@@ -1978,14 +1978,17 @@ label acto3_escena55:
 
     fran "¡Noo, ni en pedo!"
 
-    # TEMPORAL: faltan los sprites de los dos riéndose
     hide fran_sorpresa
-    show fran_normal at izq
+    hide mar_alivio
+    show fran_risa at izq
+    show mar_risa at der
     with dissolve
 
     pause 1.5
 
-    hide mar_alivio
+    hide fran_risa
+    hide mar_risa
+    show fran_normal at izq
     show mar_normal at der
     with dissolve
 
@@ -2048,10 +2051,9 @@ label acto3_escena56:
 
     fran "Sé que no se acerca a los tuyos, pero tengo que devolverte como mil comidas. Que esta sea la primera. Pasá, dale."
 
-    # TEMPORAL: el boceto y texto hasta tener la imagen del local lleno
     scene local_pizza_int with fade
 
-    "(Francisco trabaja en el local lleno, mientras María lo mira.)"
+    pause 3.0
 
     jump noticia_malandra
 
@@ -2059,17 +2061,15 @@ label acto3_escena57:
 
     fran "¿Vos? Para vos tengo una propuesta especial."
 
-    # TEMPORAL: texto hasta tener la imagen
-    "(Francisco le señala la barra de sushi.)"
+    scene barra_delantal with fade
 
     fran "Te dije que cuando tuviera el local ibas a ser la chef. ¿Qué me decís, aceptás?"
 
     ma "¿En serio me decís? ¡Obvio que sí! ¡Ya arranco!"
 
-    # TEMPORAL: el boceto y texto hasta tener la imagen de los dos vestidos de chef en el local lleno
     scene local_sushi_int with fade
 
-    "(Francisco y María trabajan juntos, vestidos de chef, en el local lleno.)"
+    pause 3.0
 
     jump noticia_malandra
 
