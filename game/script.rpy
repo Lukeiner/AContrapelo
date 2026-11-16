@@ -365,7 +365,7 @@
             doc "Vive solo…"
 
         if form_agua:
-            doc "Se lava cuando hay agua caliente… ¡Ideal!"
+            doc "Se lava cuando hay agua caliente… Eso hay que cambiarlo."
         else:
             doc "Se lava todos los días… Eso lo vamos a corregir."
 
@@ -961,6 +961,11 @@
         ma "¡Hola, Fran!"
 
         fran "¡Hola, Mari! Vení, pasá, ponete cómoda."
+
+        scene comedor_pizza
+        show fran_largo_normal at izq
+        show mar_normal at der
+        with dissolve
 
         ma "Qué raro verte tan contento. Hacía rato que no te veía así."
 
