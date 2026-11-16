@@ -1965,6 +1965,14 @@ label acto3_escena55:
 
     pause 1.5
 
+    hide mar_alivio
+    show mar_normal at der
+    with dissolve
+
+    ma "¿Y ahora qué vas a hacer con toda esa plata?"
+
+    fran "Lo que siempre quise. Mañana mismo salgo a buscar el local."
+
     stop music fadeout 1.5
 
     scene black with fade
