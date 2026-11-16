@@ -330,29 +330,49 @@
 
         menu (screen="choice_pc"):
             "¿Vivís solo?"
-            "Sí, vivo solo":
-                pass
-            "Sí, hace rato":
-                pass
+            "Sí.":
+                $ form_vecina = False
+            "Más o menos… tengo una vecina que me trae comida.":
+                $ form_vecina = True
+
+        fran_int "¿Y eso qué tiene que ver con un ensayo clínico?"
+
+        menu (screen="choice_pc"):
+            "¿Cuántas veces por semana te lavás el pelo?"
+            "Todos los días.":
+                $ form_agua = False
+            "Depende de cuánta agua caliente haya.":
+                $ form_agua = True
 
         menu (screen="choice_pc"):
             "¿Alguien notaría si no te ve por un tiempo?"
-            "Nadie lo notaría":
-                pass
-            "Casi nadie":
-                pass
+            "Nadie lo notaría.":
+                $ form_casero = False
+            "Mi casero, cuando no le pague.":
+                $ form_casero = True
 
-        menu (screen="choice_pc"):
-            "Del 1 al 10, ¿cuánto te importa lo que piense la gente?"
-            "1":
-                pass
-            "2":
-                pass
+        fran_int "Esto ya parece un formulario para desaparecer a alguien."
 
         hide vineta
         show fran_normal at izq
         show doc_mani at der
         with dissolve
+
+        # Malandra lee las respuestas: todo le viene bien
+        if form_vecina:
+            doc "Una vecina… La anoto como «nadie»."
+        else:
+            doc "Vive solo…"
+
+        if form_agua:
+            doc "Se lava cuando hay agua caliente… ¡Ideal!"
+        else:
+            doc "Se lava todos los días… Eso lo vamos a corregir."
+
+        if form_casero:
+            doc "Lo extrañaría el casero… El casero no cuenta."
+        else:
+            doc "Nadie lo extrañaría."
 
         doc "Mmm, sí. ¡Perfecto!"
         doc "Escuchame bien, estoy desarrollando un tratamiento experimental y necesito conej... Digo, sujetos de prueba."

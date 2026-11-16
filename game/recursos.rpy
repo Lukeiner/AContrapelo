@@ -283,6 +283,11 @@ define audio.maquina_loop = "audio/sfx/maquina_loop.ogg"
 default celular_visto = False
 default boceto_visto = False
 
+ #A1E8: respuestas del formulario, que Malandra lee en voz alta
+default form_vecina = False
+default form_agua = False
+default form_casero = False
+
  #A2E17: el final del Acto 3 depende de esta eleccion
 default cena_sushi = False
 
