@@ -144,9 +144,10 @@ image bano_noche = Transform("images/Background/Bano.jpg", matrixcolor=TintMatri
 
 # TEMPORAL: la calle hasta tener la puerta de Maria (AR3-05) y el boceto hasta tener los locales (AR3-03, AR3-04) #
 image casa_maria = "images/Background/Calle.jpg"
-image local_pizza = "images/Escenas/Boceto_local.jpg"
+# Fachadas del día de la inauguración (AR3-03 y AR3-04)
+image local_pizza = "images/Background/Fachada_pizza.jpg"
 image local_pizza_int = "images/Escenas/Boceto_local.jpg"
-image local_sushi = "images/Escenas/Boceto_local.jpg"
+image local_sushi = "images/Background/Fachada_sushi.jpg"
 image local_sushi_int = "images/Escenas/Boceto_local.jpg"
 
 # Imagenes a pantalla completa #

@@ -2006,7 +2006,7 @@ label acto3_escena55:
 
     pause 1.0
 
-    # TEMPORAL: el boceto hasta tener la fachada con el cartel "Gran inauguración" y la gente esperando
+    # Del boceto a la fachada real del día de la inauguración
     if cena_sushi:
         scene local_sushi with Dissolve(2.0)
     else:
