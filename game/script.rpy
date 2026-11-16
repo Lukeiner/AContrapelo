@@ -173,7 +173,7 @@
                     show vineta yerba at vineta_pos with dissolve
                     fran_int "Uff, me alcanza para una última tanda nomás."
                     hide vineta
-                    show fran_triste
+                    show fran_normal
                     with Dissolve(1.0)
 
                     pause 1.0
@@ -182,7 +182,7 @@
 
                     pause 0.8
 
-                    hide fran_triste
+                    hide fran_normal
                     show fran_sorpresa
                     with dissolve
 
@@ -262,8 +262,6 @@
         hide vineta
         show fran_normal at izq
         with dissolve
-
-        play sound mate_sorbido
 
     label acto1_escena6:
 
@@ -364,7 +362,7 @@
         with dissolve
 
         doc "Son tres aplicaciones y cobrás después de cada una."
-        doc "Por la primera, 6000 dólares, en efectivo y sin marcar."
+        doc "Por la primera, 6000 dólares, en efectivo."
         doc "Las condiciones a cumplir son que no te laves ni te cortes el pelo durante todo el tratamiento."
         doc "Y firmar un acuerdo de confidencialidad para no hablar del tema con nadie."
 
@@ -1089,15 +1087,7 @@
 
         fran_int "No aguanto esta picazón. Al final es más difícil de lo que creía."
 
-    label menu_ida_clinica:
-        menu:
-            "¿En qué ir a la clínica?"
-
-            "En remís":
-                jump acto2_escena35
-
-            "En colectivo":
-                jump acto2_escena36
+        fran_int "No tengo ni ganas de ir caminando, me pido un remís."
 
     label acto2_escena35:
 
@@ -1123,22 +1113,6 @@
         pause 1.5
 
         jump acto2_escena37
-
-    label acto2_escena36:
-
-        scene black with fade
-
-        scene parada_gente2
-        show fran_semana_triste at lado_der
-        with fade
-
-        pas "¿Sentiste el olor?"
-
-        fran_int "No sé si fue buena idea venir en micro."
-
-        scene black with fade
-
-        "Francisco se tomó el colectivo y llegó a la clínica."
 
     label acto2_escena37:
 
@@ -1421,11 +1395,19 @@
             "No decir nada y cerrarle la puerta":
                 play sound puerta_cierra
 
+                hide mar_preo
+                show fran_muy_triste at izq_pelo
+                with dissolve
+
                 fran_int "Perdón, Mari, no puedo decirte nada."
 
                 jump acto3_escena46
 
     label acto2_escena45:
+
+        fran "Está bien, te cuento. Hace unas semanas me anoté en un experimento de un médico, el doctor Malandra."
+        fran "Me paga por probar un tratamiento para que crezca el pelo. La única condición es no lavármelo ni cortármelo."
+        fran "Y no se lo podía contar a nadie…"
 
         ma "Está bien, Fran. Por ahora vení, vamos a cortarte esos pelos."
 
@@ -1908,7 +1890,7 @@ label acto3_escena54:
 
     per "Nah, vos pensás como esa chica que juraba que el monstruo ese era su amigo, un flaco que de un día para el otro se volvió un monstruo peludo."
 
-    fran_int "Eso me hizo acordar… Tengo que ir a hablar con Mari."
+    fran_int "¡Uh, María! Tengo que ir a hablar con ella urgente."
 
     stop music fadeout 1.5
 
