@@ -28,10 +28,10 @@ define objetos_habitacion = [
     ("Boceto", "boceto", (1432, 488, 100, 50)),
 ]
 
-# A1E4 (Cocina.jpg). No hay táper ni mate dibujados: provisorio, el frasco y la pava
+# A1E4 (Cocina_taper.jpg). No hay mate dibujado: provisorio, la pava
 define objetos_cocina = [
     ("Heladera", "heladera", (1265, 60, 435, 900)),
-    ("Táper de María", "taper", (15, 715, 165, 250)),
+    ("Táper de María", "taper", (255, 840, 305, 195)),
     ("Mate", "mate", (200, 355, 185, 195)),
 ]
 
@@ -54,11 +54,11 @@ define objetos_comedor_pagadas = [
     ("Puerta de salida", "puerta", (190, 20, 205, 780)),
 ]
 
-# A2E38 (Parada_micro.jpg). La gente está fuera de cuadro
+# A2E38 (Parada_gente1.jpg)
 define objetos_garita = [
-    ("Asiento de la garita", "asiento", (428, 590, 195, 195)),
+    ("Persona", "personas", (870, 320, 180, 600)),
+    ("Asiento de la garita", "asiento", (425, 595, 220, 115)),
 ]
-define botones_garita = [("Personas", "personas")]
 
 # A2E41 (Comedor_pagadas.jpg). Solo se ve la puerta de salida
 define objetos_comedor_encierro = [
@@ -100,7 +100,7 @@ screen objetos_escena(objetos, botones=[]):
             hover_background recuadro(ancho, alto, "#f4efe4", "#ffffff2e")
             action Return(valor)
             # El nombre va arriba del objeto, sin salirse de la pantalla
-            tooltip (nombre, x + ancho // 2, max(y, 82))
+            tooltip (nombre, min(max(x + ancho // 2, 190), 1730), max(y, 82))
             null
 
     $ globo = GetTooltip()

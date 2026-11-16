@@ -97,7 +97,8 @@ image hab_int = "images/Background/Habitacion_dia.jpg"
 image hab_noche = "images/Background/Habitacion_noche.jpg"
 image hab_ordenada = "images/Background/Habitacion_ordenada.jpg"
 image hab_ordenada_noche = "images/Background/Habitacion_ordenada_noche.jpg"
-image cocina = "images/Background/Cocina.jpg"
+# Cocina con el táper. TEMPORAL: el táper tiene torta; va a estar vacío
+image cocina = "images/Background/Cocina_taper.jpg"
 image comedor_dia = "images/Background/Comedor_dia.jpg"
 image comedor_noche = "images/Background/Comedor_noche.jpg"
 image comedor_apagado = "images/Background/Comedor_apagado.jpg"
@@ -111,6 +112,12 @@ image remis_aromatizante = "images/Background/Remis_aromatizante.jpg"
 image parada = "images/Background/Parada_micro.jpg"
 image parada_gente = "images/Background/Parada_gente.jpg"
 image parada_vacia = "images/Background/Parada_vacia.jpg"
+# Parada con gente esperando: A2E13, A2E36, A2E38 y A3E54
+image parada_gente1 = "images/Background/Parada_gente1.jpg"
+image parada_gente2 = "images/Background/Parada_gente2.jpg"
+# Remís sin aromatizante: de camino y llegando a la clínica
+image remis_ida = "images/Background/Remis_ida.jpg"
+image remis_llegada = "images/Background/Remis_llegada.jpg"
 image centro = "images/Background/Centro_Investigacion.jpg"
 image candidato = "images/Background/Candidato.jpg"
 image sala = "images/Background/Clinica_Sala.jpg"
@@ -185,6 +192,7 @@ image vineta heladera_llena = vineta("images/Escenas/Heladera_llena.jpg")
 image vineta jengibre = vineta("images/Escenas/Accion_jengibre.jpg")
 image vineta rezo = vineta("images/Escenas/Accion_rezo.jpg")
 image vineta charla_pizza = vineta("images/Escenas/Accion_charla_pizza.jpg")
+image vineta charla_sushi = vineta("images/Escenas/Accion_charla_sushi.jpg")
 image vineta rascarse = vineta("images/Escenas/Accion_rascarse.jpg")
 image vineta shampoo = vineta("images/Escenas/Tratamiento_shampoo.jpg")
 image vineta secador = vineta("images/Escenas/Tratamiento_secador.jpg")
@@ -196,6 +204,12 @@ image vineta medicion = vineta("images/Escenas/Tratamiento_medicion.jpg")
 init python:
     def credito(texto):
         return Text(texto, text_align=0.5, color="#f4efe4", layout="subtitle")
+
+# A1E6: acercamiento al afiche de "Se buscan voluntarios" de la parada
+
+transform zoom_cartel:
+    xanchor 0.0 yanchor 0.0 xpos 0 ypos 0 zoom 1.0
+    easein 2.5 xpos -1920 ypos -400 zoom 2.0
 
 transform vineta_pos:
     xalign 0.5
@@ -259,6 +273,8 @@ define audio.secadora = "audio/sfx/secadora.ogg"
 define audio.perro_ladra = "audio/sfx/perro_ladra.ogg"
 define audio.tijera = "audio/sfx/tijera.ogg"
 define audio.murmullos = "audio/sfx/murmullos.ogg"
+# La máquina prendida, en el canal que se repite hasta que se elige qué hacer
+define audio.maquina_loop = "audio/sfx/maquina_loop.ogg"
 
 
 # Variables Booleanas
@@ -269,6 +285,9 @@ default boceto_visto = False
 
  #A2E17: el final del Acto 3 depende de esta eleccion
 default cena_sushi = False
+
+ #A2E38: despues de la primera vez, la persona de la garita lo ignora
+default garita_ignorado = False
 
  #A2E45: a que decision vuelve el final malo
 default vuelta_final_malo = "menu_decision9"
