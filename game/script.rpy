@@ -2095,7 +2095,7 @@ label acto3_escena55:
 
     "Un mes después"
 
-    play music tema_alegre fadein 1.0
+    play music tema_tranquilo fadein 1.0
 
     scene boceto with fade
 
@@ -2180,7 +2180,7 @@ label creditos:
 
     scene black with fade
 
-    play music tema_principal fadein 1.0
+    # Sigue sonando el tema tranquilo de los finales buenos
 
     show expression credito("{size=+30}A CONTRAPELO{/size}\n\nBasado en \"Piel de Oso\", de los hermanos Grimm") as cred at truecenter with Dissolve(1.0)
     pause 4
