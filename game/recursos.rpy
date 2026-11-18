@@ -1,4 +1,4 @@
-# Definicion de los personajes #
+﻿# Definicion de los personajes #
 
 define fran = Character ("Francisco")
 define fran_int = Character("Francisco", what_prefix="- ")
@@ -253,11 +253,20 @@ style choice_pc_button_text is button_text:
 
 init python:
     renpy.music.register_channel("ambiente", mixer="sfx", loop=True)
+    renpy.music.register_channel("ciudad", mixer="sfx", loop=True)
+    renpy.music.register_channel("pasos", mixer="sfx", loop=True)
+    renpy.music.register_channel("pelo", mixer="sfx", loop=True)
+    renpy.music.register_channel("auto", mixer="sfx", loop=True)
 
 define audio.tema_barrio = "audio/musica/tema_barrio.ogg"
 define audio.tema_casa = "audio/musica/tema_casa.ogg"
 define audio.tema_clinica = "audio/musica/tema_clinica.ogg"
 define audio.tema_principal = "audio/musica/tema_principal.ogg"
+define audio.tema_tranquilo = "audio/musica/tema_tranquilo.ogg"
+define audio.tema_lento = "audio/musica/tema_lento.ogg"
+define audio.tema_alegre = "audio/musica/tema_alegre.ogg"
+define audio.cierre_final_normal = "audio/musica/cierre_final_normal.ogg"
+define audio.cierre_final_malo = "audio/musica/cierre_final_malo.ogg"
 
 define audio.bocina_auto = "audio/sfx/bocina_auto.ogg"
 define audio.cajon_abre = "audio/sfx/cajon_abre.ogg"
@@ -280,6 +289,21 @@ define audio.tijera = "audio/sfx/tijera.ogg"
 define audio.murmullos = "audio/sfx/murmullos.ogg"
 # La máquina prendida, en el canal que se repite hasta que se elige qué hacer
 define audio.maquina_loop = "audio/sfx/maquina_loop.ogg"
+
+# Audios nuevos de Ignacio (18/11)
+define audio.ambiente_ciudad = "audio/sfx/ambiente_ciudad.ogg"
+define audio.rascado = "audio/sfx/rascado.ogg"
+define audio.respiracion_agitada = "audio/sfx/respiracion_agitada.ogg"
+define audio.risas = "audio/sfx/risas.ogg"
+define audio.aplausos = "audio/sfx/aplausos.ogg"
+define audio.persianas = "audio/sfx/persianas.ogg"
+define audio.portazo = "audio/sfx/portazo.ogg"
+define audio.maquina_apaga = "audio/sfx/maquina_apaga.ogg"
+define audio.ducha = "audio/sfx/ducha.ogg"
+define audio.agua_cae = "audio/sfx/agua_cae.ogg"
+define audio.pasos_lentos = "audio/sfx/pasos_lentos.ogg"
+define audio.pelo_arrastra = "audio/sfx/pelo_arrastra.ogg"
+define audio.auto_dentro = "audio/sfx/auto_dentro.ogg"
 
 
 # Variables Booleanas

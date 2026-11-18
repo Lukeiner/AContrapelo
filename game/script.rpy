@@ -266,6 +266,7 @@
     label acto1_escena6:
 
         play music tema_barrio fadeout 1.0 fadein 1.0
+        play ciudad ambiente_ciudad fadein 2.0
 
         scene calle with dissolve
 
@@ -310,6 +311,8 @@
         fran_int "¿Tan mala será la oferta?"
 
     label acto1_escena8:
+
+        stop ciudad fadeout 1.5
 
         play music tema_clinica fadeout 1.0 fadein 1.0
 
@@ -461,6 +464,8 @@
         show fran_triste
         with dissolve
 
+        play music cierre_final_normal fadein 1.0
+
         "FINAL NORMAL — TODO SIGUE IGUAL"
         "FIN"
 
@@ -583,6 +588,7 @@
         hide cartel with Dissolve(1.0)
 
         play music tema_barrio fadeout 1.0 fadein 1.0
+        play ciudad ambiente_ciudad fadein 2.0
 
         scene parada_gente2
         show fran_normal at lado_der
@@ -604,6 +610,7 @@
 
     label acto2_escena14:
 
+        stop ciudad fadeout 1.0
         play music tema_casa fadeout 1.0 fadein 1.0
 
         scene comedor_apagado
@@ -629,6 +636,8 @@
         "Al día siguiente"
 
     label acto2_escena15:
+
+        play music tema_tranquilo fadeout 1.0 fadein 1.0
 
         scene hab_ordenada
         show fran_largo_normal at lado_der
@@ -702,6 +711,7 @@
         scene black with fade
 
         play music tema_barrio fadeout 1.0 fadein 1.0
+        play ciudad ambiente_ciudad fadein 2.0
 
         scene calle
         show fran_largo_normal
@@ -730,6 +740,8 @@
 
     label acto2_escena18:
 
+        stop ciudad fadeout 1.0
+
         scene mensaje_sushi1 with dissolve
 
         pause
@@ -746,7 +758,7 @@
 
         scene black with fade
 
-        play music tema_casa fadeout 1.0 fadein 1.0 volume 0.6
+        play music tema_tranquilo fadeout 1.0 fadein 1.0 volume 0.6
         play sound golpes_puerta
         queue sound puerta_abre
 
@@ -939,6 +951,8 @@
 
     label acto2_escena26:
 
+        stop ciudad fadeout 1.0
+
         scene mensaje_pizza1 with dissolve
 
         pause
@@ -951,7 +965,7 @@
 
         scene black with fade
 
-        play music tema_casa fadeout 1.0 fadein 1.0 volume 0.6
+        play music tema_tranquilo fadeout 1.0 fadein 1.0 volume 0.6
 
         scene comedor_noche
         show fran_largo_normal at izq
@@ -1106,6 +1120,8 @@
         show vineta rascarse at vineta_pos
         with fade
 
+        play sound rascado
+
         pause 3.0
 
         hide vineta
@@ -1120,8 +1136,7 @@
 
         scene black with fade
 
-        # Provisorio: no hay sonido de auto, se usa el del colectivo que pasa
-        play sound auto_movimiento
+        play auto auto_dentro fadein 1.0
 
         pause 2.0
 
@@ -1136,6 +1151,8 @@
         fran_int "La verdad es que es mío. Ni yo me aguanto."
 
         scene remis_llegada with dissolve
+
+        stop auto fadeout 1.5
 
         pause 1.5
 
@@ -1223,6 +1240,8 @@
 
         scene black with fade
 
+        play ciudad ambiente_ciudad fadein 1.5
+
         scene centro
         show fran_semana_triste
         with fade
@@ -1283,16 +1302,21 @@
         show fran_muy_sorpresa
         with Dissolve(1.2)
 
+        play sound respiracion_agitada
+
         fran_int "¿Qué…? ¡¿Qué me está pasando?!"
+
+        play audio risas
 
         ado "¡Miralo! ¡Parece un yeti! ¡Grabalo!"
 
         # TEMPORAL: falta la imagen desde el celular del adolescente que lo graba
         "(Un adolescente lo graba con el celular mientras Francisco sale corriendo.)"
 
+        stop ciudad fadeout 1.0
         scene black with fade
 
-        play sound puerta_cierra
+        play sound portazo
 
     label acto2_escena41:
 
@@ -1420,7 +1444,7 @@
                 jump acto2_escena45
 
             "No decir nada y cerrarle la puerta":
-                play sound puerta_cierra
+                play sound portazo
 
                 hide mar_preo
                 show fran_muy_triste at izq_pelo
@@ -1456,6 +1480,8 @@
     # A3E50 tiene que entrar por aca: el guion retoma desde el mensaje del abogado
     label final_malo_mensaje:
 
+        play music cierre_final_malo fadein 1.0
+
         scene mensaje_abogado with dissolve
 
         pause
@@ -1468,6 +1494,7 @@
     label menu_final_malo:
         menu:
             "Volver a la última decisión":
+                stop music fadeout 1.0
                 jump expression vuelta_final_malo
 
             "Salir al menú":
@@ -1486,7 +1513,7 @@ label acto3_escena46:
     pause 2
     hide cartel with Dissolve(1.0)
 
-    # TEMPORAL: falta el tema lento y grave (S3-01); hasta tenerlo, silencio
+    play music tema_lento fadein 2.0
 
     "Siete días después"
 
@@ -1545,23 +1572,29 @@ label menu_habitacion_acto3:
 
 label acto3_escena47:
 
+    stop music fadeout 1.5
+
     scene black with fade
 
     scene calle_noche
     show fran_muy_triste at center, noche
     with fade
 
-    # TEMPORAL: faltan los pasos lentos (S3-02)
+    play pasos pasos_lentos fadein 1.0
     play sound perro_ladra
 
     pause 1.5
 
     vec "¡Es el monstruo! ¡Marta, cerrá todo!"
 
-    # TEMPORAL: faltan las persianas que bajan (S3-02)
+    play sound persianas
+
+    pause 3.0
 
 label acto3_escena48:
 
+    stop pasos fadeout 1.5
+    stop sound fadeout 1.5
     scene black with fade
 
     play music tema_clinica fadein 1.0
@@ -1656,6 +1689,7 @@ label acto3_escena48:
     with fade
 
     play ambiente murmullos fadein 1.0
+    play pasos pasos_lentos fadein 1.0
 
     ado "¡Eh, yeti! ¡Te hiciste famoso! ¡Saludá a la cámara!"
 
@@ -1668,6 +1702,7 @@ label acto3_escena48:
     fran_int "Una semana más. Solo una semana más."
 
     stop ambiente fadeout 1.5
+    stop pasos fadeout 1.5
 
     scene black with fade
 
@@ -1714,6 +1749,7 @@ label acto3_escena48:
     show fran_monstruo_normal at center, noche
     with fade
 
+    play pasos pasos_lentos fadein 1.0
     play sound perro_ladra
 
     pause 1.0
@@ -1731,6 +1767,7 @@ label acto3_escena48:
     fran_int "¿Por qué me odian tanto? Si no les hice nada."
     fran_int "No fue buena idea haber salido."
 
+    stop pasos fadeout 1.0
     scene black with fade
 
     play sound puerta_cierra
@@ -1745,7 +1782,8 @@ label acto3_escena49:
     show fran_monstruo_triste at lado_der, noche
     with fade
 
-    # TEMPORAL: faltan el rascado y la respiración agitada (S3-02)
+    play sound rascado
+    queue sound respiracion_agitada
 
     fran_int "Ahhh, ya no aguanto más."
 
@@ -1784,6 +1822,7 @@ label acto3_escena50:
 label acto3_escena51:
 
     stop ambiente
+    play sound maquina_apaga
 
     fran_int "No. Llegué hasta acá. Puedo aguantar un poco más."
 
@@ -1806,14 +1845,14 @@ label acto3_escena52:
 
     scene black with fade
 
-    # TEMPORAL: falta el tema lento y grave (S3-01); hasta tenerlo, solo los murmullos
+    play music tema_lento fadein 2.0
     play ambiente murmullos fadein 1.5
+    play pasos pasos_lentos fadein 1.5
+    play pelo pelo_arrastra fadein 1.5
 
     scene calle
     show fran_monstruo_normal
     with fade
-
-    # TEMPORAL: faltan los pasos lentos y el pelo que se arrastra (S3-02)
 
     # TEMPORAL: texto hasta tener la imagen de los adolescentes (AR3-09)
     "(Desde la esquina, un grupo de adolescentes lo sigue, filmándolo con el celular.)"
@@ -1824,7 +1863,8 @@ label acto3_escena52:
 
     vec "¡Volvete a las vías!"
 
-    # TEMPORAL: faltan las risas y el aplauso (S3-02)
+    play sound risas
+    play audio aplausos
 
     menu:
         "Seguir caminando":
@@ -1849,6 +1889,9 @@ label acto3_escena52:
             pass
 
     stop ambiente fadeout 2.0
+    stop pasos fadeout 2.0
+    stop pelo fadeout 2.0
+    stop music fadeout 2.0
 
     scene black with fade
 
@@ -1868,10 +1911,10 @@ label acto3_escena53:
     doc "El efecto ya se fijó. Ahora la parte más importante. Tengo que tomar todas las muestras que pueda, así que quedate quieto."
 
     play sound tijera
+    play audio agua_cae
 
     scene black with fade
 
-    # TEMPORAL: falta el agua cayendo (S3-02)
     pause 2.0
 
     scene consultorio
@@ -1887,8 +1930,11 @@ label acto3_escena53:
 
     scene black with fade
 
-    # TEMPORAL: falta el sonido de la ducha (S3-02)
-    pause 2.5
+    play sound ducha fadein 0.5
+
+    pause 3.0
+
+    stop sound fadeout 1.0
 
     scene consultorio
     show fran_normal at izq
@@ -1924,6 +1970,7 @@ label acto3_escena54:
     scene black with fade
 
     play music tema_barrio fadein 1.0
+    play ciudad ambiente_ciudad fadein 2.0
 
     scene parada_gente2
     show fran_normal at lado_der
@@ -1946,14 +1993,17 @@ label acto3_escena54:
     fran_int "¡Uh, María! Tengo que ir a hablar con ella urgente."
 
     stop music fadeout 1.5
+    stop ciudad fadeout 1.5
 
     scene black with fade
 
-    play sound auto_movimiento
+    play auto auto_dentro fadein 1.0
 
     pause 2.5
 
 label acto3_escena55:
+
+    stop auto fadeout 1.5
 
     play music tema_casa fadein 2.0
 
@@ -2045,8 +2095,7 @@ label acto3_escena55:
 
     "Un mes después"
 
-    # TEMPORAL: tema de barrio hasta tener el tema alegre (S3-01)
-    play music tema_barrio fadein 1.0
+    play music tema_alegre fadein 1.0
 
     scene boceto with fade
 
@@ -2141,7 +2190,7 @@ label creditos:
     pause 6
     hide cred with Dissolve(1.0)
 
-    show expression credito("MÚSICA\n\nKevin MacLeod (incompetech.com)\nScheming Weasel (slower version) · Teller of the Tales\nCattails · Investigations\n\nLicensed under Creative Commons: By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/") as cred at truecenter with Dissolve(1.0)
+    show expression credito("MÚSICA\n\nGómez, Ignacio\n\nKevin MacLeod (incompetech.com)\nScheming Weasel (slower version) · Teller of the Tales\nCattails · Investigations\n\nLicensed under Creative Commons: By Attribution 4.0\nhttps://creativecommons.org/licenses/by/4.0/") as cred at truecenter with Dissolve(1.0)
     pause 6
     hide cred with Dissolve(1.0)
 
