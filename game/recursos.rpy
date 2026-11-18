@@ -1,4 +1,4 @@
-# Definicion de los personajes #
+﻿# Definicion de los personajes #
 
 define fran = Character ("Francisco")
 define fran_int = Character("Francisco", what_prefix="- ")
@@ -41,6 +41,7 @@ image fran_normal = "images/Sprites/Francisco/Francisco_normal.png"
 image fran_triste = "images/Sprites/Francisco/Francisco_bajon.png"
 image fran_sorpresa = "images/Sprites/Francisco/Francisco_sorprendido.png"
 image fran_enojo = "images/Sprites/Francisco/Francisco_serio.png"
+image fran_risa = "images/Sprites/Francisco/Francisco_risa.png"
 
 # Pelo largo: desde la primera dosis #
 
@@ -77,6 +78,7 @@ image mar_normal = "images/Sprites/Maria/Maria_normal.png"
 image mar_preo = "images/Sprites/Maria/Maria_preocupada.png"
 image mar_det = "images/Sprites/Maria/Maria_seria.png"
 image mar_alivio = "images/Sprites/Maria/Maria_alivio.png"
+image mar_risa = "images/Sprites/Maria/Maria_risa.png"
 
 # Sprites de Doctor Malandra #
 
@@ -97,7 +99,8 @@ image hab_int = "images/Background/Habitacion_dia.jpg"
 image hab_noche = "images/Background/Habitacion_noche.jpg"
 image hab_ordenada = "images/Background/Habitacion_ordenada.jpg"
 image hab_ordenada_noche = "images/Background/Habitacion_ordenada_noche.jpg"
-image cocina = "images/Background/Cocina.jpg"
+# Cocina con el táper vacío de María
+image cocina = "images/Background/Cocina_taper_vacio.jpg"
 image comedor_dia = "images/Background/Comedor_dia.jpg"
 image comedor_noche = "images/Background/Comedor_noche.jpg"
 image comedor_apagado = "images/Background/Comedor_apagado.jpg"
@@ -111,6 +114,12 @@ image remis_aromatizante = "images/Background/Remis_aromatizante.jpg"
 image parada = "images/Background/Parada_micro.jpg"
 image parada_gente = "images/Background/Parada_gente.jpg"
 image parada_vacia = "images/Background/Parada_vacia.jpg"
+# Parada con gente esperando: A2E13, A2E36, A2E38 y A3E54
+image parada_gente1 = "images/Background/Parada_gente1.jpg"
+image parada_gente2 = "images/Background/Parada_gente2.jpg"
+# Remís sin aromatizante: de camino y llegando a la clínica
+image remis_ida = "images/Background/Remis_ida.jpg"
+image remis_llegada = "images/Background/Remis_llegada.jpg"
 image centro = "images/Background/Centro_Investigacion.jpg"
 image candidato = "images/Background/Candidato.jpg"
 image sala = "images/Background/Clinica_Sala.jpg"
@@ -137,10 +146,13 @@ image bano_noche = Transform("images/Background/Bano.jpg", matrixcolor=TintMatri
 
 # TEMPORAL: la calle hasta tener la puerta de Maria (AR3-05) y el boceto hasta tener los locales (AR3-03, AR3-04) #
 image casa_maria = "images/Background/Calle.jpg"
-image local_pizza = "images/Escenas/Boceto_local.jpg"
-image local_pizza_int = "images/Escenas/Boceto_local.jpg"
-image local_sushi = "images/Escenas/Boceto_local.jpg"
-image local_sushi_int = "images/Escenas/Boceto_local.jpg"
+# Fachadas del día de la inauguración (AR3-03 y AR3-04)
+image local_pizza = "images/Background/Fachada_pizza.jpg"
+# Epílogos: el local lleno, la propuesta en la barra y la barra llena
+image local_pizza_int = "images/Escenas/Local_pizza_lleno.jpg"
+image local_sushi = "images/Background/Fachada_sushi.jpg"
+image local_sushi_int = "images/Escenas/Barra_sushi_llena.jpg"
+image barra_delantal = "images/Escenas/Barra_sushi_delantal.jpg"
 
 # Imagenes a pantalla completa #
 
@@ -185,6 +197,7 @@ image vineta heladera_llena = vineta("images/Escenas/Heladera_llena.jpg")
 image vineta jengibre = vineta("images/Escenas/Accion_jengibre.jpg")
 image vineta rezo = vineta("images/Escenas/Accion_rezo.jpg")
 image vineta charla_pizza = vineta("images/Escenas/Accion_charla_pizza.jpg")
+image vineta charla_sushi = vineta("images/Escenas/Accion_charla_sushi.jpg")
 image vineta rascarse = vineta("images/Escenas/Accion_rascarse.jpg")
 image vineta shampoo = vineta("images/Escenas/Tratamiento_shampoo.jpg")
 image vineta secador = vineta("images/Escenas/Tratamiento_secador.jpg")
@@ -196,6 +209,12 @@ image vineta medicion = vineta("images/Escenas/Tratamiento_medicion.jpg")
 init python:
     def credito(texto):
         return Text(texto, text_align=0.5, color="#f4efe4", layout="subtitle")
+
+# A1E6: acercamiento al afiche de "Se buscan voluntarios" de la parada
+
+transform zoom_cartel:
+    xanchor 0.0 yanchor 0.0 xpos 0 ypos 0 zoom 1.0
+    easein 2.5 xpos -1920 ypos -400 zoom 2.0
 
 transform vineta_pos:
     xalign 0.5
@@ -234,11 +253,20 @@ style choice_pc_button_text is button_text:
 
 init python:
     renpy.music.register_channel("ambiente", mixer="sfx", loop=True)
+    renpy.music.register_channel("ciudad", mixer="sfx", loop=True)
+    renpy.music.register_channel("pasos", mixer="sfx", loop=True)
+    renpy.music.register_channel("pelo", mixer="sfx", loop=True)
+    renpy.music.register_channel("auto", mixer="sfx", loop=True)
 
 define audio.tema_barrio = "audio/musica/tema_barrio.ogg"
 define audio.tema_casa = "audio/musica/tema_casa.ogg"
 define audio.tema_clinica = "audio/musica/tema_clinica.ogg"
 define audio.tema_principal = "audio/musica/tema_principal.ogg"
+define audio.tema_tranquilo = "audio/musica/tema_tranquilo.ogg"
+define audio.tema_lento = "audio/musica/tema_lento.ogg"
+define audio.tema_alegre = "audio/musica/tema_alegre.ogg"
+define audio.cierre_final_normal = "audio/musica/cierre_final_normal.ogg"
+define audio.cierre_final_malo = "audio/musica/cierre_final_malo.ogg"
 
 define audio.bocina_auto = "audio/sfx/bocina_auto.ogg"
 define audio.cajon_abre = "audio/sfx/cajon_abre.ogg"
@@ -259,6 +287,23 @@ define audio.secadora = "audio/sfx/secadora.ogg"
 define audio.perro_ladra = "audio/sfx/perro_ladra.ogg"
 define audio.tijera = "audio/sfx/tijera.ogg"
 define audio.murmullos = "audio/sfx/murmullos.ogg"
+# La máquina prendida, en el canal que se repite hasta que se elige qué hacer
+define audio.maquina_loop = "audio/sfx/maquina_loop.ogg"
+
+# Audios nuevos de Ignacio (18/11)
+define audio.ambiente_ciudad = "audio/sfx/ambiente_ciudad.ogg"
+define audio.rascado = "audio/sfx/rascado.ogg"
+define audio.respiracion_agitada = "audio/sfx/respiracion_agitada.ogg"
+define audio.risas = "audio/sfx/risas.ogg"
+define audio.aplausos = "audio/sfx/aplausos.ogg"
+define audio.persianas = "audio/sfx/persianas.ogg"
+define audio.portazo = "audio/sfx/portazo.ogg"
+define audio.maquina_apaga = "audio/sfx/maquina_apaga.ogg"
+define audio.ducha = "audio/sfx/ducha.ogg"
+define audio.agua_cae = "audio/sfx/agua_cae.ogg"
+define audio.pasos_lentos = "audio/sfx/pasos_lentos.ogg"
+define audio.pelo_arrastra = "audio/sfx/pelo_arrastra.ogg"
+define audio.auto_dentro = "audio/sfx/auto_dentro.ogg"
 
 
 # Variables Booleanas
@@ -267,8 +312,16 @@ define audio.murmullos = "audio/sfx/murmullos.ogg"
 default celular_visto = False
 default boceto_visto = False
 
+ #A1E8: respuestas del formulario, que Malandra lee en voz alta
+default form_vecina = False
+default form_agua = False
+default form_casero = False
+
  #A2E17: el final del Acto 3 depende de esta eleccion
 default cena_sushi = False
+
+ #A2E38: despues de la primera vez, la persona de la garita lo ignora
+default garita_ignorado = False
 
  #A2E45: a que decision vuelve el final malo
 default vuelta_final_malo = "menu_decision9"
